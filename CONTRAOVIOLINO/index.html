@@ -632,8 +632,8 @@
                                             choiced = 'true';
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -752,8 +752,8 @@
                                             choiced = 'true';
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense + 3;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -1043,8 +1043,8 @@
                                             choiced = 'true';
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -1076,14 +1076,14 @@
                                             quadradoReleases = quadradoReleases - 1;
                                         }
                                         else if (enemyTotalHP / 4 > enemyHP && quadradoReleases == 2) {
-                                            quadradosSoltos = quadradosSoltos + 5;
-                                            alert("O seu ataque solta 5 quadrados refletores do globo! Estes auxiliam no ataque e na defesa do mesmo.");
+                                            quadradosSoltos = quadradosSoltos + 4;
+                                            alert("O seu ataque solta 4 quadrados refletores do globo! Estes auxiliam no ataque e na defesa do mesmo.");
                                             alert("Felizmente, eles precisam se sacrificar para ajudar na defesa, efetivamente eliminando um quadrado a cada ataque.");
                                             quadradoReleases = quadradoReleases - 1;
                                         }
-                                        else if (enemyTotalHP / 11 > enemyHP && quadradoReleases == 1) {
-                                            quadradosSoltos = quadradosSoltos + 9;
-                                            alert("Com o seu ataque, saem 9 quadrados de uma vez!");
+                                        else if (10 > enemyHP && quadradoReleases == 1) {
+                                            quadradosSoltos = quadradosSoltos + 6;
+                                            alert("Com o seu ataque, saem 6 quadrados de uma vez!");
                                             alert("É melhor acabar com o globo rápido, antes que ele te mate!");
                                             quadradoReleases = quadradoReleases - 1;
                                         }
@@ -1303,8 +1303,8 @@
                                             choiced = 'true';
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -1463,8 +1463,8 @@
                                             choiced = 'true';
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -1739,8 +1739,8 @@
                                             preparedAttack = 0;
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -1978,9 +1978,9 @@
                                             if (hpPotions > 0 && HP < totalHP) {
                                                 choiced = 'true';
                                                 hpPotions = hpPotions - 1;
-                                                HP = totalHP;
-                                                alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                                totalBlock = defense + 5;
+                                                HP = totalHP * 1.5;
+                                                alert("Você tira uma poção da sua mochila e a bebe parece que o calor deixou ela melhor! Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                                totalBlock = defense * 3;
                                             }
                                             else if (HP < totalHP && hpPotions == 0) {
                                                 alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -2231,9 +2231,9 @@
                                                         choiced = 'true';
                                                         preparedAttack = 0;
                                                         hpPotions = hpPotions - 1;
-                                                        HP = totalHP + 5;
-                                                        alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                                        totalBlock = defense;
+                                                        HP = totalHP * 1.5;
+                                                        alert("Você tira uma poção da sua mochila e a bebe, e parece que a poção está melhor pelo calor! Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                                        totalBlock = defense * 3;
                                                     }
                                                     else if (HP < totalHP && hpPotions == 0) {
                                                         alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -2480,8 +2480,8 @@
                                             choiced = 'true';
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -2679,8 +2679,8 @@
                                             choiced = 'true';
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -2903,8 +2903,8 @@
                                             choiced = 'true';
                                             hpPotions = hpPotions - 1;
                                             HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                            totalBlock = defense;
+                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                            totalBlock = defense * 3;
                                         }
                                         else if (HP < totalHP && hpPotions == 0) {
                                             alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -3792,8 +3792,8 @@
                                                 choiced = 'true';
                                                 hpPotions = hpPotions - 1;
                                                 HP = totalHP;
-                                                alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                                totalBlock = defense;
+                                                alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                                totalBlock = defense * 3;
                                             }
                                             else if (HP < totalHP && hpPotions == 0) {
                                                 alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
@@ -4026,8 +4026,8 @@
                                                 choiced = 'true';
                                                 hpPotions = hpPotions - 1;
                                                 HP = totalHP;
-                                                alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite.");
-                                                totalBlock = defense;
+                                                alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                                totalBlock = defense * 3;
                                             }
                                             else if (HP < totalHP && hpPotions == 0) {
                                                 alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
