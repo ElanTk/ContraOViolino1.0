@@ -9,13 +9,43 @@
     <link rel="icon" href="violinoFavicon2.png" type = "image/x-icon">
 
     <script type="text/javascript">
-        if(localStorage.myCat = 'Tom'){
-            alert("SEXO SEXO SEXO");
+        if(localStorage.beatEsqueletinho = 'yes'){
+            EsqueletinhoTheme.controls = true;
         }
-        localStorage.setItem('myCat', 'Tom');
+        if(localStorage.beatGlobo = 'yes'){
+            GloboTheme.controls = true;
+            estiloFesta.style.display = "block";
+        }
+        if(localStorage.beatGuardian = 'yes'){
+            guardianTheme.controls = true;
+            salaGuardiao.style.display = "block";
+        }
+        if(localStorage.beatArco = 'yes'){
+            arcoPhase1.controls = true;
+            arcoPhase2.controls = true;
+            calorDragao.style.display = "block";
+        }
         
+        if(localStorage.tubaroEnding = 'yes'){
+            Violino1.controls = true;
+            ViolinPhase3.controls = true;
+            localStorage.setItem('tubaroEnding', 'yes');
+            laminaTubaro.style.display = "block";
+        }
+        if(localStorage.CrownEnding = 'yes'){
+            Violino1.controls = true;
+            ViolinPhase3.controls = true;
+            localStorage.setItem('CrownEnding', 'yes');
+            coroaLuz.style.display = "block";
+        }
+        if(localStorage.normalEnding = 'yes'){
+            Violino1.controls = true;
+            ViolinPhase3.controls = true;
+            localStorage.setItem('normalEnding', 'yes');
+            vitoriaComum.style.display = "block";
+        }
         
-        
+                            
         
         function Changebackground(background) {
             if (background == 'padrao') {
@@ -3208,6 +3238,7 @@
                         }
                         else if (HP > 0 && towerLevel == 10) {
                             EsqueletinhoTheme.controls = true;
+                            localStorage.setItem('beatEsqueletinho', 'yes');
                             EsqueletinhoTheme.pause();
                             alert("O esqueletinho ajoelha-se no chão, sem forças para se manter em pé:");
                             alert("'Você é forte..! Mesmo que nossos objetivos se contraponham...'");
@@ -3304,6 +3335,7 @@
                         }
                         else if (HP > 0 && towerLevel == 20) {
                             if (quadradosSoltos > 0) {
+                                localStorage.setItem('beatGlobo', 'yes');
                                 GloboTheme.controls = true;
                                 estiloFesta.style.display = "block";
                                 GloboTheme.pause();
@@ -3368,7 +3400,8 @@
                             } while (choiced != 'true');
                         }
                         else if (HP > 0 && towerLevel == 30) {
-                            guardianTheme.controls = true;
+                            localStorage.setItem('beatGuardian', 'yes');
+                            guardianTheme.controls = true
                             salaGuardiao.style.display = "block";
                             guardianTheme.pause();
                             alert("O seu ataque faz algo diferente que só causar mais dano no Guardião.");
@@ -3494,6 +3527,7 @@
                             } while (choiced != 'true');
                         }
                         else if (HP > 0 && towerLevel == 40) {
+                            localStorage.setItem('beatArco', 'yes');
                             arcoPhase1.controls = true;
                             arcoPhase2.controls = true;
                             calorDragao.style.display = "block";
@@ -3614,6 +3648,7 @@
                             alert("'Pelo menos... Você é mais que digno... Para ser o que me... derrotou...'");
                             alert("A torre está desabando!");
                             if (tubaroBlade == 1) {
+                                localStorage.setItem('tubaroEnding', 'yes');
                                 alert("Sem perder tempo, você pula (o andar não tem paredes).");
                                 alert("A torre começa a inclinar, então você usa sua lâmina tubaro para parar de cair, fincando-a na parede.");
                                 alert("Com a torre em um ângulo de 30°, você começa a descer correndo a torre, evitando os buracos e cortando escombros ao meio.");
@@ -3625,6 +3660,7 @@
                                 laminaTubaro.style.display = "block";
                             }
                             else if (lightCrown == 1) {
+                                localStorage.setItem('CrownEnding', 'yes');
                                 alert("Sem perder tempo, você pula (o andar não tem paredes).");
                                 alert("Sem ter como se parar, você só tem uma escolha: canalizar o máximo de espadas de luz possíveis, " +
                                     "e esperar que elas consigam quebrar sua queda.");
@@ -3636,6 +3672,7 @@
                                 coroaLuz.style.display = "block";
                             }
                             else {
+                                localStorage.setItem('normalEnding', 'yes');
                                 alert("Você rapidamente percebe que, COM O EQUIPAMENTO QUE TEM, você não vai conseguir sair vivo.");
                                 alert("Você deita ao lado do Violino e espera a morte chegar. Ele não fez nada contra você " +
                                     "diretamente, de qualquer forma. Você só queria ajudar essa terra.");
@@ -4151,6 +4188,7 @@
                                     alert("De qualquer forma, aquele negócio era um deus. Não tem problema ter perdido.");
                                 }
                                 else {
+                                    localStorage.setItem('beatLunin', 'yes');
                                     LuninPhase1.controls = true;
                                     luz.style.display = "block";
                                     alert("O seu ataque claramente fez algo... A luz para. a claridade vai diminuindo.");
