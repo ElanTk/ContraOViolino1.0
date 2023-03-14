@@ -4167,7 +4167,7 @@
                                     gold = gold + enemyGold;
                                     alert("'Você acorda no meio do símbolo, com 5000 dinheiros em sua volta e uma relíquia que você nunca viu antes.'");
                                     alert("Coroa da luz: Uma coroa com várias joias brancas e amarelas adornando-a. Ao se concentrar usando " +
-                                        "ela, você consegue criar espadas de luz que te auxiliam em batalha. Não só as espadas são fortes, mas elas " +
+                                        "ela, você consegue criar espadas de luz que te auxiliam em batalha. As espadas não só são fortes, mas elas " +
                                         "facilitam bastante achar o ponto certo. (+20% crit chance, +10 ataque)");
                                     lightCrown = 1;
                                     critChance = critChance + 20;
@@ -4373,37 +4373,40 @@
     if(localStorage.beatEsqueletinho = 'yes'){
             EsqueletinhoTheme.controls = true;
         }
-        if(localStorage.beatGlobo = 'yes'){
+        if(localStorage.beatGlobo == 'yes'){
             GloboTheme.controls = true;
             estiloFesta.style.display = "block";
         }
-        if(localStorage.beatGuardian = 'yes'){
+        if(localStorage.beatGuardian == 'yes'){
             GuardianTheme.controls = true;
             salaGuardiao.style.display = "block";
         }
-        if(localStorage.beatArco = 'yes'){
+        if(localStorage.beatArco == 'yes'){
             ArcoPhase1.controls = true;
             ArcoPhase2.controls = true;
             calorDragao.style.display = "block";
         }
         
-        if(localStorage.tubaroEnding = 'yes'){
+        if(localStorage.tubaroEnding == 'yes'){
             Violino1.controls = true;
             ViolinPhase3.controls = true;
             localStorage.setItem('tubaroEnding', 'yes');
             laminaTubaro.style.display = "block";
         }
-        if(localStorage.CrownEnding = 'yes'){
+        if(localStorage.CrownEnding == 'yes'){
             Violino1.controls = true;
             ViolinPhase3.controls = true;
             localStorage.setItem('CrownEnding', 'yes');
             coroaLuz.style.display = "block";
         }
-        if(localStorage.normalEnding = 'yes'){
+        if(localStorage.normalEnding == 'yes'){
             Violino1.controls = true;
             ViolinPhase3.controls = true;
             localStorage.setItem('normalEnding', 'yes');
             vitoriaComum.style.display = "block";
+        }
+        if(localStorage.beatLunin == 'yes'){
+            LuninPhase1.controls = true;
         }
                         </script>
 </body>
