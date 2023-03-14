@@ -17,6 +17,7 @@
                 alert("AH... Certo, vou resetar você aqui, só não reclame depois.");
             localStorage.beatEsqueletinho = 'no';
             EsqueletinhoTheme.controls = false;
+            localStorage.beatGlobo = 'no';
             GloboTheme.controls = false;
             estiloFesta.style.display = "none";
         
@@ -4415,7 +4416,7 @@
         </div>
     </div>
                         <script type="text/javascript">
-    if(localStorage.beatEsqueletinho = 'yes'){
+    if(localStorage.beatEsqueletinho == 'yes'){
             EsqueletinhoTheme.controls = true;
         }
         if(localStorage.beatGlobo == 'yes'){
