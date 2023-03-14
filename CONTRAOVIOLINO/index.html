@@ -3345,12 +3345,12 @@
                         }
                         else if (HP > 0 && towerLevel == 20) {
                             if (quadradosSoltos > 0) {
-                                localStorage.setItem('beatGlobo', 'yes');
+                                alert("Os quadrados que estavam voando estilhaçam.");
+                            }
+                            localStorage.setItem('beatGlobo', 'yes');
                                 GloboTheme.controls = true;
                                 estiloFesta.style.display = "block";
                                 GloboTheme.pause();
-                                alert("Os quadrados que estavam voando estilhaçam.");
-                            }
                             alert("O Globo para de girar, e, um por um, os quadrados refletores do mesmo começam a estilhaçar.");
                             alert("'Caramba... você é bem mais forte que os outros, cara...'");
                             alert("'Não vou mentir, cara... Não queria morrer aqui...'");
