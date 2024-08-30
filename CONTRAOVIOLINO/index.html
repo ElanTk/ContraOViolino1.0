@@ -3243,7 +3243,7 @@
                         }
 
                         if (HP > 0 && towerLevel % 10 != 0) {
-                            enemyGold = Math.floor(enemyGold * (100 + (Math.floor(Math.random() * 2))));
+                            enemyGold = Math.floor(enemyGold * (100 + (Math.floor(Math.random() * 2))) / 100);
                             alert("O " + enemyName + " cai no chão, imóvel.");
                             alert("Você acha " + enemyGold + " dinheiros  em seu corpo.");
                             gold = gold + enemyGold;
