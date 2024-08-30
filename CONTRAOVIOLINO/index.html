@@ -3394,6 +3394,9 @@
                                 }
                                 totalBlock = 0;
                             } while (enemyHP > 0 && HP > 0)
+                            if(HP <= 0){
+                                break;
+                            }
 
                             alert("Este seu corte fez alguma diferença, você sente.");
                             alert("A escuridão para de se mover, e você começa a escutar algo.");
@@ -3437,7 +3440,6 @@
                                 alert("'todos vocês...'");
                                 alert("'até aquele violino...'");
                             }
-                            ViolinPhase3.play();
                             alert("Apesar de você entender o que está diante de você, o seu poder é opressor. " +
                                 "É difícil até ficar de pé diante de tamanha ameaça.");
                             alert("Você não consegue recuperar mais que um terço da stamina que você normalmente recupera.");
