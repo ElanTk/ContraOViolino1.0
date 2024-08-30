@@ -149,6 +149,7 @@
                 var lightInf = 0;
                 var tubaroPieces = 0;
                 var ritualRelic = 0;
+                var stairs = 0;
 
                 var tubaroBlade = 0;
                 var lightCrown = 0;
@@ -3245,6 +3246,11 @@
                             alert("O " + enemyName + " cai no chão, imóvel.");
                             alert("Você acha " + enemyGold + " dinheiros  em seu corpo.");
                             gold = gold + enemyGold;
+                            if((Math.floor(Math.random() * 100) + 1) <= 2 && stairs == 0){
+                                alert("Estranhamente, você também acha uma escada de mão.");
+                                alert("[escada] para usar a escada. Você pula um nível da torre, mas não ganha suas recompensas.");
+                                stairs = 1;
+                            }
                         }
                         else if (HP > 0 && towerLevel == 10) {
                             EsqueletinhoTheme.controls = true;
@@ -3474,6 +3480,15 @@
                                     "guerra contra o deus da matéria. (+3 ataque +0.5x dano crítico)")
                             }
                             coswnChooser = Math.floor(Math.random() * 3) + 1;
+                            if (lightInf == 1 && coswnChooser != 3){
+                                coswnChooser = Math.floor(Math.random() * 3) + 1;
+                            }
+                            if (lightInf == 1 && coswnChooser != 3){
+                                coswnChooser = Math.floor(Math.random() * 3) + 1;
+                            }
+                            if (lightInf == 2 && coswnChooser != 3){
+                                coswnChooser = 3;
+                            }
                             if (coswnChooser == 1) {
                                 var coswnB = 'placas metal';
                                 alert("placas metal: as placas de metal de um famoso marechal que se transformou em robô por poder. Essas " +
@@ -3574,6 +3589,10 @@
                             var coswnA;
                             var coswnB;
                             var coswnChooser = Math.floor(Math.random() * 2) + 1;
+                            
+                            if(tubaroPieces != 0){
+                                coswnChooser = 1;
+                            }
                             if (coswnChooser == 1) {
                                 var coswnA = 'guarda tubaro';
                                 alert("guarda tubaro: A guarda da lâmina tubaro. Dizem que caso esta guarda se reúna com uma " +
@@ -3758,11 +3777,17 @@
                                 alert("Cuidado com as armadilhas, pois só elas que estão entre você e o andar 50.");
                             }
                             if (numDica == 3) {
-                                alert("Sobre o seu último confronto perigoso: só posso lhe dizer boa sorte.");
+                                alert("Sobre o seu último confronto perigoso: só posso lhe dizer boa sorte. E também pra nunca abaixar a guarda. Então, acho que duas coisas...");
                             }
                         }
                     }
 
+                    else if (oquefazer == 'escada' && stairs == 1) {
+                        stairs = 0;
+                        alert("Você levanta a escada, e magicalmente é transportado para o próximo nível da torre.");
+                        towerLevel = towerLevel + 1;
+                    }
+                    
                     else if (oquefazer == 'ritual') {
                         if (ritualRelic > 0) {
                             ritualRelic = 0;
@@ -3930,10 +3955,10 @@
                                 alert("Oh, sic futurum est, qualis futurus est? Licuit, sed hoc rem non mutabit.");
                                 alert("Parece que você vai ter que lutar. Boa sorte, sinceramente.");
                                 enemyName = 'Lunin, deusa da luz';
-                                enemyHP = 300 + (towerLevel * 2);
-                                enemyTotalHP = 300 + (towerLevel * 2);
-                                enemyAttack = 18 + (towerLevel - 28) / 2;
-                                enemyDefense = 9 + (towerLevel - 31) / 2;
+                                enemyHP = 300 + (towerLevel * 2) + (lightInf * 10);
+                                enemyTotalHP = 300 + (towerLevel * 2) + (lightInf * 10);
+                                enemyAttack = 18 + lightInf + (towerLevel - 28) / 2;
+                                enemyDefense = 8 + lightInf + (towerLevel - 31) / 2;
                                 attackReadied = 'false';
                                 attackReadiedBonus = 2;
                                 enemyLives = 0;
@@ -4154,12 +4179,12 @@
                                         else if (enemyChoice == 3) {
                                             alert(enemyName + " cria espadas de luz!");
                                             if (enemyHP > 2 * enemyTotalHP / 3) {
-                                                lightswords = lightswords + 2;
-                                                alert("Um pedaço da luz se condensa em 2 espadas de luz.");
+                                                lightswords = lightswords + 1;
+                                                alert("Um pedaço da luz se condensa em 1 espadas de luz.");
                                             }
                                             else if (enemyHP > enemyTotalHP / 3) {
-                                                lightswords = lightswords + 3;
-                                                alert("Um pedaço da luz se condensa em 3 espadas de luz.");
+                                                lightswords = lightswords + 2;
+                                                alert("Um pedaço da luz se condensa em 2 espadas de luz.");
                                             }
                                             else {
                                                 lightswords = lightswords + 4;
