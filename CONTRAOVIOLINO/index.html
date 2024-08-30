@@ -150,7 +150,7 @@
                 var dead = 'false';
 
                 var defense = 35;
-                var attack = 60;
+                var attack = 80;
                 var staminaMax = 500;
                 var stamina = 500;
                 var critChance = 2;
@@ -3793,9 +3793,9 @@
                                         }
                                         alert("O frio te deixa um pouco mais devagar.");
                                         alert("Sua defesa e ataque diminuem em 2.5.");
-                                        lightWeak = lightWeak - 2.5;
-                                        defense = defense + 2.5;
-                                        attack = attack + 2.5;
+                                        lightWeak = lightWeak + 2.5;
+                                        defense = defense - 2.5;
+                                        attack = attack - 2.5;
                                         alert("O te cansa.");
                                         alert("Sua stamina diminui em 30.");
                                         stamina = stamina - 30;
@@ -3819,8 +3819,7 @@
                                             alert("A forma da escuridão fica um pouco mais definida.");
                                             carnica = carnica + 2;
                                             enemyAttack = enemyAttack + 2;
-                                            enemyDefense = enemyDefense + 2;
-                                            alert("O ataque do Violino aumenta em 2!");
+                                            alert("O ataque da Escuridão aumenta em 2.");
                                         }
                                     }
                                 }
