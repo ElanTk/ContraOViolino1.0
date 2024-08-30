@@ -150,7 +150,7 @@
                 var dead = 'false';
 
                 var defense = 35;
-                var attack = 110;
+                var attack = 200;
                 var staminaMax = 1000;
                 var stamina = 1000;
                 var critChance = 2;
@@ -3932,7 +3932,43 @@
                             dead = 'true';
                         }
 
-                        if (HP > 0 && towerLevel % 10 != 0) {
+                        if (HP > 0 && towerLevel > 50) {
+                            localStorage.setItem('darkness', 'yes');
+                            ViolinPhase3.pause();
+                            Violino1.pause();
+                            alert("A Escuridão finalmente para de se mover.");
+                            alert("'eu realmente...'");
+                            alert("'não esperava isso...'");
+                            alert("'agora a escolha...'");
+                            alert("'não está mais em minhas mãos...'");
+                            alert("A escuridão vai diminuindo.");
+                            alert("'mesmo assim...'");
+                            alert("'mesmo perdendo, não estou com medo...'");
+                            alert("'eu sei que, uma hora...'");
+                            alert("'você vai voltar tudo...'");
+                            alert("Você começa a conseguir ver algumas estrelas novamente.");
+                            alert("'mas por hora...'");
+                            alert("'parabéns por ter libertado todos...");
+                            alert("'eu estarei te observando...'");
+                            alert("'esperando você me devolver o controle...'");
+                            alert("'esperando tudo voltar...'");
+                            alert("'mas enquanto isso...'");
+                            alert("'aproveite a liberdade...'");
+                            alert("Agora, o que estava lá desapareceu por completo.");
+                            alert("Mas acho que nunca realmente foi embora.");
+                            alert("Mesmo assim, você pisca os olhos e está fora da torre.");
+                            alert("Você está na vila novamente.");
+                            alert("A figura humanoide de cifres que você encontrou depois do dragão está lá, além do resto dos aldeôes.");
+                            alert("A mesma já se aproxima de você.");
+                            alert("'...'");
+                            alert("'Então... Parece que finalmente acabou?'");
+                            alert("'Você realmente conseguiu derrotar AQUILO.'");
+                            alert("'Agora, podemos ter uma vida normal.'");
+                            alert("'Por enquanto.'");
+                            localStorage.setItem('darknessEnding', 'yes');
+                            escuridao.style.display = "block";
+                    }
+                        else if (HP > 0 && towerLevel % 10 != 0) {
                             enemyGold = Math.floor(enemyGold * (100 + (Math.floor(Math.random() * 2))) / 100);
                             alert("O " + enemyName + " cai no chão, imóvel.");
                             alert("Você acha " + enemyGold + " dinheiros  em seu corpo.");
@@ -4401,45 +4437,8 @@
                             }
                             win = 'true';
                         }
-                        else if (HP > 0 && towerLevel > 50) {
-                            localStorage.setItem('darkness', 'yes');
-                            ViolinPhase3.pause();
-                            Violino1.pause();
-                            alert("A Escuridão finalmente para de se mover.");
-                            alert("'eu realmente...'");
-                            alert("'não esperava isso...'");
-                            alert("'agora a escolha...'");
-                            alert("'não está mais em minhas mãos...'");
-                            alert("A escuridão vai diminuindo.");
-                            alert("'mesmo assim...'");
-                            alert("'mesmo perdendo, não estou com medo...'");
-                            alert("'eu sei que, uma hora...'");
-                            alert("'você vai voltar tudo...'");
-                            alert("Você começa a conseguir ver algumas estrelas novamente.");
-                            alert("'mas por hora...'");
-                            alert("'parabéns por ter libertado todos...");
-                            alert("'eu estarei te observando...'");
-                            alert("'esperando você me devolver o controle...'");
-                            alert("'esperando tudo voltar...'");
-                            alert("'mas enquanto isso...'");
-                            alert("'aproveite a liberdade...'");
-                            alert("Agora, o que estava lá desapareceu por completo.");
-                            alert("Mas acho que nunca realmente foi embora.");
-                            alert("Mesmo assim, você pisca os olhos e está fora da torre.");
-                            alert("Você está na vila novamente.");
-                            alert("A figura humanoide de cifres que você encontrou depois do dragão está lá, além do resto dos aldeôes.");
-                            alert("A mesma já se aproxima de você.");
-                            alert("'...'");
-                            alert("'Então... Parece que finalmente acabou?'");
-                            alert("'Você realmente conseguiu derrotar AQUILO.'");
-                            alert("'Agora, podemos ter uma vida normal.'");
-                            alert("'Por enquanto.'");
-                            localStorage.setItem('darknessEnding', 'yes');
-                            escuridao.style.display = "block";
-                    }
                         stamina = staminaMax;
                     }
-
                     else if (oquefazer == 'dica') {
                         var numDica;
                         numDica = Math.floor(Math.random() * 3) + 1;
