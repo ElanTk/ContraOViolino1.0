@@ -3395,9 +3395,8 @@
                                 totalBlock = 0;
                             } while (enemyHP > 0 && HP > 0)
                             if(HP <= 0){
-                                break;
                             }
-
+                            else{
                             alert("Este seu corte fez alguma diferença, você sente.");
                             alert("A escuridão para de se mover, e você começa a escutar algo.");
                             alert("Primeiramente, está tão baixo que você não consegue distinguir, mas o som vai ficando mais alto.");
@@ -3828,6 +3827,7 @@
                                 totalBlock = 0;
                             } while (darknessAlive == 1 && HP > 0)
                         }
+                    }
 
                         if (enemyName == 'O Violino' && HP <= 0 && enemyLives == 2) {
                             violinoPhase1.pause();
