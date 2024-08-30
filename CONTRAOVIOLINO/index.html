@@ -163,8 +163,8 @@
                 var ritualRelic = 0;
                 var stairs = 1;
 
-                var tubaroBlade = 0;
-                var lightCrown = 0;
+                var tubaroBlade = 1;
+                var lightCrown = 1;
 
                 var buyChoice;
                 var defenseUpgradePrice = 14;
@@ -3864,6 +3864,8 @@
 
                         if (enemyName == 'A escuridão.' && HP <= 0 && enemyAttack == '?') {
                             localStorage.setItem('darkness', 'yes');
+                            ViolinPhase3.pause();
+                            Violino1.pause();
                             violinoPhase1.pause();
                             alert("'A escuridão te engole inteiro.'");
                             alert("'É extraordináriamente dolorido...'");
