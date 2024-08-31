@@ -41,6 +41,7 @@
                 
             localStorage.setItem('CrownEnding', 'no');
             coroaLuz.style.display = "none";
+            
                 
             localStorage.normalEnding = 'no';
             Violino1.controls = false;
@@ -657,6 +658,8 @@
                             alert("...mais escuro.");
                             alert("E continua cada vez pior.");
                             alert("Até que a última estrela se apaga.");
+                            darkness1.play();
+                            darkness1.volume = 0.5;
                         }
                         //Combate(separado por encounters normais e encounters de boss(programação distinta))
                         if (towerLevel < 10) {
@@ -3242,7 +3245,7 @@
                                     HP = totalHP;
                             do {
                                 do {
-
+                                    darkness1.volume = 0.5 + ((500 - enemyHP) / 1000.0);
                                     var choiced = 'false';
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
@@ -3397,13 +3400,21 @@
                             if(HP <= 0){
                             }
                             else{
-                            alert("Este seu corte fez alguma diferença, você sente.");
+                                darkness1.volume = 0.9;
+                                alert("Este seu corte fez alguma diferença, você sente.");
+                                darkness1.volume = 0.8;
                             alert("A escuridão para de se mover, e você começa a escutar algo.");
+                            darkness1.volume = 0.65;
                             alert("Primeiramente, está tão baixo que você não consegue distinguir, mas o som vai ficando mais alto.");
+                            darkness1.volume = 0.5;
                             alert("Som, na verdade, é uma descrição ruim. Talvez a pior que eu já fiz. Na verdade, isso se assemelha mais com...");
+                            darkness1.volume = 0.4;
                             alert("...sussurros.");
+                            darkness1.volume = 0.25;
                             alert("Sussuros com nenhuma voz em particular, mas sim uma conjunção de vozes.");
+                            darkness1.volume = 0.1;
                             alert("'ah...'");
+                            darkness1.pause();
                             if(localStorage.getItem('darkness') != 'yes'){
                                 alert("'você realmente veio...'");
                                 alert("'me surpreende...'");
@@ -3439,6 +3450,7 @@
                                 alert("'todos vocês...'");
                                 alert("'até aquele violino...'");
                             }
+                            darkness2.play();
                             alert("Apesar de você entender o que está diante de você, o seu poder é opressor. " +
                                 "É difícil até ficar de pé diante de tamanha ameaça.");
                             alert("Você não consegue recuperar mais que um terço da stamina que você normalmente recupera.");
@@ -3595,8 +3607,9 @@
                                 }
                                 if (assovioDaMorte > 0) {
                                     assovioDaMorte = assovioDaMorte - 1;
+                                    darkness2.volume = darkness2.volume - 0.2;
                                     alert("Um atrás do outro, membros perfurantes te atacam sem piedade.");
-                                    enemyFinalDamage = 90 - totalBlock;
+                                    enemyFinalDamage = 85 - totalBlock;
                                     if (enemyFinalDamage > 0) {
                                         HP = HP - enemyFinalDamage;
                                         alert("Você leva " + enemyFinalDamage + " de dano.");
@@ -3608,15 +3621,22 @@
                                         alert("Mais membros perfurantes se aproximam.");
                                     }
                                     else {
+                                        darkness2.pause();
                                         alert("Parece que você conseguiu sobreviver até os membros acabarem de aparecer.");
                                         alert("Você se sente seguro o suficiente para continuar a atacar a Escuridão.");
+                                        alert("Você não sabe o porquê, mas sobreviver a um ataque ridículo como este lhe dá um pingo de esperança.");
+                                        alert("Esta coisa te quer morto.");
+                                        alert("Se você está aguentando até agora, é por seu mérito.");
+                                        alert("A vitória agora parece quase impossível...");
+                                        darkness3.play();
+                                        alert("Mas agora, é uma possibilidade.");
                                     }
                                 }
                                 else if (assovioDaMorteEX > 0) {
                                     assovioDaMorteEX = assovioDaMorteEX - 1;
                                     alert("Um atrás do outro, inumeros membros perfurantes te atacam.");
                                     enemyHP = 1;
-                                    enemyFinalDamage = 95 - totalBlock;
+                                    enemyFinalDamage = 90 - totalBlock;
                                     if (enemyFinalDamage > 3) {
                                         HP = HP - enemyFinalDamage;
                                         alert("Você leva " + enemyFinalDamage + " de dano.");
@@ -3635,10 +3655,13 @@
                                 }
 
                                 else if (enemyHP <= 500 && enemyLives == 1) {
+                                    darkness2.volume = 0.9;
                                     alert("'Ah...'");
                                     alert("'Parece que dessa vez, você é insistente...'");
+                                    darkness2.volume = 0.8;
                                     alert("'Mas não faz diferença...'");
                                     alert("'No final, tudo repete...'");
+                                    darkness2.volume = 0.7;
                                     enemyLives = 0;
                                     alert("Da Escuridão, você escuta algo diferente.");
                                     alert("Você não sabe o que é, mas seus sentidos dizem que é ruim.");
@@ -3661,7 +3684,7 @@
                                     alert("'muito menos, vou deixar o resto...'");
                                     if(tubaroBlade == 1){
                                         alert("Novamente, a energia tubaro quer defender com tudo que tem.");
-                                        alert("Desta vez porém, a energia parece pensar que a Escuridão vai soltar tudo que ela ainda tem.");
+                                        alert("Desta vez porém, a energia parece pensar que a Escuridão vai soltar tudo que ela ainda tem sobrando.");
                                     }
                                     if(lightCrown == 1){
                                         alert("Novamente, sua coroa de luz te aconselha a se proteger ao máximo.");
@@ -3673,7 +3696,7 @@
                                     enemyChoice = Math.floor(Math.random() * 4) + 1;
                                     if (tresToques != 0) {
                                         if (tresToques == 1) {
-                                            alert("A Escuridão cresce ainda mais.");
+                                            alert("A Escuridão cresce ainda mais. Você se sente inquieto, como se seu corpo quisesse te avisar de algo.");
                                             tresToques = tresToques + 1;
                                         }
                                         else if (tresToques == 2) {
@@ -3746,7 +3769,7 @@
                                     enemyChoice = Math.floor(Math.random() * 4) + 1;
                                     if (tresToques != 0) {
                                         if (tresToques == 1) {
-                                            alert("A Escuridão cresce ainda mais.");
+                                            alert("A Escuridão cresce ainda mais... Você já entende o que isso quer dizer.");
                                             tresToques = tresToques + 1;
                                         }
                                         else if (tresToques == 2) {
@@ -3866,6 +3889,7 @@
                             ViolinPhase3.pause();
                             Violino1.pause();
                             violinoPhase1.pause();
+                            darkness1.pause();
                             alert("'A escuridão te engole inteiro.'");
                             alert("'É extraordináriamente dolorido...'");
                             alert("'Mas finalmente, acaba.'");
@@ -3875,6 +3899,8 @@
                             localStorage.setItem('darkness', 'yes');
                             ViolinPhase3.pause();
                             Violino1.pause();
+                            darkness1.pause();
+                            darkness2.pause();
                             alert("'pronto...'");
                             alert("'como eu disse...'");
                             alert("'hora de voltar tudo novamente...'");
@@ -3884,6 +3910,9 @@
                             localStorage.setItem('darkness', 'yes');
                             ViolinPhase3.pause();
                             Violino1.pause();
+                            darkness1.pause();
+                            darkness2.pause();
+                            darkness3.pause();
                             alert("'me deu mais trabalho...'");
                             alert("'do que imaginava...'");
                             alert("'mas hora de você me entreter novamente...'");
@@ -3893,6 +3922,9 @@
                             localStorage.setItem('darkness', 'yes');
                             ViolinPhase3.pause();
                             Violino1.pause();
+                            darkness1.pause();
+                            darkness2.pause();
+                            darkness3.pause();
                             alert("'você...'");
                             alert("'realmente me irritou desta vez...'");
                             alert("'mas claro...'");
@@ -3936,17 +3968,31 @@
                             localStorage.setItem('darkness', 'yes');
                             ViolinPhase3.pause();
                             Violino1.pause();
+                            darkness1.pause();
+                            darkness2.pause();
+                            darkness3.volume = 0.95;
                             alert("A Escuridão finalmente para de se mover.");
+                            darkness3.volume = 0.9;
                             alert("'eu realmente...'");
+                            darkness3.volume = 0.85;
                             alert("'não esperava isso...'");
+                            darkness3.volume = 0.8;
                             alert("'agora a escolha...'");
+                            darkness3.volume = 0.7;
                             alert("'não está mais em minhas mãos...'");
+                            darkness3.volume = 0.6;
                             alert("A escuridão vai diminuindo.");
+                            darkness3.volume = 0.5;
                             alert("'mesmo assim...'");
+                            darkness3.volume = 0.4;
                             alert("'mesmo perdendo, não estou com medo...'");
+                            darkness3.volume = 0.3;
                             alert("'eu sei que, uma hora...'");
+                            darkness3.volume = 0.2;
                             alert("'você vai voltar tudo...'");
+                            darkness3.volume = 0.1;
                             alert("Você começa a conseguir ver algumas estrelas novamente.");
+                            darkness3.pause();
                             alert("'mas por hora...'");
                             alert("'parabéns por ter libertado todos...");
                             alert("'eu estarei te observando...'");
@@ -4737,7 +4783,7 @@
                                 var lightWeak = 0;
                                 alert("Nuvens de cosmos começam a se juntarem acima de vocês, começando a chover.");
                                 LuninPhase1.play();
-                                alert("Now playing: Stains of Time");
+                                alert("Now playing: Super Meat Boy: The Battle of Lil' Slugger");
                                 do {
                                     var choiced = 'false';
                                     do {
@@ -5203,6 +5249,15 @@
                     Your browser does not support the audio element.
                 </audio>
                 <audio src="ViolinPhase3.mp3" id="ViolinPhase3" loop>
+                    Your browser does not support the audio element.
+                </audio>
+                <audio src="darknessPhase1.mp3" id="darkness1" loop>
+                    Your browser does not support the audio element.
+                </audio>
+                <audio src="darknessPhase2.mp3" id="darkness2" loop>
+                    Your browser does not support the audio element.
+                </audio>
+                <audio src="darknessPhase3.mp3" id="darkness3" loop>
                     Your browser does not support the audio element.
                 </audio>
             </div>
