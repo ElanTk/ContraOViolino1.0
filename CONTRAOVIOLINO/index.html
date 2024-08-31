@@ -3966,6 +3966,7 @@
                             alert("'Agora, podemos ter uma vida normal.'");
                             alert("'Por enquanto.'");
                             localStorage.setItem('darknessEnding', 'yes');
+                            desc.style.backgroundColor = '#FFD700';
                             escuridao.style.display = "block";
                             win = 'true';
                     }
@@ -4525,7 +4526,7 @@
                                 alert("Cuidado, pois stamina será bem importante no próximo confronto perigoso.");
                             }
                         }
-                        else {
+                        else if (towerLevel < 50){
                             if (numDica == 1) {
                                 alert("O ouro que você tem restante é muito valioso, pois não encontrará mais.");
                             }
@@ -4534,6 +4535,17 @@
                             }
                             if (numDica == 3) {
                                 alert("Sobre o seu último confronto perigoso: só posso lhe dizer boa sorte. E também pra nunca abaixar a guarda. Então, acho que duas coisas...");
+                            }
+                        }
+                        else{
+                            if (numDica == 1) {
+                                alert("Parece que algo diferente está acontecendo.");
+                            }
+                            if (numDica == 2) {
+                                alert("Espero que você tenha trago um item lendário.");
+                            }
+                            if (numDica == 3) {
+                                alert("Como você chegou onde chegou?");
                             }
                         }
                     }
@@ -5241,6 +5253,7 @@
         }
         if(localStorage.darknessEnding == 'yes'){
             escuridao.style.display = "block";
+            desc.style.backgroundColor = '#FFD700';
         }
                         </script>
 </body>
