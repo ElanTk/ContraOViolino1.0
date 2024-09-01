@@ -129,6 +129,9 @@
                 LuninPhase1.currentTime = 0;
                 ViolinPhase3.currentTime = 0;
                 Violino1.currentTime = 0;
+                darkness1.currentTime = 0;
+                darkness2.currentTime = 0;
+                darkness3.currentTime = 0;
                 var violinoPhase1 = document.getElementById("Phase1");
                 var violinoPhase2 = document.getElementById("Phase2");
                 var guardianTheme = document.getElementById("GuardianTheme");
@@ -259,7 +262,7 @@
                                 if (gold >= staminaMaxUpgradePrice) {
                                     staminaMax = staminaMax + 10;
                                     gold = gold - staminaMaxUpgradePrice;
-                                    staminaMaxUpgradePrice = Math.round(staminaMaxUpgradePrice * 1.1) + 4;
+                                    staminaMaxUpgradePrice = Math.round(staminaMaxUpgradePrice * 1.05) + 4;
                                     alert("nova stamina máxima: " + staminaMax);
                                 }
 
@@ -629,8 +632,8 @@
                         }
                         else if (towerLevel > 50) {
                             enemyName = 'A escuridão.';
-                            enemyHP = 500;
-                            enemyTotalHP = 500;
+                            enemyHP = 1000;
+                            enemyTotalHP = 1000;
                             enemyAttack = '?';
                             enemyDefense = 20;
                             enemyLives = 1;
@@ -3242,10 +3245,13 @@
                                         alert("Sua coroa de luz brilha mais intensamente que o normal, como se a mesma soubesse de algo que você não sabe.");
                                         alert("Por algum motivo, você se sente como se algo horrivel fosse acontecer com você em diferentes circunstâncias.");
                                     }
+                                    else{
                                     HP = totalHP;
+                                    }
                             do {
                                 do {
                                     darkness1.volume = 0.5 + ((500 - enemyHP) / 1000.0);
+                                    Violino1.pause();
                                     var choiced = 'false';
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
@@ -3410,22 +3416,25 @@
                             alert("Som, na verdade, é uma descrição ruim. Talvez a pior que eu já fiz. Na verdade, isso se assemelha mais com...");
                             darkness1.volume = 0.4;
                             alert("...sussurros.");
-                            darkness1.volume = 0.25;
+                            darkness1.volume = 0.3;
                             alert("Sussuros com nenhuma voz em particular, mas sim uma conjunção de vozes.");
-                            darkness1.volume = 0.1;
+                            darkness1.volume = 0.25;
                             alert("'ah...'");
-                            darkness1.pause();
                             if(localStorage.getItem('darkness') != 'yes'){
                                 alert("'você realmente veio...'");
+                                darkness1.volume = 0.2;
                                 alert("'me surpreende...'");
                                 alert("'que você tenha trago...'");
+                                darkness1.volume = 0.15;
                                 alert("'um item como esse...'");
                                 alert("'um item que consegue me compreender...'");
                                 alert("'na primeira vez que você me encontra...'");
                                 alert("'por que você está aqui..?'");
+                                darkness1.volume = 0.1;
                                 alert("'...'");
                                 alert("'bom...'");
                                 alert("'não importa...'");
+                                darkness1.volume = 0.05;
                                 alert("'está luta está fadada a acontecer sempre que você chegar aqui...'");
                                 alert("'e quando você perder...'");
                                 alert("'você vai voltar a me entreter...'");
@@ -3434,22 +3443,27 @@
                             }
                             if(localStorage.getItem('darkness') == 'yes'){
                                 alert("'de novo...'");
+                                darkness1.volume = 0.2;
                                 alert("'de novo, você está aqui na minha frente...'");
                                 alert("'desta vez, você trouxe algo...'");
                                 alert("'um item que consegue me compreender...'");
+                                darkness1.volume = 0.15;
                                 alert("'mesmo assim...'");
                                 alert("'eu ainda não entendo...'");
                                 alert("'por que você está aqui novamente..?'");
                                 alert("'...'");
+                                darkness1.volume = 0.1;
                                 alert("'bom...'");
                                 alert("'não importa...'");
                                 alert("'você não vai mudar nada...'");
+                                darkness1.volume = 0.05;
                                 alert("'está luta está fadada a acontecer sempre que você chegar aqui...'");
                                 alert("'e quando você perder...'");
                                 alert("'você vai voltar a me entreter...'");
                                 alert("'todos vocês...'");
                                 alert("'até aquele violino...'");
                             }
+                            darkness1.pause();
                             darkness2.play();
                             alert("Apesar de você entender o que está diante de você, o seu poder é opressor. " +
                                 "É difícil até ficar de pé diante de tamanha ameaça.");
@@ -3621,12 +3635,14 @@
                                         alert("Mais membros perfurantes se aproximam.");
                                     }
                                     else {
-                                        darkness2.pause();
                                         alert("Parece que você conseguiu sobreviver até os membros acabarem de aparecer.");
                                         alert("Você se sente seguro o suficiente para continuar a atacar a Escuridão.");
+                                        darkness2.volume = 0.07;
                                         alert("Você não sabe o porquê, mas sobreviver a um ataque ridículo como este lhe dá um pingo de esperança.");
                                         alert("Esta coisa te quer morto.");
+                                        darkness2.volume = 0.05;
                                         alert("Se você está aguentando até agora, é por seu mérito.");
+                                        darkness2.pause();
                                         alert("A vitória agora parece quase impossível...");
                                         darkness3.play();
                                         alert("Mas agora, é uma possibilidade.");
@@ -3815,13 +3831,13 @@
                                             alert("Você consegue evitar que o frio te cause ferimentos.");
                                         }
                                         alert("O frio te deixa um pouco mais devagar.");
-                                        alert("Sua defesa e ataque diminuem em 2.5.");
-                                        lightWeak = lightWeak + 2.5;
-                                        defense = defense - 2.5;
-                                        attack = attack - 2.5;
+                                        alert("Sua defesa e ataque diminuem em 1.5.");
+                                        lightWeak = lightWeak + 1.5;
+                                        defense = defense - 1.5;
+                                        attack = attack - 1.5;
                                         alert("O te cansa.");
-                                        alert("Sua stamina diminui em 30.");
-                                        stamina = stamina - 30;
+                                        alert("Sua stamina diminui em 25.");
+                                        stamina = stamina - 25;
                                     }
                                     else if (enemyChoice == 2) {
                                         alert("Você percebe alguns membros contundentes se formando na Escuridão.");
@@ -4617,7 +4633,7 @@
                                 attackReadied = 'false';
                                 attackReadiedBonus = 4;
                                 enemyLives = 0;
-                                enemyGold = 700;
+                                enemyGold = 1100;
                                 alert("e um rato com um grande saco de dinheiro está no meio do círculo, com o catalizador distruído.");
                                 alert("Caramba, parece que a luz não tinha influência o suficiente para vir, não? Pelo menos veio dinheiro!");
                                 alert("E você parte pra cima do rato!!");
