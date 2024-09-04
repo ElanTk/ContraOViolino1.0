@@ -6,58 +6,58 @@
     <meta http-equiv="Content-Language" content="English" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <link rel="stylesheet" type="text/css" href="styleFeverDream.css" media="screen" />
-    <link rel="icon" href="violinoFavicon2.png" type = "image/x-icon">
+    <link rel="icon" href="violinoFavicon2.png" type="image/x-icon">
 
     <script type="text/javascript">
-        
-                            
+
+
         function ResetProgress() {
             var choice = prompt("Você tem certeza que quer resetar TODO seu progresso? se quiser, escreva: 'QUEROSIMCARAI'");
-            if(choice == 'QUEROSIMCARAI'){
+            if (choice == 'QUEROSIMCARAI') {
                 alert("AH... Certo, vou resetar você aqui, só não reclame depois.");
-            localStorage.beatEsqueletinho = 'no';
-            EsqueletinhoTheme.controls = false;
-            localStorage.beatGlobo = 'no';
-            GloboTheme.controls = false;
-            estiloFesta.style.display = "none";
-        
-            localStorage.beatGuardian = 'no';
-            GuardianTheme.controls = false;
-            salaGuardiao.style.display = "none";
-        
-            localStorage.beatArco = 'no';
-            ArcoPhase1.controls = false;
-            ArcoPhase2.controls = false;
-            calorDragao.style.display = "none";
-                
-            localStorage.tubaroEnding = 'no';
-            Violino1.controls = false;
-            ViolinPhase3.controls = false;
-            laminaTubaro.style.display = "none";
-                
-            localStorage.CrownEnding = 'no';
-            Violino1.controls = false;
-            ViolinPhase3.controls = false;
-                
-            localStorage.setItem('CrownEnding', 'no');
-            coroaLuz.style.display = "none";
-            
-                
-            localStorage.normalEnding = 'no';
-            Violino1.controls = false;
-            ViolinPhase3.controls = false;
-                
-            localStorage.setItem('normalEnding', 'no');
-            vitoriaComum.style.display = "none";
+                localStorage.beatEsqueletinho = 'no';
+                EsqueletinhoTheme.controls = false;
+                localStorage.beatGlobo = 'no';
+                GloboTheme.controls = false;
+                estiloFesta.style.display = "none";
 
-            localStorage.setItem('darkness', 'no');
-            localStorage.setItem('darknessEnding', 'no');
-                
-            localStorage.beatLunin = 'no';
-            LuninPhase1.controls = false;
-            alert("Acabei aqui, parceiro.");
+                localStorage.beatGuardian = 'no';
+                GuardianTheme.controls = false;
+                salaGuardiao.style.display = "none";
+
+                localStorage.beatArco = 'no';
+                ArcoPhase1.controls = false;
+                ArcoPhase2.controls = false;
+                calorDragao.style.display = "none";
+
+                localStorage.tubaroEnding = 'no';
+                Violino1.controls = false;
+                ViolinPhase3.controls = false;
+                laminaTubaro.style.display = "none";
+
+                localStorage.CrownEnding = 'no';
+                Violino1.controls = false;
+                ViolinPhase3.controls = false;
+
+                localStorage.setItem('CrownEnding', 'no');
+                coroaLuz.style.display = "none";
+
+
+                localStorage.normalEnding = 'no';
+                Violino1.controls = false;
+                ViolinPhase3.controls = false;
+
+                localStorage.setItem('normalEnding', 'no');
+                vitoriaComum.style.display = "none";
+
+                localStorage.setItem('darkness', 'no');
+                localStorage.setItem('darknessEnding', 'no');
+
+                localStorage.beatLunin = 'no';
+                LuninPhase1.controls = false;
+                alert("Acabei aqui, parceiro.");
             }
-            else{
+            else {
                 alert("Ah, que bom que não quer, sinceramente!");
             }
         }
@@ -161,7 +161,7 @@
                 var critMult = 2;
                 var gold = 20;
                 //level 30: 6076 level 39: 9226 level 1:20
-                var hpPotions = 1;
+                var v = 1;
                 var lightInf = 0;
                 var tubaroPieces = 0;
                 var ritualRelic = 0;
@@ -205,7 +205,8 @@
                         + "Seu ataque : " + attack + "\r\n"
                         + "Sua stamina atual : " + stamina + "\r\n"
                         + "Chance de crítico : " + critChance + "%\r\n"
-                        + "Multiplicador de crítico : " + critMult + "x\r\n");
+                        + "Multiplicador de crítico : " + critMult + "x\r\n"
+                        + "Poções de vida : " + hpPotions);
 
                     oquefazer = prompt("Onde você vai? Você pode ir para:\r\n" +
                         "A [estadia], para recuperar alguma vida perdida em batalha, por 5 dinheiros. \r\n" +
@@ -671,7 +672,7 @@
                                 do {
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "\r\n \r\n Você pode: atacar(a), defender(d) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -791,7 +792,7 @@
                                 do {
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "\r\n \r\n Você pode: atacar(a), defender(d) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -937,7 +938,7 @@
                                 do {
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "\r\n \r\n Você pode: atacar(a), defender(d) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -1073,7 +1074,7 @@
                                 do {
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "\r\n \r\n Você pode: atacar(a), defender(d) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -1323,7 +1324,7 @@
                                 do {
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -1485,7 +1486,7 @@
                                     guardianTheme.play();
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "||bass Boosts: " + bassBoosts + " / 5 " +
                                         "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
@@ -1717,7 +1718,7 @@
                                 do {
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -1938,7 +1939,7 @@
                                         arcoPhase1.play();
                                         combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                             + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                            enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                            enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                             "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
                                         if (combatChoice == 'a' || combatChoice == 'A') {
@@ -2186,7 +2187,7 @@
                                             do {
                                                 combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                                     + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                                    enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                                    enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                                     "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
                                                 if (combatChoice == 'a' || combatChoice == 'A') {
@@ -2458,7 +2459,7 @@
                                 do {
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -2657,7 +2658,7 @@
                                     var choiced = 'false';
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
                                         "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -2854,404 +2855,405 @@
                                 }
                                 totalBlock = 0;
                             } while (enemyHP > 0 && HP > 0)
-
-                            alert("Você enfia sua espada com toda a força no Violino.");
-                            alert("...");
-                            alert("'Ah...");
-                            alert("'Parece que nossa batalha será interessante mesmo! Vou usar mais do que meus punhos desta vez.'");
-                            alert("Quando você olha para baixo, percebe que o Violino tirou a sua espada de dentro dele.");
-                            alert("'Sinceramente, parabéns. Você é a segunda pessoa que me forçou a lutar sério.'");
-                            alert("P R E P A R E - S E.");
-                            ViolinPhase3.play();
-                            alert("Repentinamente, uma aura gigantesca de poder começa a emanar do Violino. É difícil até ficar em " +
-                                "pé perto dele.");
-                            alert("Você recupera metade da sua stamina por turno agora!");
-                            enemyLives = 1;
-                            enemyHP = 400;
-                            enemyTotalHP = 400;
-                            enemyAttack = 25;
-                            enemyDefense = 8;
-                            var tresToques = 0;
-                            var carnica = 0;
-                            var assovioDaMorte = 0;
-                            var assovioDaMorteEX = 0;
-                            var violinoAlive = 1;
-                            do {
+                            if (HP > 0) {
+                                alert("Você enfia sua espada com toda a força no Violino.");
+                                alert("...");
+                                alert("'Ah...");
+                                alert("'Parece que nossa batalha será interessante mesmo! Vou usar mais do que meus punhos desta vez.'");
+                                alert("Quando você olha para baixo, percebe que o Violino tirou a sua espada de dentro dele.");
+                                alert("'Sinceramente, parabéns. Você é a segunda pessoa que me forçou a lutar sério.'");
+                                alert("P R E P A R E - S E.");
+                                ViolinPhase3.play();
+                                alert("Repentinamente, uma aura gigantesca de poder começa a emanar do Violino. É difícil até ficar em " +
+                                    "pé perto dele.");
+                                alert("Você recupera metade da sua stamina por turno agora!");
+                                enemyLives = 1;
+                                enemyHP = 400;
+                                enemyTotalHP = 400;
+                                enemyAttack = 25;
+                                enemyDefense = 8;
+                                var tresToques = 0;
+                                var carnica = 0;
+                                var assovioDaMorte = 0;
+                                var assovioDaMorteEX = 0;
+                                var violinoAlive = 1;
                                 do {
-                                    var choiced = 'false';
-                                    combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
-                                        + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
-                                        "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
+                                    do {
+                                        var choiced = 'false';
+                                        combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
+                                            + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
+                                            enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + " | poções de vida: " + hpPotions +
+                                            "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
-                                    if (combatChoice == 'a' || combatChoice == 'A') {
-                                        choiced = 'true';
-                                        preparedAttack = 0;
-                                        if (stamina >= 100) {
-                                            if ((Math.floor(Math.random() * 100) + 1) <= critChance) {
-                                                if (enemyStanced > 0) { finalDamage = attack * critMult - (enemyDefense * 1.3); }
-                                                else { finalDamage = attack * critMult - enemyDefense; }
-                                                alert("CRÍTICO!");
-                                                stamina = stamina - 100;
-                                            }
-                                            else {
-                                                if (enemyStanced > 0) { finalDamage = attack - (enemyDefense * 1.3); }
-                                                else { finalDamage = attack - enemyDefense; }
-                                                stamina = stamina - 100;
-                                            }
-                                        }
-                                        else {
-                                            if ((Math.floor(Math.random() * 100) + 1) <= critChance) {
-                                                finalDamage = ((attack * critMult) * (stamina / 100)) - enemyDefense;
-                                                alert("CRÍTICO!");
-                                            }
-                                            else {
-                                                if (enemyStanced > 0) { finalDamage = (attack * (stamina / 100)) - (enemyDefense * 1.3); }
-                                                else { finalDamage = (attack * (stamina / 100)) - enemyDefense; }
-                                                stamina = 0;
-                                            }
-                                        }
-                                        if (finalDamage <= 0) {
-                                            alert("Seu ataque acerta o Violino, porém não dá dano.");
-                                        }
-                                        else if (finalDamage <= 5) {
-                                            alert("Você acerta o Violino, mas o dano é mínimo.");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                        }
-                                        else if (finalDamage <= 25) {
-                                            alert("Você acerta o Violino.");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                        }
-                                        else {
-                                            alert("Você acerta um estrondoso ataque no Violino!");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                        }
-                                        totalBlock = defense;
-
-                                        stamina = stamina + (staminaMax * 0.05);
-                                        if (stamina > staminaMax) {
-                                            stamina = staminaMax;
-                                        }
-                                    }
-                                    if (combatChoice == 'd' || combatChoice == 'D') {
-                                        choiced = 'true';
-                                        preparedAttack = 0;
-                                        totalBlock = defense * 2;
-                                        stamina = stamina + (staminaMax * 0.15);
-                                        if (stamina > staminaMax) {
-                                            stamina = staminaMax;
-                                        }
-                                    }
-                                    if (combatChoice == 'ud' || combatChoice == 'UD' || combatChoice == 'Ud' || combatChoice == 'uD') {
-                                        choiced = 'true';
-                                        preparedAttack = 0;
-                                        if (stamina >= 100) {
-                                            alert("Você concentra a sua energia em sua armadura e escudo e se prepara para um ataque!");
-                                            totalBlock = defense * 3;
-                                            stamina = stamina - 100;
-                                        }
-                                        else {
-                                            totalBlock = defense * 3 * (stamina / 100);
-                                            stamina = 0;
-                                        }
-                                    }
-                                    if (combatChoice == 'pa' || combatChoice == 'PA' || combatChoice == 'Pa' || combatChoice == 'pA') {
-                                        choiced = 'true';
-                                        if (preparedAttack == 1) {
-                                            totalBlock = defense * 1.1;
-                                            preparedAttack = 0;
-                                            finalDamage = (pAMult * attack) - enemyDefense;
-                                            if (finalDamage <= 0) {
-                                                alert("Hmmm, você não dá dano nenhum. parece que você não carregou energia o suficiente?");
-                                            }
-                                            else if (finalDamage <= 15) {
-                                                alert("Você dá um decente corte no Violino!");
-                                                enemyHP = enemyHP - finalDamage;
-                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                            }
-                                            else if (finalDamage <= 30) {
-                                                alert("Você solta um grande corte no Violino!");
-                                                enemyHP = enemyHP - finalDamage;
-                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                            }
-                                            else {
-                                                alert("Com toda a energia acumulada, você dá um estrondoso corte no Violino!");
-                                                enemyHP = enemyHP - finalDamage;
-                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                            }
-                                        }
-                                        else {
-                                            preparedAttack = 1;
-                                            if (stamina >= 150) {
-                                                alert("Você acumula uma gigantesca quantidade de energia em sua espada!");
-                                                pAMult = 2;
-                                                stamina = stamina - 150;
-                                            }
-                                            else {
-                                                alert("Você coloca a stamina que tinha na sua lâmina...");
-                                                pAMult = stamina / 150;
-                                                stamina = 0;
-                                            }
-                                            totalBlock = defense * 1.1;
-                                            alert("Se quiser, você pode cancelar o seu ataque no próximo turno se seu " +
-                                                "oponente for fazer algo assustador, mas assim você perderá o ataque carregado (pa para continuar, outra coisa caso queira, bem, fazer outra coisa)");
-                                        }
-                                    }
-                                    if (combatChoice == 'p' || combatChoice == 'P') {
-                                        if (hpPotions > 0 && HP < totalHP) {
-                                            preparedAttack = 0;
+                                        if (combatChoice == 'a' || combatChoice == 'A') {
                                             choiced = 'true';
-                                            hpPotions = hpPotions - 1;
-                                            HP = totalHP;
-                                            alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
-                                            totalBlock = defense * 3;
-                                        }
-                                        else if (HP < totalHP && hpPotions == 0) {
-                                            alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
-                                        }
-                                        else if (HP > totalHP) {
-                                            alert("Você não recuperaria vida alguma.");
-                                        }
-                                    }
-                                } while (choiced == 'false');
+                                            preparedAttack = 0;
+                                            if (stamina >= 100) {
+                                                if ((Math.floor(Math.random() * 100) + 1) <= critChance) {
+                                                    if (enemyStanced > 0) { finalDamage = attack * critMult - (enemyDefense * 1.3); }
+                                                    else { finalDamage = attack * critMult - enemyDefense; }
+                                                    alert("CRÍTICO!");
+                                                    stamina = stamina - 100;
+                                                }
+                                                else {
+                                                    if (enemyStanced > 0) { finalDamage = attack - (enemyDefense * 1.3); }
+                                                    else { finalDamage = attack - enemyDefense; }
+                                                    stamina = stamina - 100;
+                                                }
+                                            }
+                                            else {
+                                                if ((Math.floor(Math.random() * 100) + 1) <= critChance) {
+                                                    finalDamage = ((attack * critMult) * (stamina / 100)) - enemyDefense;
+                                                    alert("CRÍTICO!");
+                                                }
+                                                else {
+                                                    if (enemyStanced > 0) { finalDamage = (attack * (stamina / 100)) - (enemyDefense * 1.3); }
+                                                    else { finalDamage = (attack * (stamina / 100)) - enemyDefense; }
+                                                    stamina = 0;
+                                                }
+                                            }
+                                            if (finalDamage <= 0) {
+                                                alert("Seu ataque acerta o Violino, porém não dá dano.");
+                                            }
+                                            else if (finalDamage <= 5) {
+                                                alert("Você acerta o Violino, mas o dano é mínimo.");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
+                                            }
+                                            else if (finalDamage <= 25) {
+                                                alert("Você acerta o Violino.");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
+                                            }
+                                            else {
+                                                alert("Você acerta um estrondoso ataque no Violino!");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
+                                            }
+                                            totalBlock = defense;
 
-                                if (lightWeak > 0) {
-                                    lightWeak = lightWeak - 1;
-                                    defense = defense + 1;
-                                    attack = attack + 1;
-                                    alert("Você se recompõe um pouco, recuperando 1 ataque e 1 defesa perdidos.")
-                                }
-                                if (carnica > 0) {
-                                    carnica = carnica - 1;
-                                    enemyDefense = enemyDefense - 1;
-                                    enemyAttack = enemyAttack - 1;
-                                    alert("O som estridente do toque da carniça diminui um pouco, e o Violino perde 1 de ataque e " +
-                                        "1 de defesa.")
-                                }
-                                if (assovioDaMorte > 0) {
-                                    assovioDaMorte = assovioDaMorte - 1;
-                                    alert("Um raio gigantesco está saindo do Violino.");
-                                    enemyFinalDamage = 70 - totalBlock;
-                                    if (enemyFinalDamage > 0) {
-                                        HP = HP - enemyFinalDamage;
-                                        alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            stamina = stamina + (staminaMax * 0.05);
+                                            if (stamina > staminaMax) {
+                                                stamina = staminaMax;
+                                            }
+                                        }
+                                        if (combatChoice == 'd' || combatChoice == 'D') {
+                                            choiced = 'true';
+                                            preparedAttack = 0;
+                                            totalBlock = defense * 2;
+                                            stamina = stamina + (staminaMax * 0.15);
+                                            if (stamina > staminaMax) {
+                                                stamina = staminaMax;
+                                            }
+                                        }
+                                        if (combatChoice == 'ud' || combatChoice == 'UD' || combatChoice == 'Ud' || combatChoice == 'uD') {
+                                            choiced = 'true';
+                                            preparedAttack = 0;
+                                            if (stamina >= 100) {
+                                                alert("Você concentra a sua energia em sua armadura e escudo e se prepara para um ataque!");
+                                                totalBlock = defense * 3;
+                                                stamina = stamina - 100;
+                                            }
+                                            else {
+                                                totalBlock = defense * 3 * (stamina / 100);
+                                                stamina = 0;
+                                            }
+                                        }
+                                        if (combatChoice == 'pa' || combatChoice == 'PA' || combatChoice == 'Pa' || combatChoice == 'pA') {
+                                            choiced = 'true';
+                                            if (preparedAttack == 1) {
+                                                totalBlock = defense * 1.1;
+                                                preparedAttack = 0;
+                                                finalDamage = (pAMult * attack) - enemyDefense;
+                                                if (finalDamage <= 0) {
+                                                    alert("Hmmm, você não dá dano nenhum. parece que você não carregou energia o suficiente?");
+                                                }
+                                                else if (finalDamage <= 15) {
+                                                    alert("Você dá um decente corte no Violino!");
+                                                    enemyHP = enemyHP - finalDamage;
+                                                    alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
+                                                }
+                                                else if (finalDamage <= 30) {
+                                                    alert("Você solta um grande corte no Violino!");
+                                                    enemyHP = enemyHP - finalDamage;
+                                                    alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
+                                                }
+                                                else {
+                                                    alert("Com toda a energia acumulada, você dá um estrondoso corte no Violino!");
+                                                    enemyHP = enemyHP - finalDamage;
+                                                    alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
+                                                }
+                                            }
+                                            else {
+                                                preparedAttack = 1;
+                                                if (stamina >= 150) {
+                                                    alert("Você acumula uma gigantesca quantidade de energia em sua espada!");
+                                                    pAMult = 2;
+                                                    stamina = stamina - 150;
+                                                }
+                                                else {
+                                                    alert("Você coloca a stamina que tinha na sua lâmina...");
+                                                    pAMult = stamina / 150;
+                                                    stamina = 0;
+                                                }
+                                                totalBlock = defense * 1.1;
+                                                alert("Se quiser, você pode cancelar o seu ataque no próximo turno se seu " +
+                                                    "oponente for fazer algo assustador, mas assim você perderá o ataque carregado (pa para continuar, outra coisa caso queira, bem, fazer outra coisa)");
+                                            }
+                                        }
+                                        if (combatChoice == 'p' || combatChoice == 'P') {
+                                            if (hpPotions > 0 && HP < totalHP) {
+                                                preparedAttack = 0;
+                                                choiced = 'true';
+                                                hpPotions = hpPotions - 1;
+                                                HP = totalHP;
+                                                alert("Você tira uma poção da sua mochila e a bebe. Sua vida chega até o seu limite e sua defesa fica alta nesse turno.");
+                                                totalBlock = defense * 3;
+                                            }
+                                            else if (HP < totalHP && hpPotions == 0) {
+                                                alert("Caramba, parece que você está sem poções. Esqueceu de comprar?");
+                                            }
+                                            else if (HP > totalHP) {
+                                                alert("Você não recuperaria vida alguma.");
+                                            }
+                                        }
+                                    } while (choiced == 'false');
+
+                                    if (lightWeak > 0) {
+                                        lightWeak = lightWeak - 1;
+                                        defense = defense + 1;
+                                        attack = attack + 1;
+                                        alert("Você se recompõe um pouco, recuperando 1 ataque e 1 defesa perdidos.")
                                     }
-                                    else {
-                                        alert("Você consegue defender o gigantesco ataque.");
+                                    if (carnica > 0) {
+                                        carnica = carnica - 1;
+                                        enemyDefense = enemyDefense - 1;
+                                        enemyAttack = enemyAttack - 1;
+                                        alert("O som estridente do toque da carniça diminui um pouco, e o Violino perde 1 de ataque e " +
+                                            "1 de defesa.")
                                     }
                                     if (assovioDaMorte > 0) {
-                                        alert("O raio continua.");
+                                        assovioDaMorte = assovioDaMorte - 1;
+                                        alert("Um raio gigantesco está saindo do Violino.");
+                                        enemyFinalDamage = 70 - totalBlock;
+                                        if (enemyFinalDamage > 0) {
+                                            HP = HP - enemyFinalDamage;
+                                            alert("Você leva " + enemyFinalDamage + " de dano.");
+                                        }
+                                        else {
+                                            alert("Você consegue defender o gigantesco ataque.");
+                                        }
+                                        if (assovioDaMorte > 0) {
+                                            alert("O raio continua.");
+                                        }
+                                        else {
+                                            alert("O raio parou de sair do Violino.");
+                                            alert("Você percebe que o ataque quebrou duas pilastras.");
+                                        }
                                     }
-                                    else {
-                                        alert("O raio parou de sair do Violino.");
-                                        alert("Você percebe que o ataque quebrou duas pilastras.");
+                                    else if (assovioDaMorteEX > 0) {
+                                        assovioDaMorteEX = assovioDaMorteEX - 1;
+                                        alert("Um raio COLOSSAL está saindo do Violino.");
+                                        enemyHP = 1;
+                                        enemyFinalDamage = 75 - totalBlock;
+                                        if (enemyFinalDamage > 1) {
+                                            HP = HP - enemyFinalDamage;
+                                            alert("Você leva " + enemyFinalDamage + " de dano.");
+                                        }
+                                        else {
+                                            alert("Você consegue defender a maioria do ataque, mas ainda leva 1 de dano.");
+                                            HP = HP - 1;
+                                        }
+                                        if (assovioDaMorteEX > 0) {
+                                            alert("O raio continua.");
+                                        }
+                                        else {
+                                            violinoAlive = 0;
+                                            alert("O raio parou de sair do Violino.");
+                                        }
                                     }
-                                }
-                                else if (assovioDaMorteEX > 0) {
-                                    assovioDaMorteEX = assovioDaMorteEX - 1;
-                                    alert("Um raio COLOSSAL está saindo do Violino.");
-                                    enemyHP = 1;
-                                    enemyFinalDamage = 75 - totalBlock;
-                                    if (enemyFinalDamage > 1) {
-                                        HP = HP - enemyFinalDamage;
-                                        alert("Você leva " + enemyFinalDamage + " de dano.");
-                                    }
-                                    else {
-                                        alert("Você consegue defender a maioria do ataque, mas ainda leva 1 de dano.");
-                                        HP = HP - 1;
-                                    }
-                                    if (assovioDaMorteEX > 0) {
-                                        alert("O raio continua.");
-                                    }
-                                    else {
-                                        violinoAlive = 0;
-                                        alert("O raio parou de sair do Violino.");
-                                    }
-                                }
 
-                                else if (enemyHP <= 100 && enemyLives == 1) {
-                                    alert("'Você realmente pensa que está perto de me derrotar?'");
-                                    alert("'Infelizmente para você, eu mal começei.'");
-                                    enemyLives = 0;
-                                    enemyHP = 400;
-                                    enemyTotalHP = 400;
-                                    alert("O Violino recupera toda sua vida e prepara: 'Assovio da morte'.");
-                                    assovioDaMorte = 2;
-                                }
-                                else if (enemyHP <= 1 && enemyLives == 0) {
-                                    alert("'EU...'");
-                                    alert("'AINDA NÃO ACABEI!!!'");
-                                    enemyLives = -1;
-                                    enemyHP = 1;
-                                    alert("O Violino prepara: 'Assovio da morte EX'.");
-                                    alert("Parece que o corpo do Violino aguentará até o ataque acabar.");
-                                    assovioDaMorteEX = 3;
-                                }
-                                else if (enemyLives == 1) {
-                                    enemyChoice = Math.floor(Math.random() * 4) + 1;
-                                    if (tresToques != 0) {
-                                        if (tresToques == 1) {
+                                    else if (enemyHP <= 100 && enemyLives == 1) {
+                                        alert("'Você realmente pensa que está perto de me derrotar?'");
+                                        alert("'Infelizmente para você, eu mal começei.'");
+                                        enemyLives = 0;
+                                        enemyHP = 400;
+                                        enemyTotalHP = 400;
+                                        alert("O Violino recupera toda sua vida e prepara: 'Assovio da morte'.");
+                                        assovioDaMorte = 2;
+                                    }
+                                    else if (enemyHP <= 1 && enemyLives == 0) {
+                                        alert("'EU...'");
+                                        alert("'AINDA NÃO ACABEI!!!'");
+                                        enemyLives = -1;
+                                        enemyHP = 1;
+                                        alert("O Violino prepara: 'Assovio da morte EX'.");
+                                        alert("Parece que o corpo do Violino aguentará até o ataque acabar.");
+                                        assovioDaMorteEX = 3;
+                                    }
+                                    else if (enemyLives == 1) {
+                                        enemyChoice = Math.floor(Math.random() * 4) + 1;
+                                        if (tresToques != 0) {
+                                            if (tresToques == 1) {
+                                                alert("O Violino prepara: 'Melodia de três toques'.");
+                                                tresToques = tresToques + 1;
+                                            }
+                                            else if (tresToques == 2) {
+                                                alert("O Violino toca: 'Melodia de três toques'.");
+                                                enemyFinalDamage = (enemyAttack * 3) - totalBlock;
+                                                tresToques = 0;
+                                                if (enemyFinalDamage > 0) {
+                                                    HP = HP - enemyFinalDamage;
+                                                    alert("Você leva " + enemyFinalDamage + " de dano.");
+                                                }
+                                                else {
+                                                    alert("Você consegue bloquear todos os três golpes.");
+                                                }
+                                            }
+                                        }
+                                        else if (attackReadied == 'true') {
+                                            alert("O Violino toca: 'Acorde de dois toques'.");
+
+                                            enemyFinalDamage = (enemyAttack * attackReadiedBonus) - totalBlock;
+
+                                            attackReadied = 'false';
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+                                            else {
+                                                alert("Você consegue bloquear os dois golpes.");
+                                            }
+                                        }
+                                        else if (enemyChoice == 1) {
+                                            alert("O Violino toca: 'Fogo Dracônico'");
+                                            enemyFinalDamage = enemyAttack - totalBlock;
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+                                            else {
+                                                alert("Você bloqueia completamente o golpe do Violino.");
+                                            }
+                                        }
+                                        else if (enemyChoice == 2) {
+                                            alert("O Violino prepara: 'Acorde de dois toques'.");
+                                            attackReadied = 'true';
+                                        }
+                                        else if (enemyChoice == 3) {
                                             alert("O Violino prepara: 'Melodia de três toques'.");
                                             tresToques = tresToques + 1;
                                         }
-                                        else if (tresToques == 2) {
-                                            alert("O Violino toca: 'Melodia de três toques'.");
-                                            enemyFinalDamage = (enemyAttack * 3) - totalBlock;
-                                            tresToques = 0;
+                                        else if (enemyChoice == 4) {
+                                            alert("O Violino toca: 'Toque do carniceiro'.");
+                                            if (carnica == 0) {
+                                                carnica = 3;
+                                                enemyAttack = enemyAttack + 3;
+                                                enemyDefense = enemyDefense + 3;
+                                                alert("A defesa e o ataque do Violino aumentam em 3!");
+                                            }
+                                            else {
+                                                alert("Já que o som da carniça ainda está tocando, o Violino recupera vida somente.");
+                                                enemyHP = enemyHP + 10;
+                                            }
+                                        }
+                                    }
+
+                                    else if (enemyLives == 0) {
+                                        enemyChoice = Math.floor(Math.random() * 4) + 1;
+                                        if (tresToques != 0) {
+                                            if (tresToques == 1) {
+                                                alert("O Violino prepara: 'Melodia de três toques EX'.");
+                                                tresToques = tresToques + 1;
+                                            }
+                                            else if (tresToques == 2) {
+                                                alert("O Violino toca: 'Melodia de três toques EX'.");
+                                                enemyFinalDamage = (enemyAttack * 3) - totalBlock;
+                                                tresToques = 0;
+                                                if (enemyFinalDamage > 0) {
+                                                    HP = HP - enemyFinalDamage;
+                                                    alert("Você leva " + enemyFinalDamage + " de dano.");
+                                                }
+                                                else {
+                                                    alert("Você consegue bloquear todos os três golpes.");
+                                                }
+                                            }
+                                        }
+                                        else if (attackReadied == 'true') {
+                                            alert("O Violino toca: 'Acorde de dois toques EX'.");
+
+                                            enemyFinalDamage = (enemyAttack * attackReadiedBonus + 2) - totalBlock;
+
+                                            attackReadied = 'false';
                                             if (enemyFinalDamage > 0) {
                                                 HP = HP - enemyFinalDamage;
                                                 alert("Você leva " + enemyFinalDamage + " de dano.");
                                             }
                                             else {
-                                                alert("Você consegue bloquear todos os três golpes.");
+                                                alert("Você consegue bloquear os dois golpes.");
                                             }
                                         }
-                                    }
-                                    else if (attackReadied == 'true') {
-                                        alert("O Violino toca: 'Acorde de dois toques'.");
 
-                                        enemyFinalDamage = (enemyAttack * attackReadiedBonus) - totalBlock;
-
-                                        attackReadied = 'false';
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
+                                        else if (enemyChoice == 1) {
+                                            alert("O Violino toca: 'Fogo Dracônico EX'");
+                                            enemyFinalDamage = enemyAttack - totalBlock;
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+                                            else {
+                                                alert("Você bloqueia completamente o golpe do Violino.");
+                                            }
                                         }
-                                        else {
-                                            alert("Você consegue bloquear os dois golpes.");
+                                        else if (enemyChoice == 2) {
+                                            alert("O Violino prepara: 'Acorde de dois toques EX'.");
+                                            attackReadied = 'true';
                                         }
-                                    }
-                                    else if (enemyChoice == 1) {
-                                        alert("O Violino toca: 'Fogo Dracônico'");
-                                        enemyFinalDamage = enemyAttack - totalBlock;
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
-                                        }
-                                        else {
-                                            alert("Você bloqueia completamente o golpe do Violino.");
-                                        }
-                                    }
-                                    else if (enemyChoice == 2) {
-                                        alert("O Violino prepara: 'Acorde de dois toques'.");
-                                        attackReadied = 'true';
-                                    }
-                                    else if (enemyChoice == 3) {
-                                        alert("O Violino prepara: 'Melodia de três toques'.");
-                                        tresToques = tresToques + 1;
-                                    }
-                                    else if (enemyChoice == 4) {
-                                        alert("O Violino toca: 'Toque do carniceiro'.");
-                                        if (carnica == 0) {
-                                            carnica = 3;
-                                            enemyAttack = enemyAttack + 3;
-                                            enemyDefense = enemyDefense + 3;
-                                            alert("A defesa e o ataque do Violino aumentam em 3!");
-                                        }
-                                        else {
-                                            alert("Já que o som da carniça ainda está tocando, o Violino recupera vida somente.");
-                                            enemyHP = enemyHP + 10;
-                                        }
-                                    }
-                                }
-
-                                else if (enemyLives == 0) {
-                                    enemyChoice = Math.floor(Math.random() * 4) + 1;
-                                    if (tresToques != 0) {
-                                        if (tresToques == 1) {
+                                        else if (enemyChoice == 3) {
                                             alert("O Violino prepara: 'Melodia de três toques EX'.");
                                             tresToques = tresToques + 1;
                                         }
-                                        else if (tresToques == 2) {
-                                            alert("O Violino toca: 'Melodia de três toques EX'.");
-                                            enemyFinalDamage = (enemyAttack * 3) - totalBlock;
-                                            tresToques = 0;
-                                            if (enemyFinalDamage > 0) {
-                                                HP = HP - enemyFinalDamage;
-                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                        else if (enemyChoice == 4) {
+                                            alert("O Violino toca: 'Toque do carniceiro EX'.");
+                                            if (carnica == 0) {
+                                                carnica = carnica + 4;
+                                                enemyAttack = enemyAttack + 4;
+                                                enemyDefense = enemyDefense + 4;
+                                                alert("A defesa e o ataque do Violino aumentam em 4!");
                                             }
                                             else {
-                                                alert("Você consegue bloquear todos os três golpes.");
+                                                alert("O som da carniça aumenta!");
+                                                carnica = carnica + 2;
+                                                enemyAttack = enemyAttack + 2;
+                                                enemyDefense = enemyDefense + 2;
+                                                alert("O ataque do Violino aumenta em 2!");
                                             }
                                         }
                                     }
-                                    else if (attackReadied == 'true') {
-                                        alert("O Violino toca: 'Acorde de dois toques EX'.");
-
-                                        enemyFinalDamage = (enemyAttack * attackReadiedBonus + 2) - totalBlock;
-
-                                        attackReadied = 'false';
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
-                                        }
-                                        else {
-                                            alert("Você consegue bloquear os dois golpes.");
-                                        }
-                                    }
-
-                                    else if (enemyChoice == 1) {
-                                        alert("O Violino toca: 'Fogo Dracônico EX'");
-                                        enemyFinalDamage = enemyAttack - totalBlock;
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
-                                        }
-                                        else {
-                                            alert("Você bloqueia completamente o golpe do Violino.");
-                                        }
-                                    }
-                                    else if (enemyChoice == 2) {
-                                        alert("O Violino prepara: 'Acorde de dois toques EX'.");
-                                        attackReadied = 'true';
-                                    }
-                                    else if (enemyChoice == 3) {
-                                        alert("O Violino prepara: 'Melodia de três toques EX'.");
-                                        tresToques = tresToques + 1;
-                                    }
-                                    else if (enemyChoice == 4) {
-                                        alert("O Violino toca: 'Toque do carniceiro EX'.");
-                                        if (carnica == 0) {
-                                            carnica = carnica + 4;
-                                            enemyAttack = enemyAttack + 4;
-                                            enemyDefense = enemyDefense + 4;
-                                            alert("A defesa e o ataque do Violino aumentam em 4!");
-                                        }
-                                        else {
-                                            alert("O som da carniça aumenta!");
-                                            carnica = carnica + 2;
-                                            enemyAttack = enemyAttack + 2;
-                                            enemyDefense = enemyDefense + 2;
-                                            alert("O ataque do Violino aumenta em 2!");
-                                        }
-                                    }
-                                }
-                                totalBlock = 0;
-                            } while (violinoAlive == 1 && HP > 0)
+                                    totalBlock = 0;
+                                } while (violinoAlive == 1 && HP > 0)
+                            }
                         }
 
                         else if (towerLevel > 50) {
                             enemyStanced = 0;
                             var lightWeak = 0;
-                            if(tubaroBlade == 1 && lightCrown == 1){
-                                        alert("A sua lâmina transborda com energia tubaro de uma forma peculiar. Por algum motivo, você sente um alívio imenso.");
-                                        alert("Sua coroa de luz brilha mais intensamente que o normal, como se a mesma soubesse de algo que você não sabe.");
-                                        alert("Por algum motivo, você se sente como se algo horrivel fosse acontecer com você em diferentes circunstâncias.");
-                                    }
-                                    else if(tubaroBlade == 1){
-                                        alert("A sua lâmina transborda com energia tubaro de uma forma peculiar. Por algum motivo, você sente um alívio imenso.");
-                                        alert("Por algum motivo, você se sente como se algo horrivel fosse acontecer com você em diferentes circunstâncias.");
-                                    }
-                                    else if(lightCrown == 1){
-                                        alert("Sua coroa de luz brilha mais intensamente que o normal, como se a mesma soubesse de algo que você não sabe.");
-                                        alert("Por algum motivo, você se sente como se algo horrivel fosse acontecer com você em diferentes circunstâncias.");
-                                    }
-                                    else{
-                                    HP = totalHP;
-                                    }
+                            if (tubaroBlade == 1 && lightCrown == 1) {
+                                alert("A sua lâmina transborda com energia tubaro de uma forma peculiar. Por algum motivo, você sente um alívio imenso.");
+                                alert("Sua coroa de luz brilha mais intensamente que o normal, como se a mesma soubesse de algo que você não sabe.");
+                                alert("Por algum motivo, você se sente como se algo horrivel fosse acontecer com você em diferentes circunstâncias.");
+                            }
+                            else if (tubaroBlade == 1) {
+                                alert("A sua lâmina transborda com energia tubaro de uma forma peculiar. Por algum motivo, você sente um alívio imenso.");
+                                alert("Por algum motivo, você se sente como se algo horrivel fosse acontecer com você em diferentes circunstâncias.");
+                            }
+                            else if (lightCrown == 1) {
+                                alert("Sua coroa de luz brilha mais intensamente que o normal, como se a mesma soubesse de algo que você não sabe.");
+                                alert("Por algum motivo, você se sente como se algo horrivel fosse acontecer com você em diferentes circunstâncias.");
+                            }
+                            else {
+                                HP = totalHP;
+                            }
                             do {
                                 do {
                                     darkness1.volume = 0.5 + ((500 - enemyHP) / 1000.0);
@@ -3385,491 +3387,491 @@
                                         }
                                     }
                                     if (combatChoice == 'p' || combatChoice == 'P') {
-                                        
-                                            alert("Poção nenhuma conseguiria te ajudar com isso.");
-                                    }
-                                } while (choiced == 'false');
 
-                                if (enemyHP > 0) {
-                                    if(tubaroBlade == 1 || lightCrown == 1){
-                                        alert("A escuridão está se movendo.");
-                                    }
-                                    else{
-                                            alert("A escuridão cresce mais um pouco.");
-                                            alert("Você é engolido por uma dor crescente, enquanto vai ficando mais fraco.");
-                                            alert("Você perde 2 de vida máxima e atual.");
-                                            alert("Você perde 3 de ataque e 3 de defesa.");
-                                            HP = HP - 2;
-                                            totalHP = totalHP - 2;
-                                            attack = attack - 3;
-                                            defense = defense - 3;
-                                    }
-                                }
-                                totalBlock = 0;
-                            } while (enemyHP > 0 && HP > 0)
-                            if(HP <= 0){
-                            }
-                            else{
-                                darkness1.volume = 0.9;
-                                alert("Este seu corte fez alguma diferença, você sente.");
-                                darkness1.volume = 0.8;
-                            alert("A escuridão para de se mover, e você começa a escutar algo.");
-                            darkness1.volume = 0.65;
-                            alert("Primeiramente, está tão baixo que você não consegue distinguir, mas o som vai ficando mais alto.");
-                            darkness1.volume = 0.5;
-                            alert("Som, na verdade, é uma descrição ruim. Talvez a pior que eu já fiz. Na verdade, isso se assemelha mais com...");
-                            darkness1.volume = 0.4;
-                            alert("...sussurros.");
-                            darkness1.volume = 0.3;
-                            alert("Sussuros com nenhuma voz em particular, mas sim uma conjunção de vozes.");
-                            darkness1.volume = 0.25;
-                            alert("'ah...'");
-                            if(localStorage.getItem('darkness') != 'yes'){
-                                alert("'você realmente veio...'");
-                                darkness1.volume = 0.2;
-                                alert("'me surpreende...'");
-                                alert("'que você tenha trago...'");
-                                darkness1.volume = 0.15;
-                                alert("'um item como esse...'");
-                                alert("'um item que consegue me compreender...'");
-                                alert("'na primeira vez que você me encontra...'");
-                                alert("'por que você está aqui..?'");
-                                darkness1.volume = 0.1;
-                                alert("'...'");
-                                alert("'bom...'");
-                                alert("'não importa...'");
-                                darkness1.volume = 0.05;
-                                alert("'está luta está fadada a acontecer sempre que você chegar aqui...'");
-                                alert("'e quando você perder...'");
-                                alert("'você vai voltar a me entreter...'");
-                                alert("'todos vocês...'");
-                                alert("'até aquele violino...'");
-                            }
-                            if(localStorage.getItem('darkness') == 'yes'){
-                                alert("'de novo...'");
-                                darkness1.volume = 0.2;
-                                alert("'de novo, você está aqui na minha frente...'");
-                                alert("'desta vez, você trouxe algo...'");
-                                alert("'um item que consegue me compreender...'");
-                                darkness1.volume = 0.15;
-                                alert("'mesmo assim...'");
-                                alert("'eu ainda não entendo...'");
-                                alert("'por que você está aqui novamente..?'");
-                                alert("'...'");
-                                darkness1.volume = 0.1;
-                                alert("'bom...'");
-                                alert("'não importa...'");
-                                alert("'você não vai mudar nada...'");
-                                darkness1.volume = 0.05;
-                                alert("'está luta está fadada a acontecer sempre que você chegar aqui...'");
-                                alert("'e quando você perder...'");
-                                alert("'você vai voltar a me entreter...'");
-                                alert("'todos vocês...'");
-                                alert("'até aquele violino...'");
-                            }
-                            darkness1.pause();
-                            darkness2.play();
-                            alert("Apesar de você entender o que está diante de você, o seu poder é opressor. " +
-                                "É difícil até ficar de pé diante de tamanha ameaça.");
-                            alert("Você não consegue recuperar mais que um terço da stamina que você normalmente recupera.");
-                            enemyLives = 1;
-                            enemyHP = 1000;
-                            enemyTotalHP = 1000;
-                            enemyAttack = 25;
-                            enemyDefense = 12;
-                            var tresToques = 0;
-                            var carnica = 0;
-                            var assovioDaMorte = 0;
-                            var assovioDaMorteEX = 0;
-                            var darknessAlive = 1;
-                            do {
-                                do {
-                                    var choiced = 'false';
-                                    combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
-                                        + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
-                                        "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
-
-                                    if (combatChoice == 'a' || combatChoice == 'A') {
-                                        choiced = 'true';
-                                        preparedAttack = 0;
-                                        if (stamina >= 100) {
-                                            if ((Math.floor(Math.random() * 100) + 1) <= critChance) {
-                                                if (enemyStanced > 0) { finalDamage = attack * critMult - (enemyDefense * 1.3); }
-                                                else { finalDamage = attack * critMult - enemyDefense; }
-                                                alert("CRÍTICO!");
-                                                stamina = stamina - 100;
-                                            }
-                                            else {
-                                                if (enemyStanced > 0) { finalDamage = attack - (enemyDefense * 1.3); }
-                                                else { finalDamage = attack - enemyDefense; }
-                                                stamina = stamina - 100;
-                                            }
-                                        }
-                                        else {
-                                            if ((Math.floor(Math.random() * 100) + 1) <= critChance) {
-                                                finalDamage = ((attack * critMult) * (stamina / 100)) - enemyDefense;
-                                                alert("CRÍTICO!");
-                                            }
-                                            else {
-                                                if (enemyStanced > 0) { finalDamage = (attack * (stamina / 100)) - (enemyDefense * 1.3); }
-                                                else { finalDamage = (attack * (stamina / 100)) - enemyDefense; }
-                                                stamina = 0;
-                                            }
-                                        }
-                                        if (finalDamage <= 0) {
-                                            alert("Seu ataque acerta a escuridão, porém não dá dano.");
-                                        }
-                                        else if (finalDamage <= 5) {
-                                            alert("Você acerta a Escuridão, mas o dano é mínimo.");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano na mesma.");
-                                        }
-                                        else if (finalDamage <= 30) {
-                                            alert("Você acerta a Escuridão.");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano na mesma.");
-                                        }
-                                        else {
-                                            alert("Você acerta um forte ataque na Escuridão.");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano na mesma.");
-                                        }
-                                        totalBlock = defense;
-
-                                        stamina = stamina + (staminaMax * 0.03);
-                                        if (stamina > staminaMax) {
-                                            stamina = staminaMax;
-                                        }
-                                    }
-                                    if (combatChoice == 'd' || combatChoice == 'D') {
-                                        choiced = 'true';
-                                        preparedAttack = 0;
-                                        totalBlock = defense * 2;
-                                        stamina = stamina + (staminaMax * 0.10);
-                                        if (stamina > staminaMax) {
-                                            stamina = staminaMax;
-                                        }
-                                    }
-                                    if (combatChoice == 'ud' || combatChoice == 'UD' || combatChoice == 'Ud' || combatChoice == 'uD') {
-                                        choiced = 'true';
-                                        preparedAttack = 0;
-                                        if (stamina >= 100) {
-                                            alert("Você concentra a sua energia em sua armadura e escudo e se prepara para um ataque!");
-                                            totalBlock = defense * 3;
-                                            stamina = stamina - 100;
-                                        }
-                                        else {
-                                            totalBlock = defense * 3 * (stamina / 100);
-                                            stamina = 0;
-                                        }
-                                    }
-                                    if (combatChoice == 'pa' || combatChoice == 'PA' || combatChoice == 'Pa' || combatChoice == 'pA') {
-                                        choiced = 'true';
-                                        if (preparedAttack == 1) {
-                                            totalBlock = defense * 1.1;
-                                            preparedAttack = 0;
-                                            finalDamage = (pAMult * attack) - enemyDefense;
-                                            if (finalDamage <= 0) {
-                                            alert("Seu ataque carregado acerta a escuridão, porém não dá dano.");
-                                        }
-                                        else if (finalDamage <= 5) {
-                                            alert("Você acerta a Escuridão com seu ataque carregado, mas o dano é mínimo.");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano na mesma.");
-                                        }
-                                        else if (finalDamage <= 30) {
-                                            alert("Você acerta a Escuridão com seu ataque carregado.");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano na mesma.");
-                                        }
-                                        else {
-                                            alert("Você acerta um forte ataque carregado na Escuridão.");
-                                            enemyHP = enemyHP - finalDamage;
-                                            alert("Você dá " + finalDamage + " de dano na mesma.");
-                                        }
-                                        }
-                                        else {
-                                            preparedAttack = 1;
-                                            if (stamina >= 150) {
-                                                alert("Você acumula uma gigantesca quantidade de energia em sua espada!");
-                                                pAMult = 2;
-                                                stamina = stamina - 150;
-                                            }
-                                            else {
-                                                alert("Você coloca a stamina que tinha na sua lâmina...");
-                                                pAMult = stamina / 150;
-                                                stamina = 0;
-                                            }
-                                            totalBlock = defense * 1.1;
-                                            alert("Se quiser, você pode cancelar o seu ataque no próximo turno se seu " +
-                                                "oponente for fazer algo assustador, mas assim você perderá o ataque carregado (pa para continuar, outra coisa caso queira, bem, fazer outra coisa)");
-                                        }
-                                    }
-                                    if (combatChoice == 'p' || combatChoice == 'P') {
-                                        
                                         alert("Poção nenhuma conseguiria te ajudar com isso.");
                                     }
                                 } while (choiced == 'false');
 
-                                if (lightWeak > 0) {
-                                    lightWeak = lightWeak - 0.5;
-                                    defense = defense + 0.5;
-                                    attack = attack + 0.5;
-                                    alert("Você se recompõe um pouco, recuperando 0.5 ataque e 0.5 defesa perdidos.")
-                                }
-                                if (carnica > 0) {
-                                    carnica = carnica - 1;
-                                    enemyAttack = enemyAttack - 1;
-                                    alert("A Escuridão perde sua forma, e perde 1 de ataque.")
-                                }
-                                if (assovioDaMorte > 0) {
-                                    assovioDaMorte = assovioDaMorte - 1;
-                                    darkness2.volume = darkness2.volume - 0.2;
-                                    alert("Um atrás do outro, membros perfurantes te atacam sem piedade.");
-                                    enemyFinalDamage = 85 - totalBlock;
-                                    if (enemyFinalDamage > 0) {
-                                        HP = HP - enemyFinalDamage;
-                                        alert("Você leva " + enemyFinalDamage + " de dano.");
+                                if (enemyHP > 0) {
+                                    if (tubaroBlade == 1 || lightCrown == 1) {
+                                        alert("A escuridão está se movendo.");
                                     }
                                     else {
-                                        alert("Você protege uma coisa depois da outra, e chega muito perto de ser perfurado.");
-                                    }
-                                    if (assovioDaMorte > 0) {
-                                        alert("Mais membros perfurantes se aproximam.");
-                                    }
-                                    else {
-                                        alert("Parece que você conseguiu sobreviver até os membros acabarem de aparecer.");
-                                        alert("Você se sente seguro o suficiente para continuar a atacar a Escuridão.");
-                                        darkness2.volume = 0.07;
-                                        alert("Você não sabe o porquê, mas sobreviver a um ataque ridículo como este lhe dá um pingo de esperança.");
-                                        alert("Esta coisa te quer morto.");
-                                        darkness2.volume = 0.05;
-                                        alert("Se você está aguentando até agora, é por seu mérito.");
-                                        darkness2.pause();
-                                        alert("A vitória agora parece quase impossível...");
-                                        darkness3.play();
-                                        alert("Mas agora, é uma possibilidade.");
-                                    }
-                                }
-                                else if (assovioDaMorteEX > 0) {
-                                    assovioDaMorteEX = assovioDaMorteEX - 1;
-                                    alert("Um atrás do outro, inumeros membros perfurantes te atacam.");
-                                    enemyHP = 1;
-                                    enemyFinalDamage = 90 - totalBlock;
-                                    if (enemyFinalDamage > 3) {
-                                        HP = HP - enemyFinalDamage;
-                                        alert("Você leva " + enemyFinalDamage + " de dano.");
-                                    }
-                                    else {
-                                        alert("Você consegue defender da maioria dos mesmbros, mas ainda é perfurado, e leva 3 de dano.");
-                                        HP = HP - 3;
-                                    }
-                                    if (assovioDaMorteEX > 0) {
-                                        alert("Mais membros, um atrás do outro, surgem para te perfurar.");
-                                    }
-                                    else {
-                                        darknessAlive = 0;
-                                        alert("Parece que o ataque sem piedade finalmente terminou.");
-                                    }
-                                }
-
-                                else if (enemyHP <= 500 && enemyLives == 1) {
-                                    darkness2.volume = 0.9;
-                                    alert("'Ah...'");
-                                    alert("'Parece que dessa vez, você é insistente...'");
-                                    darkness2.volume = 0.8;
-                                    alert("'Mas não faz diferença...'");
-                                    alert("'No final, tudo repete...'");
-                                    darkness2.volume = 0.7;
-                                    enemyLives = 0;
-                                    alert("Da Escuridão, você escuta algo diferente.");
-                                    alert("Você não sabe o que é, mas seus sentidos dizem que é ruim.");
-                                    alert("Membros perfurantes surgem da escuridão, mais do que você consegue contar.");
-                                    if(tubaroBlade == 1){
-                                        alert("A energia tubaro dentro de você quer defender com tudo que você tem.");
-                                    }
-                                    if(lightCrown == 1){
-                                        alert("Sua coroa de luz, de alguma forma, te aconselha a se proteger ao máximo.");
-                                    }
-                                    assovioDaMorte = 3;
-                                }
-                                else if (enemyHP <= 1 && enemyLives == 0) {
-                                    alert("'hahahahaha...'");
-                                    alert("'você realmente está me enchendo a paciência desta vez...'");
-                                    enemyLives = -1;
-                                    enemyHP = 1;
-                                    alert("'eu não vou deixar...'");
-                                    alert("'não vou deixar vou deixar você ir embora...'");
-                                    alert("'muito menos, vou deixar o resto...'");
-                                    if(tubaroBlade == 1){
-                                        alert("Novamente, a energia tubaro quer defender com tudo que tem.");
-                                        alert("Desta vez porém, a energia parece pensar que a Escuridão vai soltar tudo que ela ainda tem sobrando.");
-                                    }
-                                    if(lightCrown == 1){
-                                        alert("Novamente, sua coroa de luz te aconselha a se proteger ao máximo.");
-                                        alert("Diferente de antes, a coroa tem algo a mais a compartilhar. Parece que a Escuridão não tem forças para continuar depois deste ataque.");
-                                    }
-                                    assovioDaMorteEX = 4;
-                                }
-                                else if (enemyLives == 1) {
-                                    enemyChoice = Math.floor(Math.random() * 4) + 1;
-                                    if (tresToques != 0) {
-                                        if (tresToques == 1) {
-                                            alert("A Escuridão cresce ainda mais. Você se sente inquieto, como se seu corpo quisesse te avisar de algo.");
-                                            tresToques = tresToques + 1;
-                                        }
-                                        else if (tresToques == 2) {
-                                            alert("A Escuridão começa a cortar e fatiar tudo em volta de você.");
-                                            enemyFinalDamage = (enemyAttack * 3) - totalBlock;
-                                            tresToques = 0;
-                                            if (enemyFinalDamage > 0) {
-                                                HP = HP - enemyFinalDamage;
-                                                alert("Você leva " + enemyFinalDamage + " de dano.");
-                                            }
-                                            else {
-                                                alert("Você bloqueia alguns cortes, e esquiva do resto.");
-                                            }
-                                            alert("Depois dos ataques, a Escuridão volta para seu tamanho original.");
-                                        }
-                                    }
-                                    else if (attackReadied == 'true') {
-                                        alert("Do gigante tamanho da Escuridão, vários membros contundentes voam em sua direção.");
-
-                                        enemyFinalDamage = (enemyAttack * attackReadiedBonus) - totalBlock;
-
-                                        attackReadied = 'false';
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
-                                        }
-                                        else {
-                                            alert("Você consegue bloquear todos os membros contundentes.");
-                                        }
-                                    }
-                                    else if (enemyChoice == 1) {
-                                        alert("O ar em volta de você começa a ficar cada vez mais frio.'");
-                                        enemyFinalDamage = enemyAttack - totalBlock;
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
-                                        }
-                                        else {
-                                            alert("Você consegue evitar que o frio te cause ferimentos.");
-                                        }
-                                        alert("O frio te deixa um pouco mais devagar.");
-                                        alert("Sua defesa e ataque diminuem em 1.5 .");
-                                        lightWeak = lightWeak + 1.5;
-                                        defense = defense - 1.5;
-                                        attack = attack - 1.5;
-                                    }
-                                    else if (enemyChoice == 2) {
-                                        alert("Você percebe alguns membros contundentes se formando na Escuridão.");
-                                        attackReadied = 'true';
-                                    }
-                                    else if (enemyChoice == 3) {
-                                        alert("A Escuridão começa a crescer.");
-                                        tresToques = tresToques + 1;
-                                    }
-                                    else if (enemyChoice == 4) {
-                                        alert("A escuridão começa a ganhar forma.");
-                                        if (carnica == 0) {
-                                            carnica = 4;
-                                            enemyAttack = enemyAttack + 4;
-                                            alert("O ataque da Escuridão aumenta em 4.");
-                                        }
-                                        else {
-                                            alert("Com a forma da escuridão medianamente definida, ela parece reparar um pouco de si mesma.");
-                                            enemyHP = enemyHP + 10;
-                                        }
-                                    }
-                                }
-
-                                else if (enemyLives == 0) {
-                                    enemyChoice = Math.floor(Math.random() * 4) + 1;
-                                    if (tresToques != 0) {
-                                        if (tresToques == 1) {
-                                            alert("A Escuridão cresce ainda mais... Você já entende o que isso quer dizer.");
-                                            tresToques = tresToques + 1;
-                                        }
-                                        else if (tresToques == 2) {
-                                            alert("A Escuridão começa a cortar e fatiar tudo em volta de você.");
-                                            enemyFinalDamage = (enemyAttack * 3) - totalBlock;
-                                            tresToques = 0;
-                                            if (enemyFinalDamage > 0) {
-                                                HP = HP - enemyFinalDamage;
-                                                alert("Você leva " + enemyFinalDamage + " de dano.");
-                                            }
-                                            else {
-                                                alert("Você bloqueia alguns cortes, e esquiva do resto.");
-                                            }
-                                            alert("Depois dos ataques, a Escuridão volta para seu tamanho original.");
-                                        }
-                                    }
-                                    else if (attackReadied == 'true') {
-                                        alert("Do gigante tamanho da Escuridão, vários membros contundentes voam em sua direção.");
-
-                                        enemyFinalDamage = (enemyAttack * attackReadiedBonus) - totalBlock;
-
-                                        attackReadied = 'false';
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
-                                        }
-                                        else {
-                                            alert("Você consegue bloquear todos os membros contundentes.");
-                                        }
-                                        alert("Os membros tanbém acertam sua lâmina, e deixa ela um pouco menos afiada.");
-                                        alert("Você perde 5% de chance de acerto crítico, permanentemente.");
-                                        critChance = critChance - 5;
-                                    }
-
-                                    else if (enemyChoice == 1) {
-                                        alert("O ar em volta de você começa a ficar gélido.'");
-                                        enemyFinalDamage = enemyAttack - totalBlock;
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
-                                        }
-                                        else {
-                                            alert("Você consegue evitar que o frio te cause ferimentos.");
-                                        }
-                                        alert("O frio te deixa um pouco mais devagar.");
-                                        alert("Sua defesa e ataque diminuem em 1.5.");
-                                        lightWeak = lightWeak + 1.5;
-                                        defense = defense - 1.5;
-                                        attack = attack - 1.5;
-                                        alert("O te cansa.");
-                                        alert("Sua stamina diminui em 25.");
-                                        stamina = stamina - 25;
-                                    }
-                                    else if (enemyChoice == 2) {
-                                        alert("Você percebe alguns membros contundentes se formando na Escuridão.");
-                                        attackReadied = 'true';
-                                    }
-                                    else if (enemyChoice == 3) {
-                                        alert("A Escuridão começa a crescer.");
-                                        tresToques = tresToques + 1;
-                                    }
-                                    else if (enemyChoice == 4) {
-                                        alert("A escuridão começa a ganhar forma.");
-                                        if (carnica == 0) {
-                                            carnica = 4;
-                                            enemyAttack = enemyAttack + 4;
-                                            alert("O ataque da Escuridão aumenta em 4.");
-                                        }
-                                        else {
-                                            alert("A forma da escuridão fica um pouco mais definida.");
-                                            carnica = carnica + 2;
-                                            enemyAttack = enemyAttack + 2;
-                                            alert("O ataque da Escuridão aumenta em 2.");
-                                        }
+                                        alert("A escuridão cresce mais um pouco.");
+                                        alert("Você é engolido por uma dor crescente, enquanto vai ficando mais fraco.");
+                                        alert("Você perde 2 de vida máxima e atual.");
+                                        alert("Você perde 3 de ataque e 3 de defesa.");
+                                        HP = HP - 2;
+                                        totalHP = totalHP - 2;
+                                        attack = attack - 3;
+                                        defense = defense - 3;
                                     }
                                 }
                                 totalBlock = 0;
-                            } while (darknessAlive == 1 && HP > 0)
+                            } while (enemyHP > 0 && HP > 0)
+                            if (HP <= 0) {
+                            }
+                            else {
+                                darkness1.volume = 0.9;
+                                alert("Este seu corte fez alguma diferença, você sente.");
+                                darkness1.volume = 0.8;
+                                alert("A escuridão para de se mover, e você começa a escutar algo.");
+                                darkness1.volume = 0.65;
+                                alert("Primeiramente, está tão baixo que você não consegue distinguir, mas o som vai ficando mais alto.");
+                                darkness1.volume = 0.5;
+                                alert("Som, na verdade, é uma descrição ruim. Talvez a pior que eu já fiz. Na verdade, isso se assemelha mais com...");
+                                darkness1.volume = 0.4;
+                                alert("...sussurros.");
+                                darkness1.volume = 0.3;
+                                alert("Sussuros com nenhuma voz em particular, mas sim uma conjunção de vozes.");
+                                darkness1.volume = 0.25;
+                                alert("'ah...'");
+                                if (localStorage.getItem('darkness') != 'yes') {
+                                    alert("'você realmente veio...'");
+                                    darkness1.volume = 0.2;
+                                    alert("'me surpreende...'");
+                                    alert("'que você tenha trago...'");
+                                    darkness1.volume = 0.15;
+                                    alert("'um item como esse...'");
+                                    alert("'um item que consegue me compreender...'");
+                                    alert("'na primeira vez que você me encontra...'");
+                                    alert("'por que você está aqui..?'");
+                                    darkness1.volume = 0.1;
+                                    alert("'...'");
+                                    alert("'bom...'");
+                                    alert("'não importa...'");
+                                    darkness1.volume = 0.05;
+                                    alert("'está luta está fadada a acontecer sempre que você chegar aqui...'");
+                                    alert("'e quando você perder...'");
+                                    alert("'você vai voltar a me entreter...'");
+                                    alert("'todos vocês...'");
+                                    alert("'até aquele violino...'");
+                                }
+                                if (localStorage.getItem('darkness') == 'yes') {
+                                    alert("'de novo...'");
+                                    darkness1.volume = 0.2;
+                                    alert("'de novo, você está aqui na minha frente...'");
+                                    alert("'desta vez, você trouxe algo...'");
+                                    alert("'um item que consegue me compreender...'");
+                                    darkness1.volume = 0.15;
+                                    alert("'mesmo assim...'");
+                                    alert("'eu ainda não entendo...'");
+                                    alert("'por que você está aqui novamente..?'");
+                                    alert("'...'");
+                                    darkness1.volume = 0.1;
+                                    alert("'bom...'");
+                                    alert("'não importa...'");
+                                    alert("'você não vai mudar nada...'");
+                                    darkness1.volume = 0.05;
+                                    alert("'está luta está fadada a acontecer sempre que você chegar aqui...'");
+                                    alert("'e quando você perder...'");
+                                    alert("'você vai voltar a me entreter...'");
+                                    alert("'todos vocês...'");
+                                    alert("'até aquele violino...'");
+                                }
+                                darkness1.pause();
+                                darkness2.play();
+                                alert("Apesar de você entender o que está diante de você, o seu poder é opressor. " +
+                                    "É difícil até ficar de pé diante de tamanha ameaça.");
+                                alert("Você não consegue recuperar mais que um terço da stamina que você normalmente recupera.");
+                                enemyLives = 1;
+                                enemyHP = 1000;
+                                enemyTotalHP = 1000;
+                                enemyAttack = 25;
+                                enemyDefense = 12;
+                                var tresToques = 0;
+                                var carnica = 0;
+                                var assovioDaMorte = 0;
+                                var assovioDaMorteEX = 0;
+                                var darknessAlive = 1;
+                                do {
+                                    do {
+                                        var choiced = 'false';
+                                        combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
+                                            + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
+                                            enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                            "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
+
+                                        if (combatChoice == 'a' || combatChoice == 'A') {
+                                            choiced = 'true';
+                                            preparedAttack = 0;
+                                            if (stamina >= 100) {
+                                                if ((Math.floor(Math.random() * 100) + 1) <= critChance) {
+                                                    if (enemyStanced > 0) { finalDamage = attack * critMult - (enemyDefense * 1.3); }
+                                                    else { finalDamage = attack * critMult - enemyDefense; }
+                                                    alert("CRÍTICO!");
+                                                    stamina = stamina - 100;
+                                                }
+                                                else {
+                                                    if (enemyStanced > 0) { finalDamage = attack - (enemyDefense * 1.3); }
+                                                    else { finalDamage = attack - enemyDefense; }
+                                                    stamina = stamina - 100;
+                                                }
+                                            }
+                                            else {
+                                                if ((Math.floor(Math.random() * 100) + 1) <= critChance) {
+                                                    finalDamage = ((attack * critMult) * (stamina / 100)) - enemyDefense;
+                                                    alert("CRÍTICO!");
+                                                }
+                                                else {
+                                                    if (enemyStanced > 0) { finalDamage = (attack * (stamina / 100)) - (enemyDefense * 1.3); }
+                                                    else { finalDamage = (attack * (stamina / 100)) - enemyDefense; }
+                                                    stamina = 0;
+                                                }
+                                            }
+                                            if (finalDamage <= 0) {
+                                                alert("Seu ataque acerta a escuridão, porém não dá dano.");
+                                            }
+                                            else if (finalDamage <= 5) {
+                                                alert("Você acerta a Escuridão, mas o dano é mínimo.");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano na mesma.");
+                                            }
+                                            else if (finalDamage <= 30) {
+                                                alert("Você acerta a Escuridão.");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano na mesma.");
+                                            }
+                                            else {
+                                                alert("Você acerta um forte ataque na Escuridão.");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano na mesma.");
+                                            }
+                                            totalBlock = defense;
+
+                                            stamina = stamina + (staminaMax * 0.03);
+                                            if (stamina > staminaMax) {
+                                                stamina = staminaMax;
+                                            }
+                                        }
+                                        if (combatChoice == 'd' || combatChoice == 'D') {
+                                            choiced = 'true';
+                                            preparedAttack = 0;
+                                            totalBlock = defense * 2;
+                                            stamina = stamina + (staminaMax * 0.10);
+                                            if (stamina > staminaMax) {
+                                                stamina = staminaMax;
+                                            }
+                                        }
+                                        if (combatChoice == 'ud' || combatChoice == 'UD' || combatChoice == 'Ud' || combatChoice == 'uD') {
+                                            choiced = 'true';
+                                            preparedAttack = 0;
+                                            if (stamina >= 100) {
+                                                alert("Você concentra a sua energia em sua armadura e escudo e se prepara para um ataque!");
+                                                totalBlock = defense * 3;
+                                                stamina = stamina - 100;
+                                            }
+                                            else {
+                                                totalBlock = defense * 3 * (stamina / 100);
+                                                stamina = 0;
+                                            }
+                                        }
+                                        if (combatChoice == 'pa' || combatChoice == 'PA' || combatChoice == 'Pa' || combatChoice == 'pA') {
+                                            choiced = 'true';
+                                            if (preparedAttack == 1) {
+                                                totalBlock = defense * 1.1;
+                                                preparedAttack = 0;
+                                                finalDamage = (pAMult * attack) - enemyDefense;
+                                                if (finalDamage <= 0) {
+                                                    alert("Seu ataque carregado acerta a escuridão, porém não dá dano.");
+                                                }
+                                                else if (finalDamage <= 5) {
+                                                    alert("Você acerta a Escuridão com seu ataque carregado, mas o dano é mínimo.");
+                                                    enemyHP = enemyHP - finalDamage;
+                                                    alert("Você dá " + finalDamage + " de dano na mesma.");
+                                                }
+                                                else if (finalDamage <= 30) {
+                                                    alert("Você acerta a Escuridão com seu ataque carregado.");
+                                                    enemyHP = enemyHP - finalDamage;
+                                                    alert("Você dá " + finalDamage + " de dano na mesma.");
+                                                }
+                                                else {
+                                                    alert("Você acerta um forte ataque carregado na Escuridão.");
+                                                    enemyHP = enemyHP - finalDamage;
+                                                    alert("Você dá " + finalDamage + " de dano na mesma.");
+                                                }
+                                            }
+                                            else {
+                                                preparedAttack = 1;
+                                                if (stamina >= 150) {
+                                                    alert("Você acumula uma gigantesca quantidade de energia em sua espada!");
+                                                    pAMult = 2;
+                                                    stamina = stamina - 150;
+                                                }
+                                                else {
+                                                    alert("Você coloca a stamina que tinha na sua lâmina...");
+                                                    pAMult = stamina / 150;
+                                                    stamina = 0;
+                                                }
+                                                totalBlock = defense * 1.1;
+                                                alert("Se quiser, você pode cancelar o seu ataque no próximo turno se seu " +
+                                                    "oponente for fazer algo assustador, mas assim você perderá o ataque carregado (pa para continuar, outra coisa caso queira, bem, fazer outra coisa)");
+                                            }
+                                        }
+                                        if (combatChoice == 'p' || combatChoice == 'P') {
+
+                                            alert("Poção nenhuma conseguiria te ajudar com isso.");
+                                        }
+                                    } while (choiced == 'false');
+
+                                    if (lightWeak > 0) {
+                                        lightWeak = lightWeak - 0.5;
+                                        defense = defense + 0.5;
+                                        attack = attack + 0.5;
+                                        alert("Você se recompõe um pouco, recuperando 0.5 ataque e 0.5 defesa perdidos.")
+                                    }
+                                    if (carnica > 0) {
+                                        carnica = carnica - 1;
+                                        enemyAttack = enemyAttack - 1;
+                                        alert("A Escuridão perde sua forma, e perde 1 de ataque.")
+                                    }
+                                    if (assovioDaMorte > 0) {
+                                        assovioDaMorte = assovioDaMorte - 1;
+                                        darkness2.volume = darkness2.volume - 0.2;
+                                        alert("Um atrás do outro, membros perfurantes te atacam sem piedade.");
+                                        enemyFinalDamage = 85 - totalBlock;
+                                        if (enemyFinalDamage > 0) {
+                                            HP = HP - enemyFinalDamage;
+                                            alert("Você leva " + enemyFinalDamage + " de dano.");
+                                        }
+                                        else {
+                                            alert("Você protege uma coisa depois da outra, e chega muito perto de ser perfurado.");
+                                        }
+                                        if (assovioDaMorte > 0) {
+                                            alert("Mais membros perfurantes se aproximam.");
+                                        }
+                                        else {
+                                            alert("Parece que você conseguiu sobreviver até os membros acabarem de aparecer.");
+                                            alert("Você se sente seguro o suficiente para continuar a atacar a Escuridão.");
+                                            darkness2.volume = 0.07;
+                                            alert("Você não sabe o porquê, mas sobreviver a um ataque ridículo como este lhe dá um pingo de esperança.");
+                                            alert("Esta coisa te quer morto.");
+                                            darkness2.volume = 0.05;
+                                            alert("Se você está aguentando até agora, é por seu mérito.");
+                                            darkness2.pause();
+                                            alert("A vitória agora parece quase impossível...");
+                                            darkness3.play();
+                                            alert("Mas agora, é uma possibilidade.");
+                                        }
+                                    }
+                                    else if (assovioDaMorteEX > 0) {
+                                        assovioDaMorteEX = assovioDaMorteEX - 1;
+                                        alert("Um atrás do outro, inumeros membros perfurantes te atacam.");
+                                        enemyHP = 1;
+                                        enemyFinalDamage = 90 - totalBlock;
+                                        if (enemyFinalDamage > 3) {
+                                            HP = HP - enemyFinalDamage;
+                                            alert("Você leva " + enemyFinalDamage + " de dano.");
+                                        }
+                                        else {
+                                            alert("Você consegue defender da maioria dos mesmbros, mas ainda é perfurado, e leva 3 de dano.");
+                                            HP = HP - 3;
+                                        }
+                                        if (assovioDaMorteEX > 0) {
+                                            alert("Mais membros, um atrás do outro, surgem para te perfurar.");
+                                        }
+                                        else {
+                                            darknessAlive = 0;
+                                            alert("Parece que o ataque sem piedade finalmente terminou.");
+                                        }
+                                    }
+
+                                    else if (enemyHP <= 500 && enemyLives == 1) {
+                                        darkness2.volume = 0.9;
+                                        alert("'Ah...'");
+                                        alert("'Parece que dessa vez, você é insistente...'");
+                                        darkness2.volume = 0.8;
+                                        alert("'Mas não faz diferença...'");
+                                        alert("'No final, tudo repete...'");
+                                        darkness2.volume = 0.7;
+                                        enemyLives = 0;
+                                        alert("Da Escuridão, você escuta algo diferente.");
+                                        alert("Você não sabe o que é, mas seus sentidos dizem que é ruim.");
+                                        alert("Membros perfurantes surgem da escuridão, mais do que você consegue contar.");
+                                        if (tubaroBlade == 1) {
+                                            alert("A energia tubaro dentro de você quer defender com tudo que você tem.");
+                                        }
+                                        if (lightCrown == 1) {
+                                            alert("Sua coroa de luz, de alguma forma, te aconselha a se proteger ao máximo.");
+                                        }
+                                        assovioDaMorte = 3;
+                                    }
+                                    else if (enemyHP <= 1 && enemyLives == 0) {
+                                        alert("'hahahahaha...'");
+                                        alert("'você realmente está me enchendo a paciência desta vez...'");
+                                        enemyLives = -1;
+                                        enemyHP = 1;
+                                        alert("'eu não vou deixar...'");
+                                        alert("'não vou deixar vou deixar você ir embora...'");
+                                        alert("'muito menos, vou deixar o resto...'");
+                                        if (tubaroBlade == 1) {
+                                            alert("Novamente, a energia tubaro quer defender com tudo que tem.");
+                                            alert("Desta vez porém, a energia parece pensar que a Escuridão vai soltar tudo que ela ainda tem sobrando.");
+                                        }
+                                        if (lightCrown == 1) {
+                                            alert("Novamente, sua coroa de luz te aconselha a se proteger ao máximo.");
+                                            alert("Diferente de antes, a coroa tem algo a mais a compartilhar. Parece que a Escuridão não tem forças para continuar depois deste ataque.");
+                                        }
+                                        assovioDaMorteEX = 4;
+                                    }
+                                    else if (enemyLives == 1) {
+                                        enemyChoice = Math.floor(Math.random() * 4) + 1;
+                                        if (tresToques != 0) {
+                                            if (tresToques == 1) {
+                                                alert("A Escuridão cresce ainda mais. Você se sente inquieto, como se seu corpo quisesse te avisar de algo.");
+                                                tresToques = tresToques + 1;
+                                            }
+                                            else if (tresToques == 2) {
+                                                alert("A Escuridão começa a cortar e fatiar tudo em volta de você.");
+                                                enemyFinalDamage = (enemyAttack * 3) - totalBlock;
+                                                tresToques = 0;
+                                                if (enemyFinalDamage > 0) {
+                                                    HP = HP - enemyFinalDamage;
+                                                    alert("Você leva " + enemyFinalDamage + " de dano.");
+                                                }
+                                                else {
+                                                    alert("Você bloqueia alguns cortes, e esquiva do resto.");
+                                                }
+                                                alert("Depois dos ataques, a Escuridão volta para seu tamanho original.");
+                                            }
+                                        }
+                                        else if (attackReadied == 'true') {
+                                            alert("Do gigante tamanho da Escuridão, vários membros contundentes voam em sua direção.");
+
+                                            enemyFinalDamage = (enemyAttack * attackReadiedBonus) - totalBlock;
+
+                                            attackReadied = 'false';
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+                                            else {
+                                                alert("Você consegue bloquear todos os membros contundentes.");
+                                            }
+                                        }
+                                        else if (enemyChoice == 1) {
+                                            alert("O ar em volta de você começa a ficar cada vez mais frio.'");
+                                            enemyFinalDamage = enemyAttack - totalBlock;
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+                                            else {
+                                                alert("Você consegue evitar que o frio te cause ferimentos.");
+                                            }
+                                            alert("O frio te deixa um pouco mais devagar.");
+                                            alert("Sua defesa e ataque diminuem em 1.5 .");
+                                            lightWeak = lightWeak + 1.5;
+                                            defense = defense - 1.5;
+                                            attack = attack - 1.5;
+                                        }
+                                        else if (enemyChoice == 2) {
+                                            alert("Você percebe alguns membros contundentes se formando na Escuridão.");
+                                            attackReadied = 'true';
+                                        }
+                                        else if (enemyChoice == 3) {
+                                            alert("A Escuridão começa a crescer.");
+                                            tresToques = tresToques + 1;
+                                        }
+                                        else if (enemyChoice == 4) {
+                                            alert("A escuridão começa a ganhar forma.");
+                                            if (carnica == 0) {
+                                                carnica = 4;
+                                                enemyAttack = enemyAttack + 4;
+                                                alert("O ataque da Escuridão aumenta em 4.");
+                                            }
+                                            else {
+                                                alert("Com a forma da escuridão medianamente definida, ela parece reparar um pouco de si mesma.");
+                                                enemyHP = enemyHP + 10;
+                                            }
+                                        }
+                                    }
+
+                                    else if (enemyLives == 0) {
+                                        enemyChoice = Math.floor(Math.random() * 4) + 1;
+                                        if (tresToques != 0) {
+                                            if (tresToques == 1) {
+                                                alert("A Escuridão cresce ainda mais... Você já entende o que isso quer dizer.");
+                                                tresToques = tresToques + 1;
+                                            }
+                                            else if (tresToques == 2) {
+                                                alert("A Escuridão começa a cortar e fatiar tudo em volta de você.");
+                                                enemyFinalDamage = (enemyAttack * 3) - totalBlock;
+                                                tresToques = 0;
+                                                if (enemyFinalDamage > 0) {
+                                                    HP = HP - enemyFinalDamage;
+                                                    alert("Você leva " + enemyFinalDamage + " de dano.");
+                                                }
+                                                else {
+                                                    alert("Você bloqueia alguns cortes, e esquiva do resto.");
+                                                }
+                                                alert("Depois dos ataques, a Escuridão volta para seu tamanho original.");
+                                            }
+                                        }
+                                        else if (attackReadied == 'true') {
+                                            alert("Do gigante tamanho da Escuridão, vários membros contundentes voam em sua direção.");
+
+                                            enemyFinalDamage = (enemyAttack * attackReadiedBonus) - totalBlock;
+
+                                            attackReadied = 'false';
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+                                            else {
+                                                alert("Você consegue bloquear todos os membros contundentes.");
+                                            }
+                                            alert("Os membros tanbém acertam sua lâmina, e deixa ela um pouco menos afiada.");
+                                            alert("Você perde 5% de chance de acerto crítico, permanentemente.");
+                                            critChance = critChance - 5;
+                                        }
+
+                                        else if (enemyChoice == 1) {
+                                            alert("O ar em volta de você começa a ficar gélido.'");
+                                            enemyFinalDamage = enemyAttack - totalBlock;
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+                                            else {
+                                                alert("Você consegue evitar que o frio te cause ferimentos.");
+                                            }
+                                            alert("O frio te deixa um pouco mais devagar.");
+                                            alert("Sua defesa e ataque diminuem em 1.5.");
+                                            lightWeak = lightWeak + 1.5;
+                                            defense = defense - 1.5;
+                                            attack = attack - 1.5;
+                                            alert("O te cansa.");
+                                            alert("Sua stamina diminui em 25.");
+                                            stamina = stamina - 25;
+                                        }
+                                        else if (enemyChoice == 2) {
+                                            alert("Você percebe alguns membros contundentes se formando na Escuridão.");
+                                            attackReadied = 'true';
+                                        }
+                                        else if (enemyChoice == 3) {
+                                            alert("A Escuridão começa a crescer.");
+                                            tresToques = tresToques + 1;
+                                        }
+                                        else if (enemyChoice == 4) {
+                                            alert("A escuridão começa a ganhar forma.");
+                                            if (carnica == 0) {
+                                                carnica = 4;
+                                                enemyAttack = enemyAttack + 4;
+                                                alert("O ataque da Escuridão aumenta em 4.");
+                                            }
+                                            else {
+                                                alert("A forma da escuridão fica um pouco mais definida.");
+                                                carnica = carnica + 2;
+                                                enemyAttack = enemyAttack + 2;
+                                                alert("O ataque da Escuridão aumenta em 2.");
+                                            }
+                                        }
+                                    }
+                                    totalBlock = 0;
+                                } while (darknessAlive == 1 && HP > 0)
+                            }
                         }
-                    }
 
                         if (enemyName == 'O Violino' && HP <= 0 && enemyLives == 2) {
                             violinoPhase1.pause();
@@ -4037,52 +4039,52 @@
                             desc.style.backgroundColor = '#FFD700';
                             escuridao.style.display = "block";
                             win = 'true';
-                    }
+                        }
                         else if (HP > 0 && towerLevel % 10 != 0) {
                             enemyGold = Math.floor(enemyGold * (100 + (Math.floor(Math.random() * 5))) / 100);
                             alert("O " + enemyName + " cai no chão, imóvel.");
                             alert("Você acha " + enemyGold + " dinheiros  em seu corpo.");
                             gold = gold + enemyGold;
-                            if(((Math.floor(Math.random() * 100) + 1) <= 4 && stairs == 0) || (lightCrown == 1 && tubaroBlade == 1 && stairs == 0)){
+                            if (((Math.floor(Math.random() * 100) + 1) <= 4 && stairs == 0) || (lightCrown == 1 && tubaroBlade == 1 && stairs == 0)) {
                                 alert("Estranhamente, você também acha uma escada de mão.");
                                 alert("[escada] para usar a escada. Você pula um nível da torre, mas não ganha suas recompensas.");
                                 stairs = 1;
                             }
                             var foundGem1;
-                            if((Math.floor(Math.random() * 100) + 1) <= 5 && foundGem1 != 1){
+                            if ((Math.floor(Math.random() * 100) + 1) <= 5 && foundGem1 != 1) {
                                 alert("No corpo, você acha uma pequena turmalina.");
                                 alert("Ao voltar para a vila, você a vende por 20 dinheiros.");
                                 gold = gold + 20;
                                 foundGem1 = 1;
                             }
                             var foundGem2;
-                            if((Math.floor(Math.random() * 100) + 1) <= 3 && foundGem2 != 1){
+                            if ((Math.floor(Math.random() * 100) + 1) <= 3 && foundGem2 != 1) {
                                 alert("No corpo, você acha uma pequena barra de ouro.");
                                 alert("Ao voltar para a vila, você a vende por 25 dinheiros.");
                                 gold = gold + 25;
                                 foundGem2 = 1;
                             }
                             var foundGem3;
-                            if((Math.floor(Math.random() * 100) + 1) <= 2 && foundGem3 != 1){
+                            if ((Math.floor(Math.random() * 100) + 1) <= 2 && foundGem3 != 1) {
                                 alert("No corpo, você acha uma safira.");
                                 alert("Ao voltar para a vila, você a vende por 50 dinheiros.");
                                 gold = gold + 50;
                                 foundGem3 = 1;
                             }
-                            if((Math.floor(Math.random() * 100) + 1) <= 6){
+                            if ((Math.floor(Math.random() * 100) + 1) <= 6) {
                                 alert("Ah, parece que uma das moedas é antiga, e assim, mas valiosa!");
                                 alert("Ao voltar para a vila, você a vende por " + Math.floor(enemyGold * 0.2) + " dinheiros.");
                                 gold = gold + Math.floor(enemyGold * 0.2);
                             }
                             var foundPot;
-                            if((Math.floor(Math.random() * 100) + 1) <= 1 && foundPot != 1){
+                            if ((Math.floor(Math.random() * 100) + 1) <= 1 && foundPot != 1) {
                                 alert("No corpo, você acha uma poção de vida.");
                                 alert("Você a guarda na sua mochila.");
                                 hpPotions = hpPotions + 1;
                                 foundGem3 = 1;
                             }
                             var foundOleo;
-                            if((Math.floor(Math.random() * 100) + 1) <= 2 && foundOleo != 1){
+                            if ((Math.floor(Math.random() * 100) + 1) <= 2 && foundOleo != 1) {
                                 alert("Você acha um estranho óleo no corpo, com o nome 'afiaTudo'.");
                                 alert("Ao passar na sua lâmina, ela fica quase instantaneamente mais mortal.");
                                 alert("Seu multiplicador de crítico aumenta em 0.2x");
@@ -4192,9 +4194,9 @@
                                 alert("Os quadrados que estavam voando estilhaçam.");
                             }
                             localStorage.setItem('beatGlobo', 'yes');
-                                GloboTheme.controls = true;
-                                estiloFesta.style.display = "block";
-                                GloboTheme.pause();
+                            GloboTheme.controls = true;
+                            estiloFesta.style.display = "block";
+                            GloboTheme.pause();
                             alert("O Globo para de girar, e, um por um, os quadrados refletores do mesmo começam a estilhaçar.");
                             alert("'Caramba... você é bem mais forte que os outros, cara...'");
                             alert("'Não vou mentir, cara... Não queria morrer aqui...'");
@@ -4318,13 +4320,13 @@
                                     "guerra contra o deus da matéria. (+3 ataque +0.5x dano crítico)")
                             }
                             coswnChooser = Math.floor(Math.random() * 3) + 1;
-                            if (lightInf == 1 && coswnChooser != 3){
+                            if (lightInf == 1 && coswnChooser != 3) {
                                 coswnChooser = Math.floor(Math.random() * 3) + 1;
                             }
-                            if (lightInf == 1 && coswnChooser != 3){
+                            if (lightInf == 1 && coswnChooser != 3) {
                                 coswnChooser = Math.floor(Math.random() * 3) + 1;
                             }
-                            if (lightInf == 2 && coswnChooser != 3){
+                            if (lightInf == 2 && coswnChooser != 3) {
                                 coswnChooser = 3;
                             }
                             if (coswnChooser == 1) {
@@ -4427,8 +4429,8 @@
                             var coswnA;
                             var coswnB;
                             var coswnChooser = Math.floor(Math.random() * 2) + 1;
-                            
-                            if(tubaroPieces != 0){
+
+                            if (tubaroPieces != 0) {
                                 coswnChooser = 1;
                             }
                             if (coswnChooser == 1) {
@@ -4606,7 +4608,7 @@
                                 alert("Cuidado, pois stamina será bem importante no próximo confronto perigoso.");
                             }
                         }
-                        else if (towerLevel < 50){
+                        else if (towerLevel < 50) {
                             if (numDica == 1) {
                                 alert("O ouro que você tem restante é muito valioso, pois não encontrará mais.");
                             }
@@ -4617,7 +4619,7 @@
                                 alert("Sobre o seu último confronto perigoso: só posso lhe dizer boa sorte. E também pra nunca abaixar a guarda. Então, acho que duas coisas...");
                             }
                         }
-                        else{
+                        else {
                             if (numDica == 1) {
                                 alert("Parece que algo diferente está acontecendo.");
                             }
@@ -5208,7 +5210,7 @@
                         . . . . . . . . . . . . . . . . . . . . . .<BR>
                         . . . . . . . . . . . . . . . . . . . . . .<BR>
                     </div>
-                        <button onclick="ResetProgress()">Resetar progresso</button>
+                    <button onclick="ResetProgress()">Resetar progresso</button>
                 </div>
             </div>
             <div id="borderRight">
@@ -5300,51 +5302,51 @@
             ????? <a href="#">???</a>
         </div>
     </div>
-                        <script type="text/javascript">
-    if(localStorage.beatEsqueletinho == 'yes'){
+    <script type="text/javascript">
+        if (localStorage.beatEsqueletinho == 'yes') {
             EsqueletinhoTheme.controls = true;
         }
-        if(localStorage.beatGlobo == 'yes'){
+        if (localStorage.beatGlobo == 'yes') {
             GloboTheme.controls = true;
             estiloFesta.style.display = "block";
         }
-        if(localStorage.beatGuardian == 'yes'){
+        if (localStorage.beatGuardian == 'yes') {
             GuardianTheme.controls = true;
             salaGuardiao.style.display = "block";
         }
-        if(localStorage.beatArco == 'yes'){
+        if (localStorage.beatArco == 'yes') {
             ArcoPhase1.controls = true;
             ArcoPhase2.controls = true;
             calorDragao.style.display = "block";
         }
-        
-        if(localStorage.tubaroEnding == 'yes'){
+
+        if (localStorage.tubaroEnding == 'yes') {
             Violino1.controls = true;
             ViolinPhase3.controls = true;
             localStorage.setItem('tubaroEnding', 'yes');
             laminaTubaro.style.display = "block";
         }
-        if(localStorage.CrownEnding == 'yes'){
+        if (localStorage.CrownEnding == 'yes') {
             Violino1.controls = true;
             ViolinPhase3.controls = true;
             localStorage.setItem('CrownEnding', 'yes');
             coroaLuz.style.display = "block";
         }
-        if(localStorage.normalEnding == 'yes'){
+        if (localStorage.normalEnding == 'yes') {
             Violino1.controls = true;
             ViolinPhase3.controls = true;
             localStorage.setItem('normalEnding', 'yes');
             vitoriaComum.style.display = "block";
         }
-        if(localStorage.beatLunin == 'yes'){
+        if (localStorage.beatLunin == 'yes') {
             LuninPhase1.controls = true;
             luz.style.display = "block";
         }
-        if(localStorage.darknessEnding == 'yes'){
+        if (localStorage.darknessEnding == 'yes') {
             escuridao.style.display = "block";
             desc.style.backgroundColor = '#FFD700';
         }
-                        </script>
+    </script>
 </body>
 
 </html>
