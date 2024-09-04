@@ -1486,6 +1486,7 @@
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x\r\n \r\n" +
                                         enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        "bass Boosts: " + bassBoosts + " / 5 " +
                                         "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -1659,6 +1660,9 @@
                                     }
                                     else if (enemyChoice == 1) {
                                         alert(enemyName + " Leva a guitarra gigante para trás do corpo...");
+                                        if (bassBoosts > 4) {
+                                            alert("A Guitarra parece fortalecida pelos bass boosts. Cuidado!");
+                                        }
                                         axeReadied = 1;
                                     }
                                     else if (enemyChoice == 2) {
