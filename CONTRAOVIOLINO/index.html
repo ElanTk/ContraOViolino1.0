@@ -5355,8 +5355,8 @@
             desc.style.backgroundColor = '#FFD700';
             calamityText.innerHTML = "nível de calamidade: " + localStorage.getItem('calamityLevel');
         }
-        if (localStorage.darknessEnding == 'yes' && localStorage.getItem('calamityLevel') ) {
-            calamityText.innerHTML = "nível de calamidade: " + localStorage.getItem('calamityLevel');
+        if (localStorage.darknessEnding == 'yes' && localStorage.getItem('calamityLevel') == null) {
+            localStorage.setItem('calamityLevel', 0);
         }
     </script>
 </body>
