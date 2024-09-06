@@ -4471,10 +4471,12 @@
                                                 "com uma parte muito pequena ser segurada e uma lâmina não muito longa, mas não muito curta, " +
                                                 "que se extende ao lado da sua mão ao ser usado corretamente. Assim, lutar com ela " +
                                                 "é muito parecido com socar, mas sempre 'errando' o soco.");
-                                            attack = attack + 11;
+                                            attack = attack + 14;
+                                            staminaMax = staminaMax + 100;
+                                            stamina = staminaMax;
                                             tubaroBlade = 1;
-                                            prompt("Vai demorar um pouco pra se acostumar com a lâmina, mas ela é muito forte. (+ 11 ataque " +
-                                                "adicional (além da guarda)");
+                                            prompt("Vai demorar um pouco pra se acostumar com a lâmina, mas ela é muito forte. (+ 14 ataque " +
+                                                "adicional (além da guarda), +100 stamina)");
                                         }
                                         else {
                                             prompt("Você coloca a guarda na sua espada. Ela está muito mais consistente, porém " +
@@ -5092,6 +5094,7 @@
                                     lightCrown = 1;
                                     critChance = critChance + 20;
                                     attack = attack + 10;
+                                    stamina = staminaMax;
                                 }
                                 if (lightWeak > 0) {
                                     do {
