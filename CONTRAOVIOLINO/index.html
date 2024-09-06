@@ -52,6 +52,8 @@
 
                 localStorage.setItem('darkness', 'no');
                 localStorage.setItem('darknessEnding', 'no');
+                localStorage.setItem('calamityLevel', 0);
+                calamityText.innerHTML = "?????:???";
 
                 localStorage.beatLunin = 'no';
                 LuninPhase1.controls = false;
@@ -4035,6 +4037,9 @@
                             alert("'Você realmente conseguiu derrotar AQUILO.'");
                             alert("'Agora, podemos ter uma vida normal.'");
                             alert("'Por enquanto.'");
+                            if (localStorage.darknessEnding == 'yes') {
+                                localStorage.setItem('calamityLevel', localStorage.getItem('calamityLevel') + 1);
+                            }
                             localStorage.setItem('darknessEnding', 'yes');
                             desc.style.backgroundColor = '#FFD700';
                             escuridao.style.display = "block";
@@ -5249,7 +5254,7 @@
                         DAR PROBLEMA
                         NAS MÚSICAS DO JOGO.<BR>
                         <BR>
-                        IMPORTANTE: NÃO RECARREGUE A PÁGINA, OU PERDERÁ SEU PROGRESSO!<BR>
+                        IMPORTANTE: NÃO RECARREGUE A PÁGINA NO MEIO DE UM JOGO, OU PERDERÁ SEU PROGRESSO!<BR>
                         <BR>
                         Quando quiser começar uma tentativa, clique no violino!
 
@@ -5302,7 +5307,7 @@
             </div>
         </div>
         <div id="footer">
-            ????? <a href="#">???</a>
+            <a id='calamityText'>?????:???</a>
         </div>
     </div>
     <script type="text/javascript">
@@ -5348,6 +5353,10 @@
         if (localStorage.darknessEnding == 'yes') {
             escuridao.style.display = "block";
             desc.style.backgroundColor = '#FFD700';
+            calamityText.innerHTML = "nível de calamidade: " + localStorage.getItem('calamityLevel');
+        }
+        if (localStorage.darknessEnding == 'yes' && localStorage.getItem('calamityLevel') ) {
+            calamityText.innerHTML = "nível de calamidade: " + localStorage.getItem('calamityLevel');
         }
     </script>
 </body>
