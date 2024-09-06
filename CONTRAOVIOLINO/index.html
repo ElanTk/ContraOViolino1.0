@@ -4073,8 +4073,8 @@
                             }
                             if ((Math.floor(Math.random() * 100) + 1) <= 6) {
                                 alert("Ah, parece que uma das moedas é antiga, e assim, mas valiosa!");
-                                alert("Ao voltar para a vila, você a vende por " + Math.floor(enemyGold * 0.2) + " dinheiros.");
-                                gold = gold + Math.floor(enemyGold * 0.2);
+                                alert("Ao voltar para a vila, você a vende por " + Math.floor(enemyGold * 0.2) + (towerLevel / 2) + " dinheiros.");
+                                gold = gold + Math.floor(enemyGold * 0.2) + (towerLevel / 2);
                             }
                             var foundPot;
                             if ((Math.floor(Math.random() * 100) + 1) <= 1 && foundPot != 1) {
