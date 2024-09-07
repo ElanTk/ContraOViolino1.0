@@ -33,6 +33,8 @@
                 localStorage.tubaroEnding = 'no';
                 Violino1.controls = false;
                 ViolinPhase3.controls = false;
+                localStorage.setItem('tubaroEnding', 'no');
+                localStorage.setItem('tubaroEndingEX', 'no');
                 laminaTubaro.style.display = "none";
 
                 localStorage.CrownEnding = 'no';
@@ -40,6 +42,7 @@
                 ViolinPhase3.controls = false;
 
                 localStorage.setItem('CrownEnding', 'no');
+                localStorage.setItem('CrownEndingEX', 'no');
                 coroaLuz.style.display = "none";
 
 
@@ -48,10 +51,12 @@
                 ViolinPhase3.controls = false;
 
                 localStorage.setItem('normalEnding', 'no');
+                localStorage.setItem('normalEndingEX', 'no');
                 vitoriaComum.style.display = "none";
 
                 localStorage.setItem('darkness', 'no');
                 localStorage.setItem('darknessEnding', 'no');
+                localStorage.setItem('darknessEndingEX', 'no');
                 localStorage.setItem('calamityLevel', null);
                 calamityText.innerHTML = "?????:???";
 
@@ -147,6 +152,61 @@
                 alert("Esse herói é você.");
                 alert("A graça dos deuses te deu uma poção de vida. Use quando precisar!");
 
+                if(localStorage.getItem('calamityLevel') > -1){
+                        alert("Você escuta um conjunto de sussuros de tonalidades diferentes. Estranhamente, isso parece ser meio familiar para você.");
+                        alert("'hahahahaha...'");
+                        alert("'claro, você devolveu o poder a mim...'");
+                        alert("'infelizmente, você ter me derrotado causou alguns problemas nessa realidade...'");
+                        alert("'chamo isso de nível de calamidade...'");
+                        alert("'apesar de ser algo ruim, tenho certeza que vai te entreter...'");
+                        alert("'basicamente, sua vida fica mais difícil com cada nível...'");
+                        alert("'eu espero que isso faça você me entreter por mais tempo...'");
+                        alert("'em todo caso, vou te listar tudo o que piorou...'");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 0){
+                        alert("CL 1: inimigos normais defensivos tem sua defesa aumentada.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 1){
+                        alert("CL 2: o encontro do nivel 10 está mais desafiador.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 2){
+                        alert("CL 3: inimigos normais ofensivos tem seu ataque aumentado.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 3){
+                        alert("CL 4: o encontro do nivel 20 está mais desafiador.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 4){
+                        alert("CL 5: inimigos normais tem sua vida aumentada.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 5){
+                        alert("CL 6: o encontro do nivel 30 está mais desafiador.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 6){
+                        alert("CL 7: alguns inimigos normais tem ataques carregados mais fortes.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 7){
+                        alert("CL 8: o encontro do nivel 40 está mais desafiador, e a luz está mais forte.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 8){
+                        alert("CL 9: todas as maquinas estão mais desafiadoras.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 9){
+                        alert("CL 10: o violino está mais desafiador e a escuridão está mais assustadora.");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 10){
+                        alert("CL 11+: para cada nível acima de 10, todos os bosses ganham vida adicional dependendo do andar.");
+                    }
+                    if(localStorage.getItem('calamityLevel') == 0){
+                        alert("'na verdade, nada mudou até agora...'");
+                        alert("'o nível de calamidade está zero...'");
+                        alert("'caso você me derrote denovo, o nível vai aumentar...'");
+                    }
+                    if(localStorage.getItem('calamityLevel') < 11){
+                        alert("'No momento, você pode derrotar o violino ou eu, e o nível de calamidade vai aumentar...'");
+                    }
+                    if(localStorage.getItem('calamityLevel') > 10){
+                        alert("'Parece que você sí vai aumentar mais o nível de calamidade se me derrotar novamente...'");
+                    }
 
                 var win = 'false';
 
@@ -201,55 +261,6 @@
                 var enemyGold;
 
                 do {
-                    if(localStorage.getItem('calamityLevel') > -1){
-                        alert("Você escuta um conjunto de sussuros de tonalidades diferentes. Estranhamente, isso parece ser meio familiar para você.");
-                        alert("'hahahahaha...'");
-                        alert("'claro, você devolveu o poder a mim...'");
-                        alert("'infelizmente, você ter me derrotado causou alguns problemas nessa realidade...'");
-                        alert("'chamo isso de nível de calamidade...'");
-                        alert("'apesar de ser algo ruim, tenho certeza que vai te entreter...'");
-                        alert("'basicamente, sua vida fica mais difícil com cada nível...'");
-                        alert("'eu espero que isso faça você me entreter por mais tempo...'");
-                        alert("'em todo caso, vou te listar tudo o que piorou...'");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 0){
-                        alert("CL 1: inimigos normais defensivos tem sua defesa aumentada.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 1){
-                        alert("CL 2: o encontro do nivel 10 está mais desafiador.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 2){
-                        alert("CL 3: inimigos normais ofensivos tem seu ataque aumentado.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 3){
-                        alert("CL 4: o encontro do nivel 20 está mais desafiador.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 4){
-                        alert("CL 5: inimigos normais tem sua vida aumentada.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 5){
-                        alert("CL 6: o encontro do nivel 30 está mais desafiador.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 6){
-                        alert("CL 7: alguns inimigos normais tem ataques carregados mais fortes.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 7){
-                        alert("CL 8: o encontro do nivel 40 está mais desafiador, e a luz está mais forte.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 8){
-                        alert("CL 9: todas as maquinas estão mais desafiadoras.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 9){
-                        alert("CL 10: o violino está mais desafiador e a escuridão está mais assustadora.");
-                    }
-                    if(localStorage.getItem('calamityLevel') > 10){
-                        alert("CL 11+: para cada nível acima de 10, todos os bosses ganham vida adicional dependendo do andar.");
-                    }
-                    if(localStorage.getItem('calamityLevel') == 0){
-                        alert("'na verdade, nada mudou até agora...'");
-                        alert("'o nível de calamidade está zero...'");
-                        alert("'caso você me derrote denovo, o nível vai aumentar...'");
-                    }
                     
                     var hpPotionPrice = Math.round((5 * totalHP + (10 * Math.round(towerLevel / 20))) * (1 + hpPotions));
                     alert("Sua vida : " + HP + " / " + totalHP + "\r\n"
@@ -355,7 +366,7 @@
                     }
 
                     else if (oquefazer == 'torre') {
-                        if (towerLevel == 0) {
+                        if (towerLevel == 0 && localStorage.getItem('calamityLevel') == null) {
                             alert("Antes de qualquer coisa, precisa saber como lutar. Em uma luta, você pode ATACAR, " +
                                 "DEFENDER ou usar algum item, se tiver.");
                             alert("ATACAR: a eficiencia do seu ataque depende de sua stamina atual: aos 100, você dá " +
@@ -4314,6 +4325,64 @@
                             dead = 'true';
                         }
 
+                        if (HP > 0 && towerLevel > 50 && localStorage.getItem('calamityLevel') > 9) {
+                            localStorage.setItem('darkness', 'yes');
+                            ViolinPhase3.pause();
+                            Violino1.pause();
+                            darkness1.pause();
+                            darkness2.pause();
+                            darkness3.volume = 0.95;
+                            alert("A Escuridão finalmente para de se mover.");
+                            darkness3.volume = 0.9;
+                            alert("'hahahahaha...'");
+                            darkness3.volume = 0.85;
+                            alert("'mas é claro...'");
+                            darkness3.volume = 0.8;
+                            alert("'se você chegou a este ponto...'");
+                            darkness3.volume = 0.7;
+                            alert("'nem o meu poder total...'");
+                            darkness3.volume = 0.6;
+                            alert("A escuridão vai diminuindo.");
+                            darkness3.volume = 0.5;
+                            alert("'te pararia para sempre...'");
+                            darkness3.volume = 0.4;
+                            alert("'parabéns pela perseverança...'");
+                            darkness3.volume = 0.3;
+                            alert("'isso é, se for a primeira vez...'");
+                            darkness3.volume = 0.2;
+                            alert("'você pode ter ido até mais longe do que eu percebo...'");
+                            darkness3.volume = 0.15;
+                            alert("Você começa a conseguir ver algumas estrelas novamente.");
+                            alert("'mas está tudo bem...'");
+                            alert("'surpreendentemente, começei a gostar de lutar contra você...");
+                            alert("'...'");
+                            alert("'mas muito bem...'");
+                            alert("'aproveite novamente...'");
+                            darkness3.volume = 0.1;
+                            alert("'a sua efêmera...'");
+                            darkness3.volume = 0.05;
+                            alert("'liberdade...'");
+                            darkness3.pause();
+                            alert("Agora, o que estava lá desapareceu por completo.");
+                            alert("Mas acho que nunca realmente foi embora.");
+                            alert("Mesmo assim, você pisca os olhos e está fora da torre.");
+                            alert("Você está na vila novamente.");
+                            alert("A figura humanoide de cifres que você encontrou depois do dragão está lá, além do resto dos aldeôes.");
+                            alert("A mesma já se aproxima de você.");
+                            alert("'...'");
+                            alert("'Então... Parece que finalmente...'");
+                            alert("'Ah não.'");
+                            alert("'Se até isso está familiar...'");
+                            alert("'Parece que nós nunca seremos livres para sempre.'");
+                            if (localStorage.darknessEnding == 'yes') {
+                                localStorage.setItem('calamityLevel', localStorage.getItem('calamityLevel') + 1);
+                            }
+                            localStorage.setItem('darknessEndingEX', 'yes');
+                            desc.style.color = 'rgb(255, 140, 0)';
+                            desc.style.backgroundColor = '#FFD700';
+                            escuridao.style.display = "block";
+                            win = 'true';
+                        }
                         if (HP > 0 && towerLevel > 50) {
                             localStorage.setItem('darkness', 'yes');
                             ViolinPhase3.pause();
@@ -4837,6 +4906,67 @@
                                 }
                             } while (choiced == 'false');
                         }
+                        else if (HP > 0 && towerLevel == 50 && localStorage.getItem('calamityLevel') > 9) {
+                            ViolinPhase3.pause();
+                            Violino1.pause();
+                            Violino1.controls = true;
+                            ViolinPhase3.controls = true;
+                            alert("O Violino cai no chão. O chão treme, e pedaços de pedra caem de cima de você.");
+                            alert("'Não... É possível...'");
+                            alert("'Eu estava com... Meu ápice de poder...'");
+                            alert("'E mesmo assim... você me derrotou..?'");
+                            alert("Pedaços do chão começam a cair. Parece que o último ataque do Violino danificou a torre mais do que a mesma aguenta.");
+                            alert("'Como você... Conseguiu aguentar tanto poder..?'");
+                            alert("'Bom... Ao menos devo o parabenizar...'");
+                            alert("A torre está desabando!");
+                            if (tubaroBlade == 1) {
+                                localStorage.setItem('tubaroEnding', 'yes');
+                                localStorage.setItem('tubaroEndingEX', 'yes');
+                                alert("Sem perder tempo, você pula (o andar não tem paredes).");
+                                alert("A torre começa a inclinar, então você usa sua lâmina tubaro para parar de cair, fincando-a na parede.");
+                                alert("Com a torre em um ângulo de 30°, você começa a descer correndo a torre, evitando os buracos e cortando escombros ao meio.");
+                                alert("Surpreendentemente, isso não é difícil para você, como se você já estivesse acostumado.");
+                                alert("Você finalmente chega lá embaixo com sucesso.");
+                                alert("Quando você chega, porém, percebe que vários inimigos ainda estão vivos, e caindo diretamente na sua direção!");
+                                alert("Parece que você ainda vai ter alguns minutos de diversão antes da sua próxima aventura!");
+                                laminaTubaro.style.display = "block";
+                                laminaTubaro.style.color = 'rgb(255, 140, 0)'; 
+                                laminaTubaro.style.background = '#d5abe6'; 
+                            }
+                            else if (lightCrown == 1) {
+                                localStorage.setItem('CrownEnding', 'yes');
+                                localStorage.setItem('CrownEndingEX', 'yes');
+                                alert("Sem perder tempo, você pula (o andar não tem paredes).");
+                                alert("Sem ter como se parar, você só tem uma escolha: canalizar o máximo de espadas de luz possíveis, " +
+                                    "e esperar que elas consigam quebrar sua queda.");
+                                alert("Enquanto você se aproxima no chão, você continua invocando espadas de luz, e a coroa começa até a vibrar.");
+                                alert("E então...");
+                                alert("Tudo fica preto.");
+                                alert("Você acorda quase morto, entre escombros. A coroa, infelizmente, parece ter quebrado com o extremo esforço.");
+                                alert("Você se levanta, e vai a procura de algo, ou algum lugar que tenha algo novo.");
+                                coroaLuz.style.display = "block";
+                                coroaLuz.style.color = 'rgb(255, 140, 0)'; 
+                                coroaLuz.style.background = '#e6e6ab'; 
+                            }
+                            else {
+                                localStorage.setItem('normalEnding', 'yes');
+                                localStorage.setItem('normalEndingEX', 'yes');
+                                alert("Você rapidamente percebe que, COM O EQUIPAMENTO QUE TEM, você não vai conseguir sair vivo.");
+                                alert("Você deita ao lado do Violino e espera a morte chegar. Ele não fez nada contra você " +
+                                    "diretamente, de qualquer forma. Você só queria ajudar essa terra.");
+                                alert("Pelo menos, você cumpriu o seu objetivo.");
+                                vitoriaComum.style.display = "block";
+                                vitoriaComum.style.color = 'rgb(255, 140, 0)'; 
+                                vitoriaComum.style.background = '#e6ccab'; 
+                            }
+                            if(localStorage.getItem('calamityLevel') < 11){
+                                localStorage.setItem('calamityLevel', localStorage.getItem('calamityLevel') + 1);
+                                alert("'hahahahahaha...'");
+                                alert("'depois do que você fez, derrotar o violino aumentou a calamidade nessa realidade...'");
+                                alert("'se esse era seu objetivo, parabens...'");
+                            }
+                            win = 'true';
+                        }
                         else if (HP > 0 && towerLevel == 50) {
                             ViolinPhase3.pause();
                             Violino1.pause();
@@ -4880,6 +5010,12 @@
                                     "diretamente, de qualquer forma. Você só queria ajudar essa terra.");
                                 alert("Pelo menos, você cumpriu o seu objetivo.");
                                 vitoriaComum.style.display = "block";
+                            }
+                            if(localStorage.getItem('calamityLevel') < 11){
+                                localStorage.setItem('calamityLevel', localStorage.getItem('calamityLevel') + 1);
+                                alert("'hahahahahaha...'");
+                                alert("'depois do que você fez, derrotar o violino aumentou a calamidade nessa realidade...'");
+                                alert("'se esse era seu objetivo, parabens...'");
                             }
                             win = 'true';
                         }
@@ -5664,17 +5800,42 @@
             localStorage.setItem('tubaroEnding', 'yes');
             laminaTubaro.style.display = "block";
         }
+        if (localStorage.tubaroEndingEX == 'yes') {
+            Violino1.controls = true;
+            ViolinPhase3.controls = true;
+            localStorage.setItem('tubaroEndingEX', 'yes');
+            laminaTubaro.style.display = "block";
+            laminaTubaro.style.color = 'rgb(255, 140, 0)'; 
+            laminaTubaro.style.background = '#d5abe6'; 
+        }
+        laminaTubaro.style.color = '#FFD700'; 
         if (localStorage.CrownEnding == 'yes') {
             Violino1.controls = true;
             ViolinPhase3.controls = true;
             localStorage.setItem('CrownEnding', 'yes');
             coroaLuz.style.display = "block";
         }
+        if (localStorage.CrownEndingEX == 'yes') {
+            Violino1.controls = true;
+            ViolinPhase3.controls = true;
+            localStorage.setItem('CrownEnding', 'yes');
+            coroaLuz.style.display = "block";
+            coroaLuz.style.color = 'rgb(255, 140, 0)'; 
+            coroaLuz.style.background = '#e6e6ab'; 
+        }
         if (localStorage.normalEnding == 'yes') {
             Violino1.controls = true;
             ViolinPhase3.controls = true;
             localStorage.setItem('normalEnding', 'yes');
             vitoriaComum.style.display = "block";
+        }
+        if (localStorage.normalEndingEX == 'yes') {
+            Violino1.controls = true;
+            ViolinPhase3.controls = true;
+            localStorage.setItem('normalEnding', 'yes');
+            vitoriaComum.style.display = "block";
+            vitoriaComum.style.color = 'rgb(255, 140, 0)';
+            vitoriaComum.style.background = '#e6ccab'; 
         }
         if (localStorage.beatLunin == 'yes') {
             LuninPhase1.controls = true;
@@ -5684,6 +5845,9 @@
             escuridao.style.display = "block";
             desc.style.backgroundColor = '#FFD700';
             calamityText.innerHTML = "nível de calamidade: " + localStorage.getItem('calamityLevel');
+        }
+        if (localStorage.darknessEndingEX == 'yes') {
+            desc.style.color = 'rgb(255, 140, 0)';
         }
         if (localStorage.darknessEnding == 'yes' && localStorage.getItem('calamityLevel') == null) {
             localStorage.setItem('calamityLevel', 1);
