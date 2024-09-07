@@ -245,6 +245,11 @@
                     if(localStorage.getItem('calamityLevel') > 10){
                         alert("CL 11+: para cada nível acima de 10, todos os bosses ganham vida adicional dependendo do andar.");
                     }
+                    if(localStorage.getItem('calamityLevel') == 0){
+                        alert("'na verdade, nada mudou até agora...'");
+                        alert("'o nível de calamidade está zero...'");
+                        alert("'caso você me derrote denovo, o nível vai aumentar...'");
+                    }
                     
                     var hpPotionPrice = Math.round((5 * totalHP + (10 * Math.round(towerLevel / 20))) * (1 + hpPotions));
                     alert("Sua vida : " + HP + " / " + totalHP + "\r\n"
