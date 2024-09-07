@@ -5843,6 +5843,11 @@
             ArcoPhase2.controls = true;
             calorDragao.style.display = "block";
         }
+        if(!(localStorage.getItem('calamityLevel') > 9)){
+            localStorage.setItem('tubaroEndingEX', 'no');
+            localStorage.setItem('CrownEndingEX', 'no');
+            localStorage.setItem('normalEndingEX', 'no');
+        }
 
         if (localStorage.tubaroEnding == 'yes') {
             Violino1.controls = true;
@@ -5854,7 +5859,7 @@
         if (localStorage.tubaroEndingEX == 'yes') {
             Violino1.controls = true;
             ViolinPhase3.controls = true;
-            localStorage.setItem('tubaroEndingEX', 'yes');
+            localStorage.setItem('tubaroEnding', 'yes');
             laminaTubaro.style.display = "block";
             laminaTubaro.style.color = 'rgb(255, 140, 0)';
             laminaTubaro.style.background = '#d5abe6';
