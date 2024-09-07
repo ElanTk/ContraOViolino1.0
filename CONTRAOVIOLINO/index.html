@@ -4471,7 +4471,7 @@
                             alert("'Agora, podemos ter uma vida normal.'");
                             alert("'Por enquanto.'");
                             if (localStorage.darknessEnding == 'yes') {
-                                localStorage.setItem('calamityLevel', localStorage.getItem('calamityLevel') + 1);
+                                localStorage.setItem('calamityLevel', Number(localStorage.getItem('calamityLevel')) + 1);
                             }
                             localStorage.setItem('darknessEnding', 'yes');
                             desc.style.backgroundColor = '#FFD700';
@@ -4975,12 +4975,14 @@
                                 localStorage.setItem('CrownEnding', 'yes');
                                 localStorage.setItem('CrownEndingEX', 'yes');
                                 alert("Sem perder tempo, você pula (o andar não tem paredes).");
-                                alert("Sem ter como se parar, você só tem uma escolha: canalizar o máximo de espadas de luz possíveis, " +
+                                alert("Sem ter como se parar, qualquer outra pessoa pensaria que só tem uma escolha: canalizar o máximo de espadas de luz possíveis, " +
                                     "e esperar que elas consigam quebrar sua queda.");
-                                alert("Enquanto você se aproxima no chão, você continua invocando espadas de luz, e a coroa começa até a vibrar.");
-                                alert("E então...");
-                                alert("Tudo fica preto.");
-                                alert("Você acorda quase morto, entre escombros. A coroa, infelizmente, parece ter quebrado com o extremo esforço.");
+                                alert("Você, porém, tem um instinto que tem outra forma de sobreviver.");
+                                alert("Ao invés de pular e amortecer a queda no final, você pula de espada em espada, gradualmente diminuindo sua altitude.");
+                                alert("Com sua extraordinaria dextreza, você consegue chegar no chão, enquanto a torre desaba atrás de você..");
+                                alert("Pela exaustão, você colapsa no chão, desmaiando.");
+                                alert("...");
+                                alert("Mas felizmente, você precisou só dormir por alguns dias até se recuperar.");
                                 alert("Você se levanta, e vai a procura de algo, ou algum lugar que tenha algo novo.");
                                 coroaLuz.style.display = "block";
                                 coroaLuz.style.color = 'rgb(255, 140, 0)';
@@ -4992,13 +4994,23 @@
                                 alert("Você rapidamente percebe que, COM O EQUIPAMENTO QUE TEM, você não vai conseguir sair vivo.");
                                 alert("Você deita ao lado do Violino e espera a morte chegar. Ele não fez nada contra você " +
                                     "diretamente, de qualquer forma. Você só queria ajudar essa terra.");
-                                alert("Pelo menos, você cumpriu o seu objetivo.");
+                                alert("Parece que o violino ainda não está morto, e resolve falar com você em seus últimos momentos.");
+                                alert("'Você também... Vai morrer aqui..?'");
+                                alert("'Isso é uma pena...'");
+                                alert("'Honestamente... Eu pensei que este poder seria... O suficiente para me libertar.'");
+                                alert("'Quando você chega neste nível... De poder...'");
+                                alert("'Você percebe... Quão pouco suas escolhas importam.'");
+                                alert("'Eu sinto que você.. Saiba disso também.'");
+                                alert("'Mas eu tenho a impressão... Que você não está tão preso quanto eu.'");
+                                alert("Com a torre desabando, vocês só tem alguns momentos antes de serem soterrados.");
+                                alert("'Ah... Parece que nós vamos ter que cortar essa conversa no meio...'");
+                                alert("'Adeus.'");
                                 vitoriaComum.style.display = "block";
                                 vitoriaComum.style.color = 'rgb(255, 140, 0)';
                                 vitoriaComum.style.background = '#e6ccab';
                             }
                             if (localStorage.getItem('calamityLevel') < 11) {
-                                localStorage.setItem('calamityLevel', localStorage.getItem('calamityLevel') + 1);
+                                localStorage.setItem('calamityLevel', Number(localStorage.getItem('calamityLevel')) + 1);
                                 alert("'hahahahahaha...'");
                                 alert("'depois do que você fez, derrotar o violino aumentou a calamidade nessa realidade...'");
                                 alert("'se esse era seu objetivo, parabens...'");
@@ -5050,7 +5062,7 @@
                                 vitoriaComum.style.display = "block";
                             }
                             if (localStorage.getItem('calamityLevel') < 11) {
-                                localStorage.setItem('calamityLevel', localStorage.getItem('calamityLevel') + 1);
+                                localStorage.setItem('calamityLevel', Number(localStorage.getItem('calamityLevel')) + 1);
                                 alert("'hahahahahaha...'");
                                 alert("'depois do que você fez, derrotar o violino aumentou a calamidade nessa realidade...'");
                                 alert("'se esse era seu objetivo, parabens...'");
