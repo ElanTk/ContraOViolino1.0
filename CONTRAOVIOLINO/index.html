@@ -3538,6 +3538,7 @@
                         }
 
                         else if (towerLevel > 50) {
+                            
                             enemyStanced = 0;
                             var lightWeak = 0;
                             if (tubaroBlade == 1 && lightCrown == 1) {
@@ -3558,7 +3559,7 @@
                             }
                             do {
                                 do {
-                                    darkness1.volume = 0.65 + ((650 - enemyHP) / 1000.0);
+                                    darkness1.volume = 1;
                                     Violino1.pause();
                                     var choiced = 'false';
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
