@@ -3805,6 +3805,9 @@
                                 alert("Apesar de você entender o que está diante de você, o seu poder é opressor. " +
                                     "É difícil até ficar de pé diante de tamanha ameaça.");
                                 alert("Você não consegue recuperar mais que um terço da stamina que você normalmente recupera.");
+                                alert("Esta presença da escuridão é forte demais para suas poções funcionarem, mas você tem uma ideia.");
+                                alert("Você consegue jogar o líquido no chão e bater com sua lâmina no chão para gerar uma faísca, ateando fogo no líquido.");
+                                alert("O fogo dura por pouco tempo, mas pelo menos deve te deixar seguro por um turno.");
                                 enemyLives = 1;
                                 enemyHP = 1000;
                                 enemyTotalHP = 1000;
@@ -3950,8 +3953,10 @@
                                             }
                                         }
                                         if (combatChoice == 'p' || combatChoice == 'P') {
-
-                                            alert("Poção nenhuma conseguiria te ajudar com isso.");
+                                            choiced = 'true';
+                                            alert("Você joga sua poção no chão e rapidamente bate sua espada, gerando uma faísca que atea fogo no líquido.");
+                                            totalBlock = 100;
+                                            alert("'Estamos usando truques sujos agora..? Você não quer me ver roubando...'");
                                         }
                                     } while (choiced == 'false');
 
