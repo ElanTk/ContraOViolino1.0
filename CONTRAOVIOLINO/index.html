@@ -4569,7 +4569,7 @@
                             if (coswnChooser == 2) {
                                 var coswnA = 'dualidade';
                                 alert("dualidade: uma máscara com uma parte pintada de preto e outra de branco, com pingos de cada cor invadindo " +
-                                    "o espaço da outra. Uma vez foi a máscara de uma grande assassina. (+5% chance de crítico)");
+                                    "o espaço da outra. Uma vez foi a máscara de uma grande assassina. (+10% chance de crítico)");
                             }
                             if (coswnChooser == 3) {
                                 var coswnA = 'gema';
@@ -4580,7 +4580,7 @@
                             if (coswnChooser == 1) {
                                 var coswnB = 'pingente lunin';
                                 alert("pingente lunin: um pingente a um deus a muito tempo esquecido. sua luz clareia o caminho a ser feito " +
-                                    "para um corte mais preciso, mesmo que seja só na sua cabeça. (+0.5 dano crítico)");
+                                    "para um corte mais preciso, mesmo que seja só na sua cabeça. (+0.8 dano crítico)");
 
                             }
                             if (coswnChooser == 2) {
@@ -4605,7 +4605,7 @@
                                         prompt("O poder do estilhaço entra em suas veias, o deixando mais forte! (+3 ataque)");
                                     }
                                     else if (coswnA == 'dualidade') {
-                                        critChance = critChance + 5;
+                                        critChance = critChance + 10;
                                         prompt("Você coloca a máscara. Sim... está tudo mais claro agora... (+5 crit chance)");
                                     }
                                     else if (coswnA == 'gema') {
@@ -4616,7 +4616,7 @@
                                 }
                                 else if (coswnChoice == 'b' || coswnChoice == 'B') {
                                     if (coswnB == 'pingente lunin') {
-                                        critMult = critMult + 0.5;
+                                        critMult = critMult + 0.8;
                                         lightInf = lightInf + 1;
                                         prompt("Ao colocar este pingente, você vê claramente. A luz. Como puderam esquece-la, tão brilhante? (+0.5 crit mult)");
                                     }
@@ -4669,23 +4669,22 @@
                             alert("Apesar de não ser toda a sua glória, parece que você ainda pode absorver a uma das auras das relíquias que estariam " +
                                 "ali. Infelizmente, não é tão forte quanto uma relíquia.");
                             alert("Eh, na verdade, essas auras te parecem interessantes.");
-                            alert("Aura da caçadora: +10% de chance de crítico");
-                            alert("Aura da luz divina: +0.5 de dano no crítico, +3% de chance de crítico");
-                            alert("Aura do Gigante Guardião: +5 de vida");
+                            alert("Aura da caçadora: +15% de chance de crítico");
+                            alert("Aura da luz divina: +1 de dano no crítico");
+                            alert("Aura do Gigante Guardião: +10 de vida");
                             do {
                                 choiced = 'false';
                                 coswnChoice = prompt("Qual aura você escolherá? Aura da caçadora(A), " +
                                     "Aura da luz divina(B) ou Aura do Gigante Guardião(C)?");
                                 if (coswnChoice == 'a' || coswnChoice == 'A') {
                                     choiced = 'true';
-                                    critChance = critChance + 10;
+                                    critChance = critChance + 15;
                                     alert("Huh, como você não viu antes? Os pontos fracos das criaturas estão bem mais claros... Falta somente " +
                                         "acertá-los, claro. (+10% de chance de crítico)");
                                 }
                                 else if (coswnChoice == 'b' || coswnChoice == 'B') {
                                     choiced = 'true';
-                                    critMult = critMult + 0.5;
-                                    critChance = critChance + 3;
+                                    critMult = critMult + 1;
                                     lightInf = lightInf + 1;
                                     alert("Ah, a luz é impressionante, não..! Muito bem, parece que a mesma guia seus movimentos. (+0.5 crit mult)");
                                 }
@@ -4693,7 +4692,7 @@
                                     totalHP = totalHP + 5;
                                     HP = HP + 5;
                                     alert("Você se sente maior que nunca. Vai ser mais difícil de machucar assim, mesmo que seja só uma " +
-                                        "sensação, não? (+5 de vida máxima)");
+                                        "sensação, não? (+10 de vida máxima)");
 
                                     choiced = 'true';
                                 }
@@ -4749,19 +4748,19 @@
                             if (coswnChooser == 1) {
                                 var coswnA = 'anel alma negra';
                                 alert("anel alma negra: um anel contendo um pedaço do imenso poder do alma negra, o pirata que matou o " +
-                                    "mar morto. (+6 ataque, +3% crit chance)");
+                                    "mar morto. (+7 ataque, +5% crit chance)");
 
                             }
                             if (coswnChooser == 2) {
                                 var coswnA = 'luva dourada';
                                 alert("luva dourada: esta luva de cor dourada (não é feita de ouro) foi a única arma que a caçadora usou, " +
                                     "até o dia que foi derrotada. Mesmo assim, um pouco de sua magia amarela se mantém na luva, já que foi usada" +
-                                    "como canalizadora. (+2 ataque, +7 crit chance");
+                                    "como canalizadora. (+2 ataque, +10 crit chance");
                             }
                             if (coswnChooser == 3) {
                                 var coswnA = 'capacete da luz';
                                 alert("capacete da luz: o capaçete uma vez ultilizado pela deusa da luz, antes de ser perdido no meio da " +
-                                    "guerra contra o deus da matéria. (+3 ataque +0.5x dano crítico)")
+                                    "guerra contra o deus da matéria. (+3 ataque +0.7x dano crítico)")
                             }
                             coswnChooser = Math.floor(Math.random() * 3) + 1;
                             if (lightInf == 1 && coswnChooser != 3) {
@@ -4776,13 +4775,13 @@
                             if (coswnChooser == 1) {
                                 var coswnB = 'placas metal';
                                 alert("placas metal: as placas de metal de um famoso marechal que se transformou em robô por poder. Essas " +
-                                    "placas foram as que não foram destruídas depois da luta contra o Alma Negra. (+3 defesa, +10 stamina, + 1 ataque)");
+                                    "placas foram as que não foram destruídas depois da luta contra o Alma Negra. (+4 defesa, + 1 ataque)");
 
                             }
                             if (coswnChooser == 2) {
                                 var coswnB = 'anel negro';
                                 alert("anel negro: um anel feito de um monstro de matéria escura, com a luz purgada de seu corpo. O anel " +
-                                    "emana um pouco da energia do próprio deus da matéria. (+50 stamina, + 1 defesa)");
+                                    "emana um pouco da energia do próprio deus da matéria. (+60 stamina, + 1 defesa)");
                             }
                             if (coswnChooser == 3) {
                                 var coswnB = 'reliquia ritual';
@@ -4798,19 +4797,19 @@
                                 coswnChoice = prompt("Qual das duas relíquias você escolherá? " + coswnA + "(A) ou " + coswnB + "(B)?");
                                 if (coswnChoice == 'a' || coswnChoice == 'A') {
                                     if (coswnA == 'anel alma negra') {
-                                        attack = attack + 6;
-                                        critChance = critChance + 3;
+                                        attack = attack + 7;
+                                        critChance = critChance + 5;
                                         prompt("Ah... Esse poder, correndo pelas suas veias... Então este é o poder do assassino dos sete mares?");
                                     }
                                     else if (coswnA == 'luva dourada') {
                                         attack = attack + 3;
-                                        critChance = critChance + 6;
+                                        critChance = critChance + 10;
                                         prompt("Essa luva... Uma forma peculiar de caçar. Ao vestí-la, você sente que seu braço consegue colocar " +
                                             "toda sua força na sua espada facilmente.");
                                     }
                                     else if (coswnA == 'capacete da luz') {
                                         attack = attack + 3;
-                                        critMult = critMult + 0.5;
+                                        critMult = critMult + 0.7;
                                         lightInf = lightInf + 1;
                                         prompt("Sua visão agora se baseia de formas de luz e sombra. Ej, pelo menos você deve ter ficado legal com ele!");
                                     }
@@ -4818,13 +4817,12 @@
                                 }
                                 else if (coswnChoice == 'b' || coswnChoice == 'B') {
                                     if (coswnB == 'placas metal') {
-                                        defense = defense + 3;
-                                        staminaMax + staminaMax + 10;
+                                        defense = defense + 4;
                                         attack = attack + 1;
                                         prompt("As placas se acoplam rapidamente em seu corpo. Você sente uma vontade grande de gritar 'MEGA OVERCHARGE!'");
                                     }
                                     else if (coswnB == 'anel negro') {
-                                        staminaMax = staminaMax + 50;
+                                        staminaMax = staminaMax + 60;
                                         defense = defense + 1;
                                         prompt("Que força peculiar... Você sente como se esta energia estivesse te abraçando, aceitando você e suas escolhas.");
                                     }
@@ -4880,14 +4878,14 @@
                             if (coswnChooser == 1) {
                                 var coswnA = 'guarda tubaro';
                                 alert("guarda tubaro: A guarda da lâmina tubaro. Dizem que caso esta guarda se reúna com uma " +
-                                    "parte da lâmina original, a mesma voltará a sua antiga glória.(+9 ataque stat, - 7% crit chance) " +
+                                    "parte da lâmina original, a mesma voltará a sua antiga glória.(+10 ataque stat, - 7% crit chance) " +
                                     "eu só tenho certeza que não é uma benção.");
 
                             }
                             if (coswnChooser == 2) {
                                 var coswnA = 'bencao cacador';
                                 alert("bancao cacador: A benção do verdadeiro caçador. Você troca um pouco do seu ataque por " +
-                                    "uma tremenda precisão. (+15% crit chance, - 5 ataque stat");
+                                    "uma tremenda precisão. (+20% crit chance, - 6 ataque stat");
                             }
                             coswnChooser = Math.floor(Math.random() * 2) + 1;
                             if (coswnChooser == 1) {
@@ -4899,7 +4897,7 @@
                             if (coswnChooser == 2) {
                                 var coswnB = 'bencao ferro';
                                 alert("bencao ferro: essa benção foi criada quando um homem sobreviveu 1000 socos no estômago seguidos, " +
-                                    "sem se mover um centímetro.(+7 defesa, -200 stamina)");
+                                    "sem se mover um centímetro.(+15 defesa, -200 stamina)");
                             }
                             var coswnChoice;
                             do {
@@ -4908,7 +4906,7 @@
                                 if (coswnChoice == 'a' || coswnChoice == 'A') {
                                     if (coswnA == 'guarda tubaro') {
                                         critChance = critChance - 7;
-                                        attack = attack + 9;
+                                        attack = attack + 10;
                                         if (tubaroPieces == 1) {
                                             alert("O estilhaço que você tinha pego sai das suas veias se junta a guarda!");
                                             alert("Depois de alguns segundos, a lâmina toma forma! Ela é como uma foice de mão, " +
@@ -4928,22 +4926,22 @@
                                         }
                                     }
                                     else if (coswnA == 'bencao cacador') {
-                                        attack = attack - 5;
-                                        critChance = critChance + 15;
+                                        attack = attack - 6;
+                                        critChance = critChance + 20;
                                         prompt("Você se sente ainda mais preciso que antes, mesmo que um pouco mais fraco.");
                                     }
                                     choiced = 'true';
                                 }
                                 else if (coswnChoice == 'b' || coswnChoice == 'B') {
                                     if (coswnB == 'bencao incansavel') {
-                                        HP = HP - 10;
+                                        totalHP = totalHP - 10;
                                         staminaMax = staminaMax + 150;
                                         prompt("Você nunca vai parar de lutar. Pelo menos, vai ser um pouco mais eficiente. Em seus " +
                                             "movimentos.");
                                     }
                                     else if (coswnB == 'bencao ferro') {
                                         staminaMax = staminaMax - 200;
-                                        defense = defense + 7;
+                                        defense = defense + 15;
                                         prompt("Ferro puro, filho.");
                                     }
                                     choiced = 'true';
@@ -5006,7 +5004,7 @@
                                 alert("'Honestamente... Eu pensei que este poder seria... O suficiente para me libertar.'");
                                 alert("'Quando você chega neste nível... De poder...'");
                                 alert("'Você percebe... Quão pouco suas escolhas importam.'");
-                                alert("'Eu sinto que você.. Saiba disso também.'");
+                                alert("'Eu sinto que você.. Sabe disso também.'");
                                 alert("'Mas eu tenho a impressão... Que você não está tão preso quanto eu.'");
                                 alert("Com a torre desabando, vocês só tem alguns momentos antes de serem soterrados.");
                                 alert("'Ah... Parece que nós vamos ter que cortar essa conversa no meio...'");
@@ -5146,13 +5144,13 @@
                         }
                         else {
                             if (numDica == 1) {
-                                alert("Parece que algo diferente está acontecendo.");
+                                alert("Parece que algo diferente está acontecendo. Algo perigoso, com certeza.");
                             }
                             if (numDica == 2) {
-                                alert("Espero que você tenha trago um item lendário.");
+                                alert("Espero que você tenha trago um item lendário. Tenho a impressão que você vai precisar.");
                             }
                             if (numDica == 3) {
-                                alert("Como você chegou onde chegou?");
+                                alert("Como você chegou onde chegou? Não tem caminho claro até aí.");
                             }
                         }
                     }
