@@ -2825,8 +2825,8 @@
                                                     enemyDefense = enemyDefense * 2;
                                                     if (localStorage.getItem('calamityLevel') > 19) {
                                                         alert("Além disso, ele prepara sua cauda! (sim, ele resolveu fazer duas coisas de uma vez)");
+                                                        raboMetalico = true;
                                                     }
-                                                    raboMetalico = true;
                                                 }
                                                 else if (enemyChoice == 4) {
                                                     alert("O dragão reajusta sua posição de acordo com seus movimentos, preparando contra seu próximo ataque.");
@@ -4888,7 +4888,7 @@
                                 "ali. Infelizmente, não é tão forte quanto uma relíquia.");
                             alert("Eh, na verdade, essas auras te parecem interessantes.");
                             alert("Aura da caçadora: +15% de chance de crítico");
-                            alert("Aura da luz divina: +1 de dano no crítico");
+                            alert("Aura da luz divina: +1x dano no crítico");
                             alert("Aura do Gigante Guardião: +10 de vida");
                             do {
                                 choiced = 'false';
@@ -4898,13 +4898,13 @@
                                     choiced = 'true';
                                     critChance = critChance + 15;
                                     alert("Huh, como você não viu antes? Os pontos fracos das criaturas estão bem mais claros... Falta somente " +
-                                        "acertá-los, claro. (+10% de chance de crítico)");
+                                        "acertá-los, claro. (+15% de chance de crítico)");
                                 }
                                 else if (coswnChoice == 'b' || coswnChoice == 'B') {
                                     choiced = 'true';
                                     critMult = critMult + 1;
                                     lightInf = lightInf + 1;
-                                    alert("Ah, a luz é impressionante, não..! Muito bem, parece que a mesma guia seus movimentos. (+0.5 crit mult)");
+                                    alert("Ah, a luz é impressionante, não..! Muito bem, parece que a mesma guia seus movimentos. (+1 crit mult)");
                                 }
                                 else if (coswnChoice == 'c' || coswnChoice == 'C') {
                                     totalHP = totalHP + 5;
