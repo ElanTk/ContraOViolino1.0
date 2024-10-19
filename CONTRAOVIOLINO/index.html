@@ -196,6 +196,10 @@
                 if (localStorage.getItem('calamityLevel') > 10) {
                     alert("CL 11+: para cada nível acima de 10, todos os bosses ganham vida adicional dependendo do andar.");
                 }
+                if (localStorage.getItem('calamityLevel') > 19) {
+                    alert("Ah... Não pensei que era possível mas você conseguiu chegar no CL 20... Essa é a última melhora única, o resto é só vida adicional aos bosses...");
+                    alert("CL 20: TODOS os inimigos ganham uma mecânica adicional, específica a ele.");
+                }
                 if (localStorage.getItem('calamityLevel') == 0) {
                     alert("'na verdade, nada mudou até agora...'");
                     alert("'o nível de calamidade está zero...'");
@@ -953,6 +957,17 @@
                                 }
 
                                 if (enemyHP > 0) {
+                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                        if (enemyType == 0) {
+                                            alert("O olho do rato brilha com raiva, e sua boca espuma mais um pouco. +0.5 ataque.");
+                                            enemyAttack = enemyAttack + 0.5;
+                                        }
+                                        else if (enemyType == 2) {
+                                            enemyName = 'Gosmo Verde';
+                                            alert("A gosma do gosmo começa a se moldar de volta em sua forma original. +0.5 vida.");
+                                            enemyHP = enemyHP + 0.5;
+                                        }
+                                    }
                                     enemyChoice = Math.floor(Math.random() * 2) + 1;
                                     if (attackReadied == 'true') {
                                         alert(enemyName + " Solta um forte ataque em sua direção!");
@@ -979,6 +994,10 @@
                                     }
                                     else if (enemyChoice == 2) {
                                         alert(enemyName + " dá um passo para trás, preparando um ataque!");
+                                        if (enemyType == 1 && localStorage.getItem('calamityLevel') > 19) {
+                                            alert("O besouro esconde a face dele na casca, o que faz dificil saber de onde vai sair a mordida, deixando o ataque a chegar mais potente.");
+                                            attackReadiedBonus = attackReadiedBonus + 0.5;
+                                        }
                                         attackReadied = 'true';
                                     }
                                     else {
@@ -1132,6 +1151,11 @@
                                     }
                                     else if (enemyChoice == 4) {
                                         alert("O Esqueletinho faz anotações em seu caderno.");
+                                        if (localStorage.getItem('calamityLevel') > 19) {
+                                            alert("Após te analizar, ele resolve fazer uma pose mais agressiva. +1 ataque, -1 defesa.");
+                                            enemyAttack = enemyAttack + 1;
+                                            enemyDefense = enemyDefense - 1;
+                                        }
                                     }
                                     else {
                                         alert("ISSO É UM ERRO!");
@@ -1267,6 +1291,21 @@
                                         enemyStanced = 2;
                                     }
                                     else {
+                                        if (localStorage.getItem('calamityLevel') > 19) {
+                                            if (enemyType == 0) {
+                                                alert("A cobra digere um rato que estava em sua barriga, recuperando vida. +7 HP");
+                                                enemyHP = enemyHP + 7;
+                                            }
+                                            else if (enemyType == 1) {
+                                                alert("O recruta toca uma música simples, deixando ele mais concentrado. +1 ataque, +1 defesa.");
+                                                enemyAttack = enemyAttack + 1;
+                                                enemyDefense = enemyDefense + 1;
+                                            }
+                                            else if (enemyType == 2) {
+                                                alert("A lobo uiva alto, mas quando ninguém vem, ele fica raivoso. +1.5 ataque.");
+                                                enemyAttack = enemyAttack + 1.5;
+                                            }
+                                        }
                                         alert("O inimigo recupera seu fôlego.");
                                     }
 
@@ -1372,6 +1411,7 @@
 
                                 if (enemyHP > 0) {
                                     enemyChoice = Math.floor(Math.random() * 4) + 1;
+
                                     if (localStorage.getItem('calamityLevel') > 3 && quadradoReleases > 0) {
                                         if ((enemyTotalHP / 4) * 3 > enemyHP && quadradoReleases == 4) {
                                             quadradosSoltos = quadradosSoltos + 4;
@@ -1425,6 +1465,10 @@
                                             quadradoReleases = quadradoReleases - 1;
                                         }
 
+                                    }
+                                    if (localStorage.getItem('calamityLevel') > 19 && enemyHP < enemyTotalHP / 2) {
+                                        alert("Por virtude dos ferimentos, mais um quadrado sai do globo sem nenhuma interferência sua.");
+                                        quadradosSoltos = quadradosSoltos + 1;
                                     }
                                     if (attackReadied > 0) {
                                         if (attackReadied == 1) {
@@ -1653,6 +1697,13 @@
                                 } while (choiced == 'false');
 
                                 if (enemyHP > 0) {
+                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                        if (enemyType == 2) {
+                                            alert("Algo está causando a estátua a derreter constantemente! -1 HP, +0.5 ataque.");
+                                            enemyHP = enemyHP - 1;
+                                            enemyAttack = enemyAttack + 0.5;
+                                        }
+                                    }
                                     enemyStanced = enemyStanced - 1;
                                     enemyChoice = Math.floor(Math.random() * 3) + 1;
                                     if (attackReadied == 'true') {
@@ -1681,6 +1732,12 @@
                                         else {
                                             alert("Você bloqueia completamente o ataque do inimigo.");
                                         }
+                                        if (localStorage.getItem('calamityLevel') > 19) {
+                                            if (enemyType == 1) {
+                                                alert("A batida da flauta em você faz com que normaliza a respiração, recuperando 3 de vida e fazendo um barulho engraçado.");
+                                                enemyHP = enemyHP + 3;
+                                            }
+                                        }
                                     }
                                     else if (enemyChoice == 2) {
                                         alert(enemyName + " dá um passo para trás, preparando um ataque!");
@@ -1700,9 +1757,13 @@
                                             enemyDefense = enemyDefense - 3;
                                         }
                                         else {
-                                            alert("A cobra aplica uma dose de veneno em sua veia. Ela ganha ataque e defesa, em troca de uma vida saudável!");
+                                            alert("A cobra aplica uma dose de veneno em sua veia. Ela ganha ataque e defesa, em troca de uma vida saudável! +2 ataque, +0.5 defesa.");
                                             enemyAttack = enemyAttack + 2;
                                             enemyDefense = enemyDefense + 0.5;
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                alert("O veneno solta fumos intoxicantes que te cansam um pouco. -50 stamina atual.");
+                                                stamina = stamina - 50;
+                                            }
                                         }
                                     }
 
@@ -1814,6 +1875,10 @@
                                 } while (choiced == 'false');
 
                                 if (enemyHP > 0) {
+                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                        alert("A música está tão alta que ecoa pela sala inteira. Um bass boost é criado quando as ondas batem nas paredes.");
+                                        bassBoosts = bassBoosts + 1;
+                                    }
 
                                     if ((enemyTotalHP / 4) * 3 > enemyHP && guardianArmor == 4) {
                                         alert("O seu ataque quebra uma pequena parte da armadura do Guardião, diminuindo sua defesa, mas aumentando a mobilidade do Guardião, ou seja, seu dano.");
@@ -2098,6 +2163,13 @@
                                 } while (choiced == 'false');
 
                                 if (enemyHP > 0) {
+                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                        if (enemyType == 2) {
+                                            alert("Pedras em volta se asimilam ao golem, recuperando sua vida. +1 HP.");
+                                            enemyHP = enemyHP + 1;
+                                        }
+                                    }
+
                                     enemyStanced = enemyStanced - 1;
                                     enemyChoice = Math.floor(Math.random() * 3) + 1;
                                     if (fogoDraconico == 1) {
@@ -2149,11 +2221,19 @@
                                                 " da espada fica mais intenso, aumentando o ataque e a defesa da espada em 3!");
                                             enemyAttack = enemyAttack + 3;
                                             enemyDefense = enemyDefense + 3;
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                alert("A dança revitaliza a espada, recuperando sua vida em 9!");
+                                                enemyHP = enemyHP + 9;
+                                            }
                                         }
                                         else if (enemyName == 'Clone junior dracônico') {
                                             alert("O Clone começa a juntar muito calor dentro do seu tórax! Por ser um clone, parece que seu corpo se danifica por causa disso, mas este ataque com certeza vai ser gigantesco!");
                                             enemyHP = enemyHP - 10;
                                             fogoDraconico = 1;
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                alert("Pra piorar, o calor faz com que celulas no ar encrustem na pele de como defesa! +5 defesa.");
+                                                enemyDefense = enemyDefense + 5;
+                                            }
                                         }
                                         else if (enemyName == 'Golem de ferro') {
                                             alert("O golem derrete uma parte interna para melhorar sua potência em combate! (Perde vida, ganha 3 de ataque!)");
@@ -2347,6 +2427,17 @@
                                             alert("Enquanto não quente a ponto de te machucar, você percebe que seus movimentos cansam muito mais.");
                                             alert("Pelo restante da batalha, você recupera muito menos stamina que o normal.");
                                             staminaMult = 0.65;
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                alert("Para piorar, essa mudança repentina faz com que pedras caem em sua direção!");
+                                                enemyFinalDamage = 30 - totalBlock;;
+                                                if (enemyFinalDamage > 0) {
+                                                    HP = HP - enemyFinalDamage;
+                                                    alert("Você leva " + enemyFinalDamage + " de dano.");
+                                                }
+                                                else {
+                                                    alert("Você corta todas as pedras ao meio.");
+                                                }
+                                            }
                                         }
                                         else if (raboMetalico == true) {
                                             alert("O Arco avança as lâminas de seu rabo na sua direção, como um escorpião!");
@@ -2394,6 +2485,10 @@
                                             else {
                                                 alert("Você consegue esquivar de algumas mordidas, e defender o resto.");
                                             }
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                alert("Além disso, ele se prepara para um futuro ataque seu! (sim, ele resolveu fazer duas coisas de uma vez)");
+                                                enemyPrep = 1;
+                                            }
                                         }
                                         else if (enemyChoice == 2) {
                                             alert("O arco dá um passo para trás e prepara sua cauda! Cuidado!");
@@ -2407,6 +2502,10 @@
                                         else if (enemyChoice == 4) {
                                             alert("O dragão reajusta sua posição de acordo com seus movimentos, preparando contra seu próximo ataque.");
                                             enemyPrep = 1;
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                alert("Além disso, ele prepara sua cauda! (sim, ele resolveu fazer duas coisas de uma vez)");
+                                                raboMetalico = true;
+                                            }
                                         }
 
                                     }
@@ -2597,6 +2696,18 @@
 
                                             alert(" Você perde " + heatHealthLoss + " de vida pelo calor.");
                                             HP = HP - heatHealthLoss;
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                alert("Pedras estão constantemente caindo do teto agora!");
+                                                enemyFinalDamage = 35 - totalBlock;;
+                                                if (enemyFinalDamage > 0) {
+                                                    HP = HP - enemyFinalDamage;
+                                                    alert("Você leva " + enemyFinalDamage + " de dano.");
+                                                }
+
+                                                else {
+                                                    alert("Você corta todas as pedras ao meio.");
+                                                }
+                                            }
 
                                             if (enemyHP > 0) {
                                                 enemyStanced = enemyStanced - 1;
@@ -2641,6 +2752,18 @@
                                                     alert("'Eu devo ir o mais rápido possível, caso não queira morrer pelo calor...'");
                                                     alert("A cada turno, você recebe agora 1 de dano pelo calor!");
                                                     heatHealthLoss = 1;
+
+                                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                                        alert("Mais uma vez, essa mudança repentina faz com que pedras caem em sua direção, mas essas estão flamejantes e são maiores!");
+                                                        enemyFinalDamage = 35 - totalBlock;
+                                                        if (enemyFinalDamage > 0) {
+                                                            HP = HP - enemyFinalDamage;
+                                                            alert("Você leva " + enemyFinalDamage + " de dano.");
+                                                        }
+                                                        else {
+                                                            alert("Você corta todas as pedras ao meio.");
+                                                        }
+                                                    }
                                                 }
                                                 else if (raboMetalico == true) {
                                                     alert("O Arco avança as lâminas de seu rabo na sua direção, como um escorpião!");
@@ -2672,6 +2795,10 @@
                                                     else {
                                                         alert("Você bloqueia completamente o ataque do inimigo.");
                                                     }
+                                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                                        alert("Além disso, ele prepara sua cauda mais uma vez, porque sim. (sim, ele resolveu fazer duas coisas de uma vez)");
+                                                        raboMetalico = true;
+                                                    }
                                                 }
                                                 else if (enemyChoice == 1) {
                                                     alert("O Dragão te morde vorazmente!");
@@ -2683,6 +2810,10 @@
                                                     else {
                                                         alert("Você consegue esquivar de algumas mordidas, e defender o resto.");
                                                     }
+                                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                                        alert("Além disso, ele prepara pasa o seu próximo ataque! (sim, ele resolveu fazer duas coisas de uma vez)");
+                                                        enemyPrep = 1;
+                                                    }
                                                 }
                                                 else if (enemyChoice == 2) {
                                                     alert("O arco dá um passo para trás e prepara sua cauda! Cuidado!");
@@ -2692,10 +2823,18 @@
                                                     alert("O arco posiciona as asas na frente de seu corpo!");
                                                     defesaAlada = 1;
                                                     enemyDefense = enemyDefense * 2;
+                                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                                        alert("Além disso, ele prepara sua cauda! (sim, ele resolveu fazer duas coisas de uma vez)");
+                                                    }
+                                                    raboMetalico = true;
                                                 }
                                                 else if (enemyChoice == 4) {
                                                     alert("O dragão reajusta sua posição de acordo com seus movimentos, preparando contra seu próximo ataque.");
                                                     enemyPrep = 1;
+                                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                                        alert("Além disso, ele prepara sua cauda! (sim, ele resolveu fazer duas coisas de uma vez)");
+                                                    }
+                                                    raboMetalico = true;
                                                 }
 
                                             }
@@ -2854,6 +2993,10 @@
                                 } while (choiced == 'false');
 
                                 if (enemyHP > 0) {
+                                    if (localStorage.getItem('calamityLevel') > 19 && enemyName == 'Torreta atira lancas') {
+                                        alert("A Torreta atira lancas automaticamente melhora seu ataque carregado com sua computação superior!(+0.5x)");
+                                        attackReadiedBonus = attackReadiedBonus + 0.5;
+                                    }
                                     enemyStanced = enemyStanced - 1;
                                     enemyChoice = Math.floor(Math.random() * 3) + 1;
                                     if (attackReadied == 'true') {
@@ -2882,6 +3025,18 @@
                                         else {
                                             alert("Você bloqueia completamente o ataque do inimigo.");
                                         }
+                                        if (localStorage.getItem('calamityLevel') > 19 && enemyName == 'Torreta magica') {
+                                            alert("A Torreta magica atira em você mais uma vez, visto que não foi com a sua cara!");
+                                            enemyFinalDamage = enemyAttack - totalBlock;
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+
+                                            else {
+                                                alert("Você bloqueia completamente o segundo ataque.");
+                                            }
+                                        }
                                     }
                                     else if (enemyChoice == 2) {
                                         alert(enemyName + " começa a carregar um ataque forte!");
@@ -2893,13 +3048,25 @@
                                             enemyAttack = enemyAttack + 4;
                                         }
                                         else if (enemyName == 'Torreta atira lancas') {
-                                            alert("A torreta prepara mais lanças para serem atiradas, melhorando o ataque carregado dela!");
+                                            alert("A torreta prepara mais lanças para serem atiradas, melhorando o ataque carregado dela! (+0.5x)");
                                             attackReadiedBonus = attackReadiedBonus + 0.5;
                                         }
                                         else if (enemyName == 'Armadilha 1000 bracos') {
                                             alert("A armadilha cria outro braco, melhorando seu ataque e defesa em 3!");
                                             enemyDefense = enemyDefense + 3;
                                             enemyAttack = enemyAttack + 3;
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                alert("Esse braço novo te soca diretamente.");
+                                                enemyFinalDamage = enemyAttack - totalBlock;
+                                                if (enemyFinalDamage > 0) {
+                                                    HP = HP - enemyFinalDamage;
+                                                    alert("Você leva " + enemyFinalDamage + " de dano.");
+                                                }
+
+                                                else {
+                                                    alert("Você corta todas as pedras ao meio.");
+                                                }
+                                            }
                                         }
                                     }
 
@@ -3105,6 +3272,13 @@
                                         attackReadied = 'true';
                                     }
                                     else {
+                                        if (localStorage.getItem('calamityLevel') > 19) {
+                                            alert("'Caia.'");
+                                            alert("Você perde sua compostura com essas palavras. Seu ataque e defesa diminuiram em 4!");
+                                            lightWeak = lightWeak + 4;
+                                            attack = attack - 4;
+                                            defense = defense - 4;
+                                        }
                                         if (lightWeak == 0) {
                                             alert("'Sabe, só teve uma pessoa que eu não consegui derrotar somente usando os meus punhos.'");
                                             alert("Estas palavras fazem você tremer tremendamente. Seu ataque e defesa diminuiram em 4!");
@@ -3297,6 +3471,11 @@
                                         }
                                     } while (choiced == 'false');
 
+                                    if (localStorage.getItem('calamityLevel') > 19) {
+                                            alert("Parece que o poder do Violino está crescendo constantemente! É uma corrida contra o tempo! +0.5 ataque, +0.5 defesa.");
+                                            enemyAttack = enemyAttack + 0.5;
+                                            enemyDefense = enemyDefense + 0.5;
+                                        }
                                     if (lightWeak > 0) {
                                         lightWeak = lightWeak - 1;
                                         defense = defense + 1;
@@ -3357,7 +3536,7 @@
                                         }
                                     }
 
-                                    else if (enemyHP <= 100 && enemyLives == 1) {
+                                    else if (enemyHP <= 200 && enemyLives == 1) {
                                         alert("'Você realmente pensa que está perto de me derrotar?'");
                                         alert("'Infelizmente para você, eu mal começei.'");
                                         enemyLives = 0;
@@ -3377,6 +3556,11 @@
                                         alert("O Violino prepara: 'Assovio da morte EX'.");
                                         alert("Parece que o corpo do Violino aguentará até o ataque acabar.");
                                         assovioDaMorteEX = 3;
+                                        if (localStorage.getItem('calamityLevel') > 19) {
+                                            alert("'Infelizmente para você, eu estou conseguindo assoviar POR MAIS TEMPO QUE O COSTUME!'");
+                                            alert("'APROXIMADAMENTE UM TURNO, SE QUISER SABER!!!'");
+                                            assovioDaMorteEX = 4;
+                                        }
                                     }
                                     else if (enemyLives == 1) {
                                         enemyChoice = Math.floor(Math.random() * 4) + 1;
@@ -3384,6 +3568,10 @@
                                             if (tresToques == 1) {
                                                 alert("O Violino acaba de preparar: 'Melodia de três toques'.");
                                                 tresToques = tresToques + 1;
+                                                if (localStorage.getItem('calamityLevel') > 19) {
+                                                    alert("Ele começa já a preparar o ataque que vai usar depois deste: 'Acorde de dois toques'.");
+                                                    attackReadied = 'true';
+                                                }
                                             }
                                             else if (tresToques == 2) {
                                                 alert("O Violino toca: 'Melodia de três toques'.");
@@ -3422,6 +3610,10 @@
                                             else {
                                                 alert("Você bloqueia completamente o golpe do Violino.");
                                             }
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                    alert("Ele começa já a preparar o ataque que vai usar depois deste: 'Melodia de três toques'.");
+                                                    tresToques = 1;
+                                                }
                                         }
                                         else if (enemyChoice == 2) {
                                             alert("O Violino prepara: 'Acorde de dois toques'.");
@@ -3447,7 +3639,7 @@
                                                     enemyDefense = enemyDefense + 2;
                                                     enemyHP = enemyHP + 10;
                                                 }
-                                                alert("Já que o som da carniça ainda está tocando, o Violino recupera vida somente.");
+                                                alert("Já que o som da carniça ainda está tocando, o Violino recupera vida.");
                                                 enemyHP = enemyHP + 10;
                                             }
                                         }
@@ -3474,6 +3666,10 @@
                                                 }
                                                 else {
                                                     alert("Você consegue bloquear todos os três golpes.");
+                                                }
+                                                if (localStorage.getItem('calamityLevel') > 19) {
+                                                    alert("Ele começa já a preparar o ataque que vai usar depois deste: 'Acorde de dois toques'.");
+                                                    attackReadied = 'true';
                                                 }
                                             }
                                         }
@@ -3502,10 +3698,18 @@
                                             else {
                                                 alert("Você bloqueia completamente o golpe do Violino.");
                                             }
+                                            if (localStorage.getItem('calamityLevel') > 19) {
+                                                    alert("Ele começa já a preparar o ataque que vai usar depois deste: 'Melodia de três toques'.");
+                                                    tresToques = 1;
+                                                }
                                         }
                                         else if (enemyChoice == 2) {
                                             alert("O Violino prepara: 'Acorde de dois toques EX'.");
                                             attackReadied = 'true';
+                                            if (localStorage.getItem('calamityLevel') > 9) {
+                                                alert("As notas de preparo te deixam tonto, e você perde 15 de stamina!");
+                                                stamina = stamina - 15;
+                                            }
                                         }
                                         else if (enemyChoice == 3) {
                                             alert("O Violino prepara: 'Melodia de três toques EX'.");
@@ -3515,7 +3719,11 @@
                                                 stamina = stamina - 15;
                                             }
                                         }
-                                        else if (enemyChoice == 4) {
+                                        if (enemyChoice == 4 && localStorage.getItem('calamityLevel') > 19) {
+                                                alert("O violino toca a nota marrom, te deixando mais fraco! -500 stamina");
+                                                stamina = stamina - 500;
+                                            }
+                                        if (enemyChoice == 4) {
                                             alert("O Violino toca: 'Toque do carniceiro EX'.");
                                             if (carnica == 0) {
                                                 carnica = carnica + 4;
@@ -3538,7 +3746,7 @@
                         }
 
                         else if (towerLevel > 50) {
-                            
+
                             enemyStanced = 0;
                             var lightWeak = 0;
                             if (tubaroBlade == 1 && lightCrown == 1) {
@@ -3716,6 +3924,10 @@
                                         attack = attack - 3;
                                         defense = defense - 3;
                                     }
+                                    if (localStorage.getItem('calamityLevel') > 19 && enemyHP < enemyTotalHP) {
+                                        alert("A escuridão se remolda em volta de onde você havia cortado. +15 vida.");
+                                        enemyHP = enemyHP + 15;
+                                    }
                                 }
                                 totalBlock = 0;
                             } while (enemyHP > 0 && HP > 0)
@@ -3744,7 +3956,7 @@
                                     alert("'mas desta vez...'");
                                     alert("'esta brincadeira sua...'");
                                     alert("'me deixou com toda minha força...'");
-                                    alert("'por que você está aqui..?'");
+                                    alert("'por que você deixou chegar neste ponto..?'");
                                     darkness1.volume = 0.1;
                                     alert("'...'");
                                     alert("'bom...'");
@@ -3959,6 +4171,12 @@
                                             alert("'Estamos usando truques sujos agora..? Você não quer me ver roubando...'");
                                         }
                                     } while (choiced == 'false');
+
+                                    if (localStorage.getItem('calamityLevel') > 19 && enemyHP < enemyTotalHP) {
+                                        alert("Apesar de tudo, a escuridão continua a crescer. +25 vida. +1 ataque");
+                                        enemyHP = enemyHP + 25;
+                                        enemyAttack = enemyAttack + 1;
+                                    }
 
                                     if (lightWeak > 0) {
                                         lightWeak = lightWeak - 0.5;
@@ -5351,7 +5569,10 @@
                                     var choiced = 'false';
                                     do {
                                         if (enemyHP < enemyTotalHP / 3) {
-                                            alert("A chuva está extremamente intensa. Raios passando de uma estrela a outra podem ser vistos.");
+                                            alert("A chuva está extremamente intensa. Raios passando de uma estrela a outra podem ser vistos.");if (localStorage.getItem('calamityLevel') > 19) {
+                                            alert("Várias espadas de luz surgem por causa da intensidade da chuva. +20 espadas");
+                                            lightswords = lightswords + 20;
+                                            }
                                         }
                                         else if (enemyHP < 2 * enemyTotalHP / 3) {
                                             alert("A chuva se intensifica. Cuidado.");
@@ -5847,7 +6068,7 @@
             ArcoPhase2.controls = true;
             calorDragao.style.display = "block";
         }
-        if(!(localStorage.getItem('calamityLevel') > 9)){
+        if (!(localStorage.getItem('calamityLevel') > 9)) {
             localStorage.setItem('tubaroEndingEX', 'no');
             localStorage.setItem('CrownEndingEX', 'no');
             localStorage.setItem('normalEndingEX', 'no');
