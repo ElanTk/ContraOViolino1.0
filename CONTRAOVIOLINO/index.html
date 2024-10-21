@@ -3720,11 +3720,11 @@
                                                 stamina = stamina - 15;
                                             }
                                         }
-                                        else if (enemyChoice == 4) {
-                                            if (enemyChoice == 4 && localStorage.getItem('calamityLevel') > 19) {
+                                        if (enemyChoice == 4 && localStorage.getItem('calamityLevel') > 19) {
                                                 alert("O violino toca a nota marrom, te deixando mais fraco! -500 stamina");
                                                 stamina = stamina - 500;
                                             }
+                                        else if (enemyChoice == 4) {
                                             alert("O Violino toca: 'Toque do carniceiro EX'.");
                                             if (carnica == 0) {
                                                 carnica = carnica + 4;
@@ -3740,6 +3740,10 @@
                                                 alert("O ataque e a defesa do Violino aumentam em 2!");
                                             }
                                         }
+                                        if (enemyChoice == 4 && localStorage.getItem('calamityLevel') > 19) {
+                                                alert("O violino toca a nota marrom, te deixando mais fraco! -500 stamina");
+                                                stamina = stamina - 500;
+                                            }
                                     }
                                     totalBlock = 0;
                                 } while (violinoAlive == 1 && HP > 0)
