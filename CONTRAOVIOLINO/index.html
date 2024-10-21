@@ -3559,7 +3559,7 @@
                                         assovioDaMorteEX = 3;
                                         if (localStorage.getItem('calamityLevel') > 19) {
                                             alert("'Infelizmente para você, eu estou conseguindo assoviar POR MAIS TEMPO QUE O COSTUME!'");
-                                            alert("'APROXIMADAMENTE UM TURNO, SE QUISER SABER!!!'");
+                                            alert("'APROXIMADAMENTE UM TURNO A MAIS, SE QUISER SABER!!!'");
                                             assovioDaMorteEX = 4;
                                         }
                                     }
@@ -3720,11 +3720,11 @@
                                                 stamina = stamina - 15;
                                             }
                                         }
-                                        if (enemyChoice == 4 && localStorage.getItem('calamityLevel') > 19) {
+                                        else if (enemyChoice == 4 && localStorage.getItem('calamityLevel') > 19) {
                                                 alert("O violino toca a nota marrom, te deixando mais fraco! -500 stamina");
                                                 stamina = stamina - 500;
                                             }
-                                        if (enemyChoice == 4) {
+                                        else if (enemyChoice == 4) {
                                             alert("O Violino toca: 'Toque do carniceiro EX'.");
                                             if (carnica == 0) {
                                                 carnica = carnica + 4;
