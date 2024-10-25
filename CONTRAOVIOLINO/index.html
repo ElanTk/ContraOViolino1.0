@@ -218,10 +218,10 @@
                 var ultraDefense = 'false';
                 var dead = 'false';
 
-                var defense = 29;
-                var attack = 60;
-                var staminaMax = 500;
-                var stamina = 500;
+                var defense = 1;
+                var attack = 3;
+                var staminaMax = 100;
+                var stamina = 100;
                 var critChance = 2;
                 var critMult = 2;
                 var gold = 20;
@@ -243,7 +243,7 @@
 
                 var oquefazer;
 
-                var towerLevel = 49;
+                var towerLevel = 0;
 
 
 
@@ -1917,7 +1917,7 @@
                                     }
 
                                     if (soundWaves > 0) {
-                                        enemyFinalDamage = enemyAttack * 0.7 - totalBlock;
+                                        enemyFinalDamage = enemyAttack * 0.9 - totalBlock;
                                         if (enemyFinalDamage > 0) {
                                             HP = HP - enemyFinalDamage;
                                             alert("Você leva " + enemyFinalDamage + " de dano.");
