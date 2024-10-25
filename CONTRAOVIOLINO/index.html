@@ -218,10 +218,10 @@
                 var ultraDefense = 'false';
                 var dead = 'false';
 
-                var defense = 1;
-                var attack = 3;
-                var staminaMax = 100;
-                var stamina = 100;
+                var defense = 29;
+                var attack = 60;
+                var staminaMax = 500;
+                var stamina = 500;
                 var critChance = 2;
                 var critMult = 2;
                 var gold = 20;
@@ -243,7 +243,7 @@
 
                 var oquefazer;
 
-                var towerLevel = 0;
+                var towerLevel = 49;
 
 
 
@@ -3544,7 +3544,6 @@
                                         enemyHP = enemyTotalHP;
                                         if (localStorage.getItem('calamityLevel') > 9) {
                                             enemyHP = enemyHp + 100;
-                                            enemyTotalHP = enemyTotalHP + 100;
                                         }
                                         alert("O Violino recupera toda sua vida e prepara: 'Assovio da morte'.");
                                         assovioDaMorte = 2;
