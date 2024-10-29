@@ -747,7 +747,7 @@
                                     enemyTotalHP = enemyTotalHP + 55;
                                     enemyAttack = enemyAttack + 3;
                                 }
-                                enemyDefense = 0;
+                                enemyDefense = -10;
                                 attackReadied = 'false';
                                 attackReadiedBonus = 2.0;
                                 enemyLives = 0;
@@ -3318,7 +3318,7 @@
                                 if (localStorage.getItem('calamityLevel') > 9) {
                                     enemyHP = enemyHP + 100;
                                     enemyTotalHP = enemyTotalHP + 100;
-                                    enemyAttack = enemyAttack + 1;
+                                    enemyAttack = 26;
                                 }
                                 if (localStorage.getItem('calamityLevel') > 10) {
                                     enemyHP = enemyHP + (5 * (localStorage.getItem('calamityLevel') - 10));
@@ -3631,7 +3631,7 @@
                                             else {
                                                 if (localStorage.getItem('calamityLevel') > 9) {
                                                     alert("Já que o som da carniça ainda está tocando, o Violino recupera vida e aumenta a sua defesa e ataque em 2!");
-                                                    carnica = 2;
+                                                    carnica = carnica + 2;
                                                     enemyAttack = enemyAttack + 2;
                                                     enemyDefense = enemyDefense + 2;
                                                     enemyHP = enemyHP + 10;
