@@ -240,6 +240,7 @@
                 var attackUpgradePrice = 14;
                 var staminaMaxUpgradePrice = 23;
                 var critChanceUpgradePrice = 10;
+                var obteveAjuda = false;
 
                 var oquefazer;
 
@@ -358,6 +359,18 @@
                                 else {
                                     alert('Eu não faço descontos...');
                                 }
+                            }
+                            else if (buyChoice == 'ajuda' && obteveAjuda == false) {
+                                alert("'Ué, você quer ajuda?'");
+                                obteveAjuda = true;
+                                alert("'Eu suponho que você esteja tendo um pouco de dificuldades, não?'");
+                                alert("'Olha, por virtude de ser sagrado, tem algo aqui que eu não posso vender.'");
+                                alert("'Um anel da virtude de um herói de muito tempo atrás.'");
+                                alert("'Muito do poder antigo foi embora, mas ainda resta um pouco.'")
+                                alert("'E claro, eu quero te ajudar. (eu não quero ser amaldiçoada.)'");;
+                                alert("Anel do Herói antigo obtido! (+4 HP total)");
+                                totalHP = totalHP + 4;
+                                HP = HP + 4;
                             }
                             else if (buyChoice == 'sair') {
                                 alert("'Boa sorte na subida!'");
@@ -4974,7 +4987,7 @@
                                 var coswnA = 'luva dourada';
                                 alert("luva dourada: esta luva de cor dourada (não é feita de ouro) foi a única arma que a caçadora usou, " +
                                     "até o dia que foi derrotada. Mesmo assim, um pouco de sua magia amarela se mantém na luva, já que foi usada" +
-                                    "como canalizadora. (+2 ataque, +10 crit chance");
+                                    "como canalizadora. (+3 ataque, +10 crit chance");
                             }
                             if (coswnChooser == 3) {
                                 var coswnA = 'capacete da luz';
@@ -5104,7 +5117,7 @@
                             if (coswnChooser == 2) {
                                 var coswnA = 'bencao cacador';
                                 alert("bancao cacador: A benção do verdadeiro caçador. Você troca um pouco do seu ataque por " +
-                                    "uma tremenda precisão. (+20% crit chance, - 6 ataque stat");
+                                    "uma tremenda precisão. (+25% crit chance, - 6 ataque stat");
                             }
                             coswnChooser = Math.floor(Math.random() * 2) + 1;
                             if (coswnChooser == 1) {
@@ -5146,7 +5159,7 @@
                                     }
                                     else if (coswnA == 'bencao cacador') {
                                         attack = attack - 6;
-                                        critChance = critChance + 20;
+                                        critChance = critChance + 25;
                                         prompt("Você se sente ainda mais preciso que antes, mesmo que um pouco mais fraco.");
                                     }
                                     choiced = 'true';
