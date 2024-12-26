@@ -296,7 +296,7 @@
 
                     else if (oquefazer == 'loja') {
                         do {
-                            hpPotionPrice = Math.round(4 * totalHP * (towerLevel / 10) * (1 + hpPotions));
+                            hpPotionPrice = Math.round(4 * totalHP * ((1 + towerLevel) / 10) * (1 + hpPotions));
                             buyChoice = prompt("'Bem vindo a loja!' diz uma mulher musculosa, 'Quer comprar algo?' \r\n \r\n" +
                                 "[1] - Uma armadura melhor. preço: " + defenseUpgradePrice + "\r\n" +
                                 "[2] - Uma espada melhor. preço: " + attackUpgradePrice + "\r\n" +
@@ -354,6 +354,7 @@
                                     hpPotions = hpPotions + 1;
                                     gold = gold - hpPotionPrice;
                                     alert("Suas poções de vida: " + hpPotions);
+                                    var hpPotionPrice = Math.round((5 * totalHP + (10 * Math.round((1 + towerLevel) / 20))) * (1 + hpPotions));
 
                                 }
                                 else {
