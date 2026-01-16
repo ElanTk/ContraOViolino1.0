@@ -38,8 +38,6 @@
                 laminaTubaro.style.display = "none";
 
                 localStorage.CrownEnding = 'no';
-                Violino1.controls = false;
-                ViolinPhase3.controls = false;
 
                 localStorage.setItem('CrownEnding', 'no');
                 localStorage.setItem('CrownEndingEX', 'no');
@@ -47,8 +45,6 @@
 
 
                 localStorage.normalEnding = 'no';
-                Violino1.controls = false;
-                ViolinPhase3.controls = false;
 
                 localStorage.setItem('normalEnding', 'no');
                 localStorage.setItem('normalEndingEX', 'no');
@@ -134,8 +130,9 @@
                 Phase1.currentTime = 0;
                 Phase2.currentTime = 0;
                 LuninPhase1.currentTime = 0;
-                ViolinPhase3.currentTime = 0;
                 Violino1.currentTime = 0;
+                Violino2.currentTime = 0;
+                Violino3.currentTime = 0;
                 darkness1.currentTime = 0;
                 darkness2.currentTime = 0;
                 darkness3.currentTime = 0;
@@ -152,7 +149,7 @@
                 alert("Esse herói é você.");
                 alert("A graça dos deuses te deu uma poção de vida. Use quando precisar!");
 
-                if (localStorage.getItem('calamityLevel') > -1) {
+                if (localStorage.getItem('calamityLevel') == 0) {
                     alert("Você escuta um conjunto de sussuros de tonalidades diferentes. Estranhamente, isso parece ser meio familiar para você.");
                     alert("'hahahahaha...'");
                     alert("'claro, você devolveu o poder a mim...'");
@@ -161,7 +158,6 @@
                     alert("'apesar de ser algo ruim, tenho certeza que vai te entreter...'");
                     alert("'basicamente, sua vida fica mais difícil com cada nível...'");
                     alert("'eu espero que isso faça você me entreter por mais tempo...'");
-                    alert("'em todo caso, vou te listar tudo o que piorou...'");
                 }
                 if (localStorage.getItem('calamityLevel') > 0) {
                     alert("CL 1: inimigos normais defensivos tem sua defesa aumentada.");
@@ -197,12 +193,8 @@
                     alert("CL 11+: para cada nível acima de 10, todos os bosses ganham vida adicional dependendo do andar.");
                 }
                 if (localStorage.getItem('calamityLevel') > 19) {
-                    alert("Ah... Não pensei que era possível mas você conseguiu chegar no CL 20... Essa é a última melhora única, o resto é só vida adicional aos bosses...");
+                    alert("Ah... Não pensei que era possível, mas você conseguiu chegar no CL 20... Essa é a última melhora única, o resto é só vida adicional aos bosses...");
                     alert("CL 20: TODOS os inimigos ganham uma mecânica adicional, específica a ele.");
-                }
-                if (localStorage.getItem('calamityLevel') == 0) {
-                    alert("'na verdade, nada mudou até agora...'");
-                    alert("'o nível de calamidade está zero...'");
                 }
                 if (localStorage.getItem('calamityLevel') < 11) {
                     alert("'No momento, você pode derrotar o violino ou eu, e o nível de calamidade vai aumentar...'");
@@ -837,7 +829,7 @@
                                 "vê um trono, com pilhas de crânios em volta. Em cima do trono, Um violino.");
                             alert("Ao ver o Violino, você rápidamente tira sua espada de sua bainha e a aponta em direção " +
                                 "do intrumento.");
-                            if (localStorage.getItem('calamityLevel') > 10) {
+                            if (localStorage.getItem('calamityLevel') > 9) {
                                 alert("'Ah, não vai falar nada? Nenhuma ameaça vazia, história trágica ou algo do tipo?'");
                                 alert("'Talvez você já saiba que vai perder.'");
                                 alert("'Essa manhã, todo o poder que eu precisava para o meu plano...'");
@@ -852,6 +844,8 @@
                                 alert("'Bom, eu não vou lhe encher de palavras então. Espero que nossa luta seja tão interessante " +
                                     "como você.'");
                             }
+                            Violino2.play();
+                            alert("Now playing: Elegy of the End - Lappy");
                         }
                         else if (towerLevel > 50) {
                             enemyName = 'A escuridão.';
@@ -3092,12 +3086,14 @@
                         else if (towerLevel == 50) {
                             enemyStanced = 0;
                             var lightWeak = 0;
+                            var currentStance = 'none';
                             do {
                                 do {
                                     var choiced = 'false';
                                     combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
                                         + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x" + " | poções de vida: " + hpPotions + "\r\n \r\n" +
-                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + "\r\n" +
+                                        "Stance: " + currentStance +
                                         "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
 
                                     if (combatChoice == 'a' || combatChoice == 'A') {
@@ -3176,7 +3172,14 @@
                                     }
                                     if (combatChoice == 'pa' || combatChoice == 'PA' || combatChoice == 'Pa' || combatChoice == 'pA') {
                                         choiced = 'true';
-                                        if (preparedAttack == 1) {
+                                        if (preparedAttack == 1 && currentStance == 'defensive'){
+                                            totalBlock = defense * 1.1;
+                                            preparedAttack = 0;
+                                            alert("Você desfere um poderoso ataquem, porém o violino aproveita seu movimento e te joga no chão!");
+                                            alert("Você recebe 1.5 de dano.");
+                                            HP = HP - 1.5;
+                                        }
+                                        else if (preparedAttack == 1) {
                                             totalBlock = defense * 1.1;
                                             preparedAttack = 0;
                                             finalDamage = (pAMult * attack) - enemyDefense;
@@ -3212,6 +3215,7 @@
                                                 stamina = 0;
                                             }
                                             totalBlock = defense * 1.1;
+                                            if(currentStance == 'defensive'){alert("O violino lê seus movimentos com atenção.")}
                                             alert("Se quiser, você pode cancelar o seu ataque no próximo turno se seu " +
                                                 "oponente for fazer algo assustador, mas assim você perderá o ataque carregado (pa para continuar, outra coisa caso queira, bem, fazer outra coisa)");
                                         }
@@ -3242,7 +3246,7 @@
                                         alert("Você se recompõe um pouco, recuperando 1 ataque e 1 defesa perdidos.")
                                     }
                                     enemyStanced = enemyStanced - 1;
-                                    enemyChoice = Math.floor(Math.random() * 3) + 1;
+                                    enemyChoice = Math.floor(Math.random() * 4) + 1;
                                     if (attackReadied == 'true') {
                                         alert("O Violino solta um gancho de esquerda em sua direção.");
 
@@ -3259,34 +3263,8 @@
                                         }
                                     }
                                     else if (enemyChoice == 1) {
-                                        alert(enemyName + " anda na sua direção para te dar um soco!");
-                                        if (enemyStanced > 0) { enemyFinalDamage = (enemyAttack * 1.3) - totalBlock; }
-                                        else { enemyFinalDamage = enemyAttack - totalBlock; }
-                                        if (enemyFinalDamage > 0) {
-                                            HP = HP - enemyFinalDamage;
-                                            alert("Você leva " + enemyFinalDamage + " de dano.");
-                                        }
-                                        else {
-                                            alert("Você bloqueia completamente o soco do Violino.");
-                                        }
-                                        if (localStorage.getItem('calamityLevel') > 9) {
-                                            alert("O violino rotaciona o corpo e solta um segundo e mais poderoso soco!");
-                                            if (enemyStanced > 0) { enemyFinalDamage = (enemyAttack * 1.3) - totalBlock; }
-                                            else { enemyFinalDamage = enemyAttack + 2 - totalBlock; }
-                                            if (enemyFinalDamage > 0) {
-                                                HP = HP - enemyFinalDamage;
-                                                alert("Você leva " + enemyFinalDamage + " de dano.");
-                                            }
-                                            else {
-                                                alert("Você bloqueia completamente o segundo soco.");
-                                            }
-                                        }
-                                    }
-                                    else if (enemyChoice == 2) {
-                                        alert("O violino prepara um gancho de esquerda.");
-                                        attackReadied = 'true';
-                                    }
-                                    else {
+                                        currentStance = 'none';
+                                        alert("O violino abre sua postura para te provocar:");
                                         if (localStorage.getItem('calamityLevel') > 19) {
                                             alert("'Caia.'");
                                             alert("Você perde sua compostura com essas palavras. Seu ataque e defesa diminuiram em 4!");
@@ -3309,11 +3287,45 @@
                                             defense = defense - 2;
                                         }
                                     }
+                                    else if (enemyChoice == 2 && currentStance == 'none') {
+                                        currentStance = 'offensive';
+                                        alert("O violino muda sua postura para algo mais ofensivo, preparando um gancho de esquerda.");
+                                        attackReadied = 'true';
+                                    }
+                                    else if (enemyChoice == 3 && currentStance == 'none') {
+                                        currentStance = 'defensive';
+                                        alert("O violino se coloca um pouco pra trás, prestando maior atenção em seus movimentos para prever ataques maiores.");
+                                    }
+                                    else {
+                                        alert(enemyName + " anda na sua direção para te dar um soco!");
+                                        if (currentStance == 'offensive') { enemyFinalDamage = (enemyAttack * 1.4) - totalBlock; }
+                                        else { enemyFinalDamage = enemyAttack - totalBlock; }
+                                        if (enemyFinalDamage > 0) {
+                                            HP = HP - enemyFinalDamage;
+                                            alert("Você leva " + enemyFinalDamage + " de dano.");
+                                        }
+                                        else {
+                                            alert("Você bloqueia completamente o soco do Violino.");
+                                        }
+                                        if (localStorage.getItem('calamityLevel') > 9) {
+                                            alert("O violino rotaciona o corpo e solta um segundo e mais poderoso soco!");
+                                            if (currentStance == 'offensive') { enemyFinalDamage = (enemyAttack * 1.6) - totalBlock; }
+                                            else { enemyFinalDamage = enemyAttack + 2 - totalBlock; }
+                                            if (enemyFinalDamage > 0) {
+                                                HP = HP - enemyFinalDamage;
+                                                alert("Você leva " + enemyFinalDamage + " de dano.");
+                                            }
+                                            else {
+                                                alert("Você bloqueia completamente o segundo soco.");
+                                            }
+                                        }
+                                    }
 
                                 }
                                 totalBlock = 0;
                             } while (enemyHP > 0 && HP > 0)
                             if (HP > 0) {
+                                violino2.pause();
                                 alert("Você enfia sua espada com toda a força no Violino.");
                                 alert("...");
                                 alert("'Ah...");
@@ -3321,7 +3333,7 @@
                                 alert("Quando você olha para baixo, percebe que o Violino tirou a sua espada de dentro dele.");
                                 alert("'Sinceramente, parabéns. Você é a segunda pessoa que me forçou a lutar sério.'");
                                 alert("P R E P A R E - S E.");
-                                ViolinPhase3.play();
+                                Violino3.play();
                                 alert("Repentinamente, uma aura gigantesca de poder começa a emanar do Violino. É difícil até ficar em " +
                                     "pé perto dele.");
                                 alert("Você recupera metade da sua stamina por turno agora!");
@@ -3348,10 +3360,11 @@
                                     do {
                                         var choiced = 'false';
                                         combatChoice = prompt("VOCÊ: HP : " + HP + "/" + totalHP + "   " + "DEF : " + defense + "   " + "ATK : " + attack + "   "
-                                            + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x" + " | poções de vida: " + hpPotions + "\r\n \r\n" +
-                                            enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack +
-                                            "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
-
+                                        + "Stamina : " + stamina + "   " + "Crit : " + critChance + "%" + ", " + critMult + "x" + " | poções de vida: " + hpPotions + "\r\n \r\n" +
+                                        enemyName + " HP : " + enemyHP + "/" + enemyTotalHP + "   " + "DEF : " + enemyDefense + "   " + "ATK : " + enemyAttack + "\r\n" +
+                                        "Stance: " + currentStance +
+                                        "\r\n \r\n Você pode: atacar(a), defender(d), Ultra defender(ud) ou usar uma poção de vida(p), caso tenha.");
+                                        
                                         if (combatChoice == 'a' || combatChoice == 'A') {
                                             choiced = 'true';
                                             preparedAttack = 0;
@@ -3427,47 +3440,55 @@
                                             }
                                         }
                                         if (combatChoice == 'pa' || combatChoice == 'PA' || combatChoice == 'Pa' || combatChoice == 'pA') {
-                                            choiced = 'true';
-                                            if (preparedAttack == 1) {
-                                                totalBlock = defense * 1.1;
-                                                preparedAttack = 0;
-                                                finalDamage = (pAMult * attack) - enemyDefense;
-                                                if (finalDamage <= 0) {
-                                                    alert("Hmmm, você não dá dano nenhum. parece que você não carregou energia o suficiente?");
-                                                }
-                                                else if (finalDamage <= 15) {
-                                                    alert("Você dá um decente corte no Violino!");
-                                                    enemyHP = enemyHP - finalDamage;
-                                                    alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                                }
-                                                else if (finalDamage <= 30) {
-                                                    alert("Você solta um grande corte no Violino!");
-                                                    enemyHP = enemyHP - finalDamage;
-                                                    alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                                }
-                                                else {
-                                                    alert("Com toda a energia acumulada, você dá um estrondoso corte no Violino!");
-                                                    enemyHP = enemyHP - finalDamage;
-                                                    alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
-                                                }
+                                        choiced = 'true';
+                                        if (preparedAttack == 1 && currentStance == 'defensive'){
+                                            totalBlock = defense * 1.1;
+                                            preparedAttack = 0;
+                                            alert("Você desfere um poderoso ataquem, porém o violino aproveita seu movimento e te joga no chão!");
+                                            alert("Você recebe 1.5 de dano.");
+                                            HP = HP - 1.5;
+                                        }
+                                        else if (preparedAttack == 1) {
+                                            totalBlock = defense * 1.1;
+                                            preparedAttack = 0;
+                                            finalDamage = (pAMult * attack) - enemyDefense;
+                                            if (finalDamage <= 0) {
+                                                alert("Hmmm, você não dá dano nenhum. parece que você não carregou energia o suficiente?");
+                                            }
+                                            else if (finalDamage <= 15) {
+                                                alert("Você dá um decente corte no Violino!");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
+                                            }
+                                            else if (finalDamage <= 30) {
+                                                alert("Você solta um grande corte no Violino!");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
                                             }
                                             else {
-                                                preparedAttack = 1;
-                                                if (stamina >= 150) {
-                                                    alert("Você acumula uma gigantesca quantidade de energia em sua espada!");
-                                                    pAMult = 2;
-                                                    stamina = stamina - 150;
-                                                }
-                                                else {
-                                                    alert("Você coloca a stamina que tinha na sua lâmina...");
-                                                    pAMult = stamina / 150;
-                                                    stamina = 0;
-                                                }
-                                                totalBlock = defense * 1.1;
-                                                alert("Se quiser, você pode cancelar o seu ataque no próximo turno se seu " +
-                                                    "oponente for fazer algo assustador, mas assim você perderá o ataque carregado (pa para continuar, outra coisa caso queira, bem, fazer outra coisa)");
+                                                alert("Com toda a energia acumulada, você dá um estrondoso corte no Violino!");
+                                                enemyHP = enemyHP - finalDamage;
+                                                alert("Você dá " + finalDamage + " de dano ao " + enemyName + "!");
                                             }
                                         }
+                                        else {
+                                            preparedAttack = 1;
+                                            if (stamina >= 150) {
+                                                alert("Você acumula uma gigantesca quantidade de energia em sua espada!");
+                                                pAMult = 2;
+                                                stamina = stamina - 150;
+                                            }
+                                            else {
+                                                alert("Você coloca a stamina que tinha na sua lâmina...");
+                                                pAMult = stamina / 150;
+                                                stamina = 0;
+                                            }
+                                            totalBlock = defense * 1.1;
+                                            if(currentStance == 'defensive'){alert("O violino lê seus movimentos com atenção.")}
+                                            alert("Se quiser, você pode cancelar o seu ataque no próximo turno se seu " +
+                                                "oponente for fazer algo assustador, mas assim você perderá o ataque carregado (pa para continuar, outra coisa caso queira, bem, fazer outra coisa)");
+                                        }
+                                    }
                                         if (combatChoice == 'p' || combatChoice == 'P') {
                                             if (hpPotions > 0 && HP < totalHP) {
                                                 preparedAttack = 0;
@@ -3613,7 +3634,8 @@
                                         }
                                         else if (enemyChoice == 1) {
                                             alert("O Violino toca: 'Fogo Dracônico'");
-                                            enemyFinalDamage = enemyAttack - totalBlock;
+                                            if (currentStance == 'offensive') { enemyFinalDamage = (enemyAttack * 1.4) - totalBlock; }
+                                            else { enemyFinalDamage = enemyAttack - totalBlock; }
                                             if (enemyFinalDamage > 0) {
                                                 HP = HP - enemyFinalDamage;
                                                 alert("Você leva " + enemyFinalDamage + " de dano.");
@@ -3628,6 +3650,8 @@
                                         }
                                         else if (enemyChoice == 2) {
                                             alert("O Violino prepara: 'Acorde de dois toques'.");
+                                            currentStance = 'offensive';
+                                            alert("O violino muda sua postura para algo mais ofensivo.");
                                             attackReadied = 'true';
                                         }
                                         else if (enemyChoice == 3) {
@@ -3636,6 +3660,8 @@
                                         }
                                         else if (enemyChoice == 4) {
                                             alert("O Violino toca: 'Toque do carniceiro'.");
+                                            currentStance = 'defensive';
+                                            alert("O violino muda sua postura para algo mais defensivo novamente.");
                                             if (carnica == 0) {
                                                 carnica = 3;
                                                 enemyAttack = enemyAttack + 3;
@@ -3709,6 +3735,8 @@
                                             else {
                                                 alert("Você bloqueia completamente o golpe do Violino.");
                                             }
+                                            currentStance = 'offensive';
+                                            alert("O violino muda sua postura para algo mais ofensivo.");
                                             if (localStorage.getItem('calamityLevel') > 19) {
                                                     alert("Ele começa já a preparar o ataque que vai usar depois deste: 'Melodia de três toques'.");
                                                     tresToques = 1;
@@ -3716,6 +3744,8 @@
                                         }
                                         else if (enemyChoice == 2) {
                                             alert("O Violino prepara: 'Acorde de dois toques EX'.");
+                                            currentStance = 'offensive';
+                                            alert("O violino muda sua postura para algo mais ofensivo.");
                                             attackReadied = 'true';
                                             if (localStorage.getItem('calamityLevel') > 9) {
                                                 alert("As notas de preparo te deixam tonto, e você perde 15 de stamina!");
@@ -3725,6 +3755,8 @@
                                         else if (enemyChoice == 3) {
                                             alert("O Violino prepara: 'Melodia de três toques EX'.");
                                             tresToques = tresToques + 1;
+                                            currentStance = 'defensive';
+                                            alert("O violino muda sua postura para algo mais defensivo novamente.");
                                             if (localStorage.getItem('calamityLevel') > 9) {
                                                 alert("As notas de preparo te deixam tonto, e você perde 15 de stamina!");
                                                 stamina = stamina - 15;
@@ -3736,6 +3768,8 @@
                                             }
                                         else if (enemyChoice == 4) {
                                             alert("O Violino toca: 'Toque do carniceiro EX'.");
+                                            currentStance = 'defensive';
+                                            alert("O violino muda sua postura para algo mais defensivo novamente.");
                                             if (carnica == 0) {
                                                 carnica = carnica + 4;
                                                 enemyAttack = enemyAttack + 4;
@@ -6021,9 +6055,6 @@
         </div>
         <div id="wrap">
             <div id="songs">
-                <audio src="ViolinPhase1.mp3" id="Phase1" controls loop>
-                    Your browser does not support the audio element.
-                </audio>
                 <audio src="ViolinPhase2.mp3" id="Phase2" controls loop>
                     Your browser does not support the audio element.
                 </audio>
@@ -6048,7 +6079,10 @@
                 <audio src="ViolinoPhase1.mp3" id="Violino1" loop>
                     Your browser does not support the audio element.
                 </audio>
-                <audio src="ViolinPhase3.mp3" id="ViolinPhase3" loop>
+                <audio src="ViolinoPhase2.mp3" id="Violino2" loop>
+                    Your browser does not support the audio element.
+                </audio>
+                <audio src="ViolinoPhase3.mp3" id="Violino3" loop>
                     Your browser does not support the audio element.
                 </audio>
                 <audio src="darknessPhase1.mp3" id="darkness1" loop>
@@ -6091,14 +6125,16 @@
 
         if (localStorage.tubaroEnding == 'yes') {
             Violino1.controls = true;
-            ViolinPhase3.controls = true;
+            Violino2.controls = true;
+            Violino3.controls = true;
             localStorage.setItem('tubaroEnding', 'yes');
             laminaTubaro.style.display = "block";
             laminaTubaro.style.color = '#000000';
         }
         if (localStorage.tubaroEndingEX == 'yes') {
             Violino1.controls = true;
-            ViolinPhase3.controls = true;
+            Violino2.controls = true;
+            Violino3.controls = true;
             localStorage.setItem('tubaroEnding', 'yes');
             laminaTubaro.style.display = "block";
             laminaTubaro.style.color = 'rgb(255, 140, 0)';
@@ -6106,14 +6142,16 @@
         }
         if (localStorage.CrownEnding == 'yes') {
             Violino1.controls = true;
-            ViolinPhase3.controls = true;
+            Violino2.controls = true;
+            Violino3.controls = true;
             localStorage.setItem('CrownEnding', 'yes');
             coroaLuz.style.display = "block";
             coroaLuz.style.color = '#000000';
         }
         if (localStorage.CrownEndingEX == 'yes') {
             Violino1.controls = true;
-            ViolinPhase3.controls = true;
+            Violino2.controls = true;
+            Violino3.controls = true;
             localStorage.setItem('CrownEnding', 'yes');
             coroaLuz.style.display = "block";
             coroaLuz.style.color = 'rgb(255, 140, 0)';
@@ -6121,14 +6159,16 @@
         }
         if (localStorage.normalEnding == 'yes') {
             Violino1.controls = true;
-            ViolinPhase3.controls = true;
+            Violino2.controls = true;
+            Violino3.controls = true;
             localStorage.setItem('normalEnding', 'yes');
             vitoriaComum.style.display = "block";
             vitoriaComum.style.color = '#000000';
         }
         if (localStorage.normalEndingEX == 'yes') {
             Violino1.controls = true;
-            ViolinPhase3.controls = true;
+            Violino2.controls = true;
+            Violino3.controls = true;
             localStorage.setItem('normalEnding', 'yes');
             vitoriaComum.style.display = "block";
             vitoriaComum.style.color = 'rgb(255, 140, 0)';
