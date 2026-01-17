@@ -3736,11 +3736,6 @@
                                                 alert("Você bloqueia completamente o golpe do Violino.");
                                             }
                                             currentStance = 'offensive';
-                                            alert("O violino muda sua postura para algo mais ofensivo.");
-                                            if (localStorage.getItem('calamityLevel') > 19) {
-                                                    alert("Ele começa já a preparar o ataque que vai usar depois deste: 'Melodia de três toques'.");
-                                                    tresToques = 1;
-                                                }
                                         }
                                         else if (enemyChoice == 2) {
                                             alert("O Violino prepara: 'Acorde de dois toques EX'.");
@@ -3762,10 +3757,6 @@
                                                 stamina = stamina - 15;
                                             }
                                         }
-                                        if (enemyChoice == 4 && localStorage.getItem('calamityLevel') > 19) {
-                                                alert("O violino toca a nota marrom, te deixando mais fraco! -500 stamina");
-                                                stamina = stamina - 500;
-                                            }
                                         else if (enemyChoice == 4) {
                                             alert("O Violino toca: 'Toque do carniceiro EX'.");
                                             currentStance = 'defensive';
@@ -5216,10 +5207,10 @@
                             } while (choiced == 'false');
                         }
                         else if (HP > 0 && towerLevel == 50 && localStorage.getItem('calamityLevel') > 9) {
-                            ViolinPhase3.pause();
+                            Violino3.pause();
                             Violino1.pause();
                             Violino1.controls = true;
-                            ViolinPhase3.controls = true;
+                            Violino3.controls = true;
                             alert("O Violino cai no chão. O chão treme, e pedaços de pedra caem de cima de você.");
                             alert("'Não... É possível...'");
                             alert("'Eu estava com... Meu ápice de poder...'");
@@ -5289,10 +5280,10 @@
                             win = 'true';
                         }
                         else if (HP > 0 && towerLevel == 50) {
-                            ViolinPhase3.pause();
+                            Violino3.pause();
                             Violino1.pause();
                             Violino1.controls = true;
-                            ViolinPhase3.controls = true;
+                            Violino3.controls = true;
                             alert("O Violino cai no chão. O chão treme, e pedaços de pedra caem de cima de você.");
                             alert("'...'");
                             alert("'...Não pode... ser...'");
